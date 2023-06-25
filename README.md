@@ -1,4 +1,6 @@
-# my_offer
+# my_algorithm
+
+https://www.hello-algo.com/chapter_preface/about_the_book/
 
 https://github.com/settings/tokens
 
@@ -7,10 +9,6 @@ https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55bvvv/
 https://labuladong.github.io/algo/1/3/
 
 https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B
-
-作为计算机专业学生，最应该学习的课程前五位是什么？ - 编程指北的回答 - 知乎
-https://www.zhihu.com/question/19628851/answer/1860111811
-https://www.zhihu.com/question/19628851/answer/2018824998
 
 ## 怎么获得网页视频字幕及其字幕
 - 视频：https://keepv.id/6/
