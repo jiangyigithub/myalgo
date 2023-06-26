@@ -105,3 +105,8 @@ class ArrayHashMap {
         }
     }
 };
+
+int main()
+{
+    ArrayHashMap map;
+}
