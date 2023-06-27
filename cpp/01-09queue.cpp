@@ -1,6 +1,7 @@
 #include "head.hpp"
 #include "PrintUtil.hpp"
 
+// 剑指 Offer 09. 用两个栈实现队列
 class CQueue
 {
 public:

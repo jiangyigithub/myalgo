@@ -7,7 +7,7 @@
  * };
  */
 #include "head.hpp"
-
+// 剑指 Offer 06. 从尾到头打印链表
  struct ListNode {
      int val;
      ListNode *next;
