@@ -24,6 +24,7 @@ private:
          lo++;
          hi--;
  }
+}
 };
 
 string stringToString(string input) {
