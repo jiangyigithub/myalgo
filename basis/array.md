@@ -2,7 +2,3 @@
 vector --> improved array(Dynamic Array)  
 - extendCapacity 
 - int* nums
-
-## hash
-<key, value>
-<employee number, employee name>
