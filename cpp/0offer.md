@@ -35,7 +35,7 @@
 ## 实践
 ### 1 数据结构
 **offer 05替换空格**
-1. core: `统计空格数量` + `改变容器的大小resize` + `倒序遍历`
+1. core: `统计空格数量` + `改变容器的大小resize` + `倒序遍历` + `forward 2 step`
 2. 循环的次数,(while i>=0)
 3. C++ 中string是可变类型,以char'0'结尾,且空字符串大小也不为0;
 4. similar to "reverse string"
