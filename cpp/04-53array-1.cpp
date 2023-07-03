@@ -7,7 +7,7 @@
 #include "head.hpp"
 
 // ===== Solution Code =====
-// 剑指 Offer 53 - I. 在排序数组中查找数字出现的次数I
+// 剑指 Offer 53 - I. 在排序数组中查找数字出现的次数
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
