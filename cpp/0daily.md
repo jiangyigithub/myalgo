@@ -68,4 +68,5 @@ return -1;
 
 3. 剑指 Offer 50. 第一个只出现一次的字符
 `哈希查找`
+while we use `return` in the if condition among for loop, the `return` have the function of `break`
 
