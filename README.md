@@ -16,10 +16,10 @@ https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B
 - auto AI subtitle: https://www.veed.io/tools/auto-subtitle-generator-online
 - 网站上的音频下载: Developer Tool --> Network --> Media
 
-## For Effect
+## influence
 写一份个人网站
 
-how to make a video
+## how to make a video
 https://www.youtube.com/watch?v=N6-Q2dgodLs
 
 
