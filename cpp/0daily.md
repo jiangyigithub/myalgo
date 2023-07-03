@@ -62,9 +62,12 @@ return -1;
 ## 7/03 **Day 5**  **查找算法（中等）**
 1. 剑指 Offer 04. 二维数组中的查找
 `二分查找`
+two dimension
 
 2. 剑指 Offer 11. 旋转数组的最小数字
 `二分查找`
+* the update method of left and right pointer is different to standard binary search method.
+* the target we donnot know
 
 3. 剑指 Offer 50. 第一个只出现一次的字符
 `哈希查找`
