@@ -75,5 +75,13 @@ two dimension
 3. 剑指 Offer 50. 第一个只出现一次的字符
 `哈希查找`
 * `重复 VS 第一次出现`, these two concept is same
+* dic[c] = dic.find(c) == dic.end(); // 第一个出现,marked as "true"
 * while we use `return` in the if condition among for loop, the `return` have the function of `break`
+
+## 7/04 **Day 6**   **搜索与回溯算法（简单）**
+1. 剑指 Offer 32 - I. 从上到下打印二叉树
+
+2. 剑指 Offer 32 - II. 从上到下打印二叉树 II
+
+3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
 
