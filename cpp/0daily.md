@@ -80,6 +80,7 @@ two dimension
 
 ## 7/04 **Day 6**   **搜索与回溯算法（简单）**
 1. 剑指 Offer 32 - I. 从上到下打印二叉树
+visit the root,then push the left sub and the right sub to the queue, loop to vist this queue, then this tree will be traversal
 
 2. 剑指 Offer 32 - II. 从上到下打印二叉树 II
 
