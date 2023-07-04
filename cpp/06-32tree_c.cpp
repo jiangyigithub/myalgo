@@ -34,7 +34,7 @@ public:
                 TreeNode *node = deq.front();
                 deq.pop_front();
                 tmp.push_back(node->val);
-                 // 先左后右加入下层节点
+                // 先左后右加入下层节点
                 if (node->left)
                     deq.push_back(node->left);
                 if (node->right)
