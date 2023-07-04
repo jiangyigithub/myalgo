@@ -25,10 +25,12 @@ public:
         queue<TreeNode *> que;
         que.push(root);
         while (!que.empty())
-        {
+        {   
+            /// 二叉树的值
             TreeNode *node = que.front();
             que.pop();
-            res.push_back(node->val);
+            res.push_back(node->val); //O（n）
+            /// 从左到右把子树放在队列
             if (node->left)
                 que.push(node->left);
             if (node->right)

@@ -81,8 +81,15 @@ two dimension
 ## 7/04 **Day 6**   **搜索与回溯算法（简单）**
 1. 剑指 Offer 32 - I. 从上到下打印二叉树
 visit the root,then push the left sub and the right sub to the queue, loop to vist this queue, then this tree will be traversal
+   * 怎么层遍，把所有节点，按一定顺序放在队列中，取队列头，把它的值遍历一遍
+               TreeNode *node = que.front();
+               que.pop();
+               res.push_back(node->val);
 
+   * 那怎么把二叉树节点放在队列中呢，把头放在队列，再从左到右把子树放在队列
+     que.push(root);
 2. 剑指 Offer 32 - II. 从上到下打印二叉树 II
+  * 怎么知道二叉树每层的元素个数
 
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
 
