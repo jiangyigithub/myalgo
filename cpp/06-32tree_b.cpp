@@ -27,7 +27,6 @@ public:
         que.push(root);
         while (!que.empty())
         {   
-            int queLen=que.size();
             for (int i = que.size(); i > 0; i--)
             {
                 TreeNode *node = que.front();
