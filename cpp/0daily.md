@@ -89,7 +89,9 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
    * 那怎么把二叉树节点放在队列中呢，把头放在队列，再从左到右把子树放在队列
      que.push(root);
 2. 剑指 Offer 32 - II. 从上到下打印二叉树 II
-  * 怎么知道二叉树每层的元素个数
+  * 需要解决的问题，怎么知道二叉树每层的元素个数
+  * 关键点，`双层循环`（给你什么提示，你知道这道题怎么做）
 
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
+   * 双端队列
 
