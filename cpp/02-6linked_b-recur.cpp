@@ -24,10 +24,11 @@ public:
     }
 private:
     vector<int> res;
+    // 倒序遍历
     void recur(ListNode* head) {
         if(head == nullptr) return;
         recur(head->next);
-        res.push_back(head->val);
+        res.push_back(head->val); 
     }
 
 };
