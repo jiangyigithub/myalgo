@@ -106,4 +106,6 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
 2. 剑指 Offer 27. 二叉树的镜像
     * swap left and right node
 3. 剑指 Offer 28. 对称的二叉树
+    * end condition --> two condition for recur end
+    * return --> bool
 
