@@ -33,6 +33,7 @@ public:
 int main() {
     // ======= Test Case =======
     TreeNode* root = vectorToTree(vector<int> { 4, 2, 7, 1, 3, 6, 9, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX });
+    PrintUtil::printTree(root);
     // ====== Driver Code ======
     Solution* slt = new Solution();
     TreeNode* res = slt->mirrorTree(root);

@@ -97,3 +97,8 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
    * 双端队列 deque
 
+## 7/05 **Day 7**   **搜索与回溯算法（简单）** 
+1. 剑指 Offer 26. 树的子结构
+2. 剑指 Offer 27. 二叉树的镜像
+3. 剑指 Offer 28. 对称的二叉树
+
