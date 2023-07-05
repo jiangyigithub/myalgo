@@ -17,12 +17,13 @@ public:
     {
         if (root == nullptr)
             return nullptr;
-        queue<TreeNode *> que; // LIFO
+        queue<TreeNode *> que; // FIFO
         que.push(root);
         while (!que.empty())
         {
             TreeNode *node =que.front();
             que.pop();
+            // swap nodes
             TreeNode* tmp = node->left;
             node->left = node->right;
             node->right = tmp;
