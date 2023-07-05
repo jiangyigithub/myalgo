@@ -22,14 +22,14 @@ public:
     {
         vector<int> res;
         if(root==nullptr) return res;
-        queue<TreeNode*> que;
-        que.push(root);
-        while(!que.empty()){
-            TreeNode* node = que.front();
-            que.pop();
+        stack<TreeNode*> stk;
+        stk.push(root);
+        while(!stk.empty()){
+            TreeNode* node = stk.top();
+            stk.pop();
             res.push_back(node->val);
-            if(node->left) que.push(node->left);
-            if(node->right) que.push(node->right);
+            if(node->left) stk.push(node->left);
+            if(node->right) stk.push(node->right);
         }
         return res;
 
