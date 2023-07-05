@@ -108,4 +108,6 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
 3. 剑指 Offer 28. 对称的二叉树
     * end condition --> two condition for recur end
     * return --> bool
+    * recur function parameter
+    * 1 call 2
 
