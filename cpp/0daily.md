@@ -91,6 +91,8 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 2. 剑指 Offer 32 - II. 从上到下打印二叉树 II
   * 需要解决的问题，怎么知道二叉树每层的元素个数
   * 关键点，`双层循环`（给你什么提示，你知道这道题怎么做）
+  * for loop, https://www.programiz.com/cpp-programming/for-loop
+  * while visit the value of the layer,the queue will store all nodes of next layer. (visit the former layer and store the next layer nodes in queue)
 
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
    * 双端队列
