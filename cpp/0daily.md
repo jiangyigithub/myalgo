@@ -95,5 +95,5 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
   * while visit the value of the layer,the queue will store all nodes of next layer. (visit the former layer and store the next layer nodes in queue)
 
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
-   * 双端队列
+   * 双端队列 deque
 
