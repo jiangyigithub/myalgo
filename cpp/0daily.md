@@ -97,6 +97,10 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
    * 双端队列 deque
 
+## 二叉树
+https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
+https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
+
 ## 7/05 **Day 7**   **搜索与回溯算法（简单）** 
 1. 剑指 Offer 26. 树的子结构
 2. 剑指 Offer 27. 二叉树的镜像
