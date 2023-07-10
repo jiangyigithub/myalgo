@@ -8,24 +8,41 @@ struct TreeNode
     TreeNode(int node) : val(node), left(nullptr), right(nullptr) {}
 };
 
-class Solution
-{
+class Solution {
 public:
-    bool isSubStructure(TreeNode *A, TreeNode *B)
-    {
-        return (A != nullptr && B != nullptr) && (recur(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B));
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        // Check if either A or B is null
+        if (A == nullptr || B == nullptr) {
+            return false;
+        }
+        
+        // Check if the current nodes of A and B match
+        if (isMatch(A, B)) {
+            return true;
+        }
+        
+        // Recursively check the left and right subtrees of A
+        return isSubStructure(A->left, B) || isSubStructure(A->right, B);
     }
 
 private:
-    bool recur(TreeNode *A, TreeNode *B)
-    {
-        if (B == nullptr)
+    /// (node1.val == node2.val) && isMatch(node1.left, node2.left) && isMatch(node1.right, node2.right);
+    bool isMatch(TreeNode* A, TreeNode* B) {
+        // If B is null, it means the entire subtree has been matched successfully
+        if (B == nullptr) {
             return true;
-        if (A == nullptr || A->val != B->val)
+        }
+        
+        // If A is null or A and B's values don't match, it's not a match
+        if (A == nullptr || A->val != B->val) {
             return false;
-        return recur(A->left, B->left) && recur(A->right, B->right);
+        }
+        
+        // Recursively check the left and right subtrees
+        return isMatch(A->left, B->left) && isMatch(A->right, B->right);
     }
 };
+
 
 void trimLeftTrailingSpaces(string &input)
 {
