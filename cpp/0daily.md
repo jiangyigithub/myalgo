@@ -102,12 +102,14 @@ https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
 https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
 
 ## 7/05 **Day 7**   **搜索与回溯算法（简单）** 
-1. 剑指 Offer 26. 树的子结构
+1. 剑指 Offer 26. 树的子结构 --> ????
 2. 剑指 Offer 27. 二叉树的镜像
     * swap left and right node
+    * `swap(node->left,node->right)` instead of `res.push_back(node->val)`
 3. 剑指 Offer 28. 对称的二叉树
-    * end condition --> two condition for recur end
+    * end condition --> conditions for recur end 
+    if(condition) return
     * return --> bool
     * recur function parameter
-    * 1 call 2
+    * 1 recur call 2 recur base
 
