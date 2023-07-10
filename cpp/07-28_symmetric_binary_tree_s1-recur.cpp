@@ -19,11 +19,14 @@ public:
     }
 
 private:
+    // (node1.val == node2.val) && isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left);
     bool recur(TreeNode *L, TreeNode *R)
     {
         if (L == nullptr && R == nullptr)
             return true;
-        if (L == nullptr || R == nullptr || L->val != R->val)
+        if (L == nullptr || R == nullptr)
+            return false;
+        if(L->val != R->val)
             return false;
         return recur(L->left, R->right) && recur(L->right, R->left);
     }
