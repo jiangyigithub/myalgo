@@ -48,8 +48,8 @@ public:
         int cost = INT_MAX, profit = 0;
         for (int price : prices)
         {
-            cost = min(cost, price);
-            profit = max(profit, price - cost);
+            cost = min(cost, price); //if the current price is the lowest
+            profit = max(profit, price - cost); //if the gap between the lowest and current price is maximum seen so far
         }
         return profit;
     }
