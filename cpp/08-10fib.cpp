@@ -91,7 +91,7 @@ int fib5(int n)
 int main()
 {
     int result = fib2(3);
-    int n = 3;
+    int n = 6;
     for (int i = 0; i <= n; i++)
-        cout << "F(" << i << ")= " << fib(i) << endl;
+        cout << "F(" << i << ")= " << fib4(i) << fib5(i)<<endl;
 }
