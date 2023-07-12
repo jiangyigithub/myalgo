@@ -1,6 +1,7 @@
 #include "head.hpp"
 
 // 剑指 Offer 63. 股票的最大利润
+// https://medium.com/@ganeshprasad227/best-time-to-buy-and-sell-stock-1-only-one-stock-allowed-python-cpp-coding-interview-b2a8856b1fc4
 class Solution
 {
 public:
@@ -34,7 +35,7 @@ public:
         for (int i = 1; i <= len; i++)
         {
             cost = min(cost, prices[i]);
-            dp[i] = max(dp[i - 1], prices[i] - min(cost, prices[i]));
+            dp[i] = max(dp[i - 1], prices[i] - cost);
         }
         return dp[len];
     }
