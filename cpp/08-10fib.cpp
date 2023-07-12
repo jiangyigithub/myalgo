@@ -2,16 +2,18 @@
 // 2 with pruning
 // 3 convert top-down to down-top
 // 4 space complexity optimize
-// 重叠子问题的消除方法
+
+/// 重叠子问题的消除方法
+// 1. 存在巨量冗余的递归树
 
 #include "head.hpp"
-int helper(int* memo, int n);
+int helper(int *memo, int n);
 // brute forch recur
 int fib(int n)
 {
-    static int t = 0;
-    t++;
-    cout << "n =" << n << "; time = " << t << endl;
+    // static int t = 0;
+    // t++;
+    // cout << "n =" << n << "; time = " << t << endl;
     if (n == 0)
         return 0;
     else if (n == 1)
@@ -20,26 +22,28 @@ int fib(int n)
         return fib(n - 1) + fib(n - 2);
 }
 
-// recur with pruning
+/// recur with pruning
 int fib2(int n)
 {
-    int memo[n + 1]= {0};
+    int memo[n + 1] = {0};
     return helper(memo, n);
 }
 
-int helper(int* memo, int n)
+int helper(int *memo, int n)
 {
     if (n == 0)
         return 0;
     else if (n == 1)
         return 1;
+    // 已经计算过，不用再计算了
     if (memo[n] != 0)
         return memo[n];
     memo[n] = helper(memo, n - 1) + helper(memo, n - 2);
     return memo[n];
 }
 
-// convert recur to loop
+/// convert recur to loop
+//  DP table
 int fib3(int n)
 {
     if (n == 0)
@@ -54,7 +58,8 @@ int fib3(int n)
     return dp[n];
 }
 
-// space optimize
+/// space optimize
+// DP table 的大小从 n 缩小到 2
 int fib4(int n)
 {
     int ret[2] = {0, 1};
@@ -71,21 +76,22 @@ int fib4(int n)
     return sum;
 }
 
-
-int fib5(int n) 
+int fib5(int n)
 {
     int pre = 0, cur = 1, sum;
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         sum = (pre + cur) % 1000000007;
         pre = cur;
         cur = sum;
     }
-    return pre;// not return sum
+    return pre; // not return sum
 }
 
 int main()
 {
-    int result = fib4(5);
-    cout << "fib(5): " << result << endl;
+    int result = fib2(3);
+    int n = 3;
+    for (int i = 0; i <= n; i++)
+        cout << "F(" << i << ")= " << fib(i) << endl;
 }
