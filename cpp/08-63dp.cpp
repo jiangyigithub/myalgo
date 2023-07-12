@@ -53,6 +53,39 @@ public:
         }
         return profit;
     }
+    
+    /// @brief do use system function
+    /// @param prices 
+    /// @return 
+    int maxProfit4(const vector<int> &prices)
+    {
+        // variable  to hold the maximum profit
+        int maximum_profit = 0;
+
+        // variable to hold the minimum price seen so far
+        int minimum_price = prices[0];
+
+        // traverse the prices list to find the maximum profit
+        for (auto price : prices)
+        {
+            /* This is the greedy part, choose the minimum seen so
+            far as well as look for the maximum profit
+            */
+            // if the current prices is minimum seen so far
+            if (minimum_price > price)
+            {
+                // update price
+                minimum_price = price;
+            }
+            else if ((price - minimum_price) > maximum_profit)
+            {
+                maximum_profit = (price - minimum_price);
+            }
+        }
+
+        // return the maximum profit seen so far
+        return maximum_profit;
+    }
 };
 
 void trimLeftTrailingSpaces(string &input)
@@ -93,9 +126,9 @@ int main()
     int ret = Solution().maxProfit(prices);
     int ret2 = Solution().maxProfit2(prices);
     int ret3 = Solution().maxProfit3(prices);
-    cout << "brute force               --> "<<ret << endl;
-    cout << "DP table                  --> "<<ret2 << endl;
-    cout << "optimize space complexity --> "<<ret3 << endl;
+    cout << "brute force               --> " << ret << endl;
+    cout << "DP table                  --> " << ret2 << endl;
+    cout << "optimize space complexity --> " << ret3 << endl;
 
     return 0;
 }
