@@ -55,6 +55,12 @@ public:
     }
     
     /// @brief do use system function
+    // The algorithm for best time to buy and sell stock:
+
+    // 1.Iterate through the prices in the list.
+    // 2.see if the current price is the lowest seen so far, if yes then remember it.
+    // 3.Otherwise check if the gap between the lowest and current price is maximum seen so far, if yes then remember the gap.
+    // 4.The maximum gap is the maximum profit we can make with a single transaction.
     /// @param prices 
     /// @return 
     int maxProfit4(const vector<int> &prices)
