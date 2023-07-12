@@ -67,6 +67,7 @@ int fib4(int n)
         return ret[n];
     int pre = 0, cur = 1;
     int sum = 0;
+    // loop start at index 2
     for (int i = 2; i <= n; i++)
     {
         sum = cur + pre;
@@ -79,6 +80,7 @@ int fib4(int n)
 int fib5(int n)
 {
     int pre = 0, cur = 1, sum;
+    // loop start at index 0
     for (int i = 0; i < n; i++)
     {
         sum = (pre + cur) % 1000000007;
@@ -93,5 +95,10 @@ int main()
     int result = fib2(3);
     int n = 6;
     for (int i = 0; i <= n; i++)
-        cout << "F(" << i << ")= " << fib4(i) << fib5(i)<<endl;
+    {
+        cout << "brute force recur --> F(" << i << ")= " << fib(i) << endl;
+        cout << "store memory      --> F(" << i << ")= " << fib2(i) << endl;
+        cout << "DP table for loop --> F(" << i << ")= " << fib3(i) << endl;
+        cout << "optimize space    --> F(" << i << ")= " << fib4(i) << endl;
+    }
 }
