@@ -6,7 +6,7 @@ https://github.com/settings/tokens
 
 https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55bvvv/
 
-https://labuladong.github.io/algo/1/3/
+https://labuladong.github.io/algo/
 
 https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B
 
