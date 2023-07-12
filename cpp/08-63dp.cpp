@@ -4,20 +4,10 @@
 class Solution
 {
 public:
+    /// @brief Brute Force, time complexity is N^2
+    /// @param prices
+    /// @return
     int maxProfit(vector<int> &prices)
-    {
-        int cost = INT_MAX, profit = 0;
-        for (int price : prices)
-        {
-            // p[i]=max(dp[i−1],prices[i]−min(cost,prices[i])
-            cost = min(cost, price);
-            profit = max(profit, price - cost);
-        }
-        return profit;
-    }
-    
-    /// Brute Force, time complexity is N^2
-    int maxProfit2(vector<int> &prices)
     {
         int profit = 0;
         for (int i = prices.size() - 1; i >= 0; i--)
@@ -29,6 +19,36 @@ public:
                     profit = max(profit, prices[i] - prices[j]);
                 }
             }
+        }
+        return profit;
+    }
+
+    /// @brief DP table
+    /// @param prices
+    /// @return
+    int maxProfit2(vector<int> &prices)
+    {
+        int cost = INT_MAX, profit = 0;
+        int len = prices.size() - 1;
+        int dp[len + 1] = {0};
+        for (int i = 1; i <= len; i++)
+        {
+            cost = min(cost, prices[i]);
+            dp[i] = max(dp[i - 1], prices[i] - min(cost, prices[i]));
+        }
+        return dp[len];
+    }
+
+    /// @brief optimize space complexity
+    /// @param prices
+    /// @return
+    int maxProfit3(vector<int> &prices)
+    {
+        int cost = INT_MAX, profit = 0;
+        for (int price : prices)
+        {
+            cost = min(cost, price);
+            profit = max(profit, price - cost);
         }
         return profit;
     }
@@ -68,13 +88,13 @@ vector<int> stringToIntegerVector(string input)
 int main()
 {
     string line = "[7,1,5,3,6,4]";
-
     vector<int> prices = stringToIntegerVector(line);
-
     int ret = Solution().maxProfit(prices);
-
-    string out = to_string(ret);
-    cout << out << endl;
+    int ret2 = Solution().maxProfit2(prices);
+    int ret3 = Solution().maxProfit3(prices);
+    cout << "brute force               --> "<<ret << endl;
+    cout << "DP table                  --> "<<ret2 << endl;
+    cout << "optimize space complexity --> "<<ret3 << endl;
 
     return 0;
 }
