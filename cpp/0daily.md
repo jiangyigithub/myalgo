@@ -116,6 +116,12 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
 
 ## 7/12
 1. 剑指 Offer 10- I. 斐波那契数列
+di gui `pre`+`cur`
 2. 剑指 Offer 10- II. 青蛙跳台阶问题
 3. 剑指 Offer 63. 股票的最大利润
-    * 
+    * di gui qiu jiao xiao
+    * zai bi di zhi cha
+
+## 7/13
+1. 剑指 Offer 42. 连续子数组的最大和
+2. 剑指 Offer 47. 礼物的最大价值
