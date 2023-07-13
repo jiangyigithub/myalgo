@@ -125,3 +125,6 @@ di gui `pre`+`cur`
 ## 7/13
 1. 剑指 Offer 42. 连续子数组的最大和
 2. 剑指 Offer 47. 礼物的最大价值
+3. 剑指 Offer 46. 把数字翻译成字符串
+    * DP transfer equation with condition .different condition, different DP transfer equation 
+4. 剑指 Offer 48. 最长不含重复字符的子字符串
