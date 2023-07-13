@@ -72,7 +72,7 @@ int fib4(int n)
     // loop start at index 2
     for (int i = 2; i <= n; i++)
     {
-        sum = cur + pre;
+        sum = pre + cur;
         pre = cur;
         cur = sum;
     }

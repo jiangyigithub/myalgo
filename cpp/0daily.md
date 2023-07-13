@@ -114,3 +114,8 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
     * recur function parameter
     * 1 recur call 2 recur base
 
+## 7/12
+1. 剑指 Offer 10- I. 斐波那契数列
+2. 剑指 Offer 10- II. 青蛙跳台阶问题
+3. 剑指 Offer 63. 股票的最大利润
+    * 
