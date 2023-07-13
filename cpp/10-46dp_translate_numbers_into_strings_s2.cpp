@@ -4,7 +4,7 @@
 * Author: Krahets (krahets@163.com)
 */
 
-#include "../include/include.hpp"
+#include "head.hpp"
 
 // ===== Solution Code =====
 class Solution {
