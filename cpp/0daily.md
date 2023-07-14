@@ -114,7 +114,7 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
     * recur function parameter
     * 1 recur call 2 recur base
 
-## 7/12
+## 7/12 **Day 8**   **动态规划（简单）**
 1. 剑指 Offer 10- I. 斐波那契数列
 di gui `pre`+`cur`
 2. 剑指 Offer 10- II. 青蛙跳台阶问题
@@ -123,16 +123,18 @@ di gui `pre`+`cur`
     * di gui qiu jiao xiao
     * zai bi di zhi cha
 
-## 7/13
+## 7/13 **Day 9**   **动态规划（中等）**
 1. 剑指 Offer 42. 连续子数组的最大和
 2. 剑指 Offer 47. 礼物的最大价值
     * https://www.hello-algo.com/chapter_dynamic_programming/dp_solution_pipeline/#1335
     * 二维, 求最值
     * the ralation with 股票的最大利润
-3. 剑指 Offer 46. 把数字翻译成字符串
+
+## 7/14 **Day 10**  **动态规划（中等）**   
+1. 剑指 Offer 46. 把数字翻译成字符串
     * DP transfer equation with condition .different condition, 
     different DP transfer equation 
     * code structure same as 斐波那契数列
-4. 剑指 Offer 48. 最长不含重复字符的子字符串
+2. 剑指 Offer 48. 最长不含重复字符的子字符串
 /// unordered_map 的使用方法： find ,判断元素在不在hash_map中
 /// 空间复杂度的优化
