@@ -119,6 +119,7 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
 di gui `pre`+`cur`
 2. 剑指 Offer 10- II. 青蛙跳台阶问题
 3. 剑指 Offer 63. 股票的最大利润
+    * https://medium.com/@ganeshprasad227/best-time-to-buy-and-sell-stock-1-only-one-stock-allowed-python-cpp-coding-interview-b2a8856b1fc4
     * di gui qiu jiao xiao
     * zai bi di zhi cha
 
