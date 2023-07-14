@@ -1,7 +1,7 @@
 |    日程    | 题目                                              | plan |
 | :--------: | :------------------------------------------------ |:------------------------------------------------ |
 | **Day 1**  | **栈与队列（简单）**                              |
-|            | [剑指 Offer 09. 用两个栈实现队列](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5d3i87/)               | 06/12|
+|            | [剑指 Offer 09. 用两个栈实现队列](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5d3i87/)               | 2023/06/12|
 |            | [剑指 Offer 30.  包含 min 函数的栈](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/50bp33/)             |
 | **Day 2**  | **链表（简单）**                                  |
 |            | [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5dt66m/)               |
