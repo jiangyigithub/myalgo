@@ -35,7 +35,7 @@
 |            | [剑指 Offer 47. 礼物的最大价值](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5vokvr/)                 |
 | **Day 10** | **动态规划（中等）**                              |
 |            | [剑指 Offer 46. 把数字翻译成字符串](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/99wd55/)             |
-|            | [剑指 Offer 48. 最长不含重复字符的子字符串](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5dgr0c/)     |
+|            | [剑指 Offer 48. 最长不含重复字符的子字符串](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5dgr0c/)     |2023/07/14|
 | **Day 11** | **双指针（简单）**                                |
 |            | [剑指 Offer 18. 删除链表的节点](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/505fc7/)                 |
 |            | [剑指 Offer 22. 链表中倒数第 k 个节点](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/58tl52/)          |
