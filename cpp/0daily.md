@@ -97,7 +97,7 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
    * 双端队列 deque
 
-## 二叉树 DFS/BFS 
+## 二叉树 递归 DFS/BFS 
 https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
 https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
