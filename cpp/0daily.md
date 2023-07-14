@@ -125,8 +125,13 @@ di gui `pre`+`cur`
 ## 7/13
 1. 剑指 Offer 42. 连续子数组的最大和
 2. 剑指 Offer 47. 礼物的最大价值
+    * https://www.hello-algo.com/chapter_dynamic_programming/dp_solution_pipeline/#1335
     * 二维, 求最值
     * the ralation with 股票的最大利润
 3. 剑指 Offer 46. 把数字翻译成字符串
-    * DP transfer equation with condition .different condition, different DP transfer equation 
+    * DP transfer equation with condition .different condition, 
+    different DP transfer equation 
+    * code structure same as 斐波那契数列
 4. 剑指 Offer 48. 最长不含重复字符的子字符串
+/// unordered_map 的使用方法： find ,判断元素在不在hash_map中
+/// 空间复杂度的优化
