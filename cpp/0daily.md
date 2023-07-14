@@ -137,5 +137,4 @@ di gui `pre`+`cur`
     different DP transfer equation 
     * code structure same as 斐波那契数列
 2. 剑指 Offer 48. 最长不含重复字符的子字符串
-/// unordered_map 的使用方法： find ,判断元素在不在hash_map中
-/// 空间复杂度的优化
+    * unordered_map 的使用方法： find ,判断元素在不在hash_map中
