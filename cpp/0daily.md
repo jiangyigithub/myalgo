@@ -130,6 +130,7 @@ di gui `pre`+`cur`
     * https://www.hello-algo.com/chapter_dynamic_programming/dp_solution_pipeline/#1335
     * 二维, 求最值
     * the ralation with 股票的最大利润
+    * boundry condition: 二维
 
 ## 7/14 **Day 10**  **动态规划（中等）**   
 1. 剑指 Offer 46. 把数字翻译成字符串
