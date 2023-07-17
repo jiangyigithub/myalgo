@@ -23,11 +23,11 @@ public:
                 cur=cur->next;
             }
         }
-        if(l1==nullptr){
-            cur->next=l2;
-        }
-        else{
+        if(l1!=nullptr){
             cur->next=l1;
+        }
+        if(l2!=nullptr){
+            cur->next=l2;
         }
         return dummy->next;
    

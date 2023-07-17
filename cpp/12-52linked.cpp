@@ -11,20 +11,20 @@ public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode *A = headA ,*B = headB;
         while(A!=B&& (A!=nullptr) &&(B!=nullptr) ){
-            // A = A!=nullptr? A->next: headB;
-            // B = B!=nullptr? B->next: headA;
-            if(A!=nullptr){
-              A = A->next;
-            }
-            else{
-                A = headB;
-            }
-            if(B!=nullptr){
-              B = B->next;
-            }
-            else{
-              B = headA;
-            }
+            A = A!=nullptr? A->next: headB;
+            B = B!=nullptr? B->next: headA;
+            // if(A!=nullptr){
+            //   A = A->next;
+            // }
+            // else{
+            //     A = headB;
+            // }
+            // if(B!=nullptr){
+            //   B = B->next;
+            // }
+            // else{
+            //   B = headA;
+            // }
         }
         return A;
         
@@ -92,16 +92,10 @@ string listNodeToString(ListNode* node) {
 }
 
 int main() {
-    string line = "8";
-    int intersectVal = stringToInteger(line);
-    line ="[4,1,8,4,5]";
+    string line ="[4,1,8,4,5]";
     ListNode* listA = stringToListNode(line);
-    line = "[5,0,1,8,4,5]";
-    ListNode* listB = stringToListNode(line);
-    line ="2";
-    int skipA = stringToInteger(line);
-    line ="3";
-    int skipB = stringToInteger(line);
+    string line2 = "[5,0,1,8,4,5]";
+    ListNode* listB = stringToListNode(line2);
     ListNode* ret = Solution().getIntersectionNode(listA, listB);
     string out = listNodeToString(ret);
     cout << out << endl;
