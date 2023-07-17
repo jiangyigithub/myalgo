@@ -9,26 +9,33 @@ struct ListNode {
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // 1. dummy node
         ListNode* dummy=new ListNode(0);
         ListNode* cur = dummy;
+
+        // 2. compare the value of the two linkeds
         while(l1!=nullptr && l2!=nullptr){
             if(l1->val<l2->val){
-                cur->next=l1;
-                l1=l1->next;
-                cur=cur->next;
+                cur->next=l1; // core
+                l1=l1->next; // the linked walk
+                cur=cur->next;//the linked walk
             }
             else{
-                cur->next=l2;
-                l2=l2->next;
-                cur=cur->next;
+                cur->next=l2; // core
+                l2=l2->next; //the linked walk
+                cur=cur->next; //the linked walk
             }
         }
+
+        // 3. boundry condtion
         if(l1!=nullptr){
             cur->next=l1;
         }
         if(l2!=nullptr){
             cur->next=l2;
         }
+
+        // 4. return dummy->next
         return dummy->next;
    
     }
