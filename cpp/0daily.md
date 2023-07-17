@@ -140,14 +140,18 @@ di gui `pre`+`cur`
 2. 剑指 Offer 48. 最长不含重复字符的子字符串
     * unordered_map 的使用方法： find ,判断元素在不在hash_map中
 
-## 7/17 
+## 7/17  **Day 11**  **双指针（简单）** 
 1. 剑指 Offer 18. 删除链表的节点
     * how to delete one node in the linked.pre->next = cur->next; 
     * broundy condition about the linked, is the head?, is the tail?
     * how to traverse the link
 
 2. 剑指 Offer 22. 链表中倒数第 k 个节点
-* abstract the distance between with `pre` and `cur`, the distance is not constantly 1
-* while loop condition
-* we want to design a double pointer model, the distance `cur` pointer advance `pre` pointer is K,
-  while `cur` arrive the end of the linked, the distance between `pre` to the end is K
+    * abstract the distance between with `pre` and `cur`, the distance is not constantly 1
+    * while loop condition
+    * we want to design a double pointer model, the distance `cur` pointer advance `pre` pointer is K,
+    while `cur` arrive the end of the linked, the distance between `pre` to the end is K
+
+##  7/18 **Day 12**  **双指针（简单）** 
+1. 剑指 Offer 25. 合并两个排序的链表
+2. 剑指 Offer 52. 两个链表的第一个公共节点
