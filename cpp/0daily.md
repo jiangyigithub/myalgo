@@ -158,3 +158,4 @@ di gui `pre`+`cur`
 * core: cur->next=l1 or cur->next=l2; then walk through
 * create dummy node;these two linked all have value, we can compare the value, execute choose l1 or l2 value; after choose ,make the linked walk; if one exhauted. execute boundry condtion ;
 2. 剑指 Offer 52. 两个链表的第一个公共节点
+* A+ B = B+ A
