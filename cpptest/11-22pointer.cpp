@@ -13,13 +13,12 @@ class Solution
 public:
     ListNode *getKthFromEnd(ListNode *head, int k)
     {
-        ListNode *cur = head;
         ListNode *pre = head;
+        ListNode *cur = head;
         for (int i = 0; i < k; i++)
         {
             cur = cur->next;
         }
-
         while (cur != nullptr)
         {
             cur = cur->next;
@@ -104,7 +103,7 @@ int main()
     string line = "[1,2,3,4,5]";
 
     ListNode *head = stringToListNode(line);
-
+   
     int k = 2;
 
     ListNode *ret = Solution().getKthFromEnd(head, k);

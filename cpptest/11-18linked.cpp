@@ -1,31 +1,32 @@
 #include "head.hpp"
 
-// Definition for singly-linked list.
 struct ListNode
 {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution
 {
 public:
-    ListNode *getKthFromEnd(ListNode *head, int k)
+    ListNode *deleteNode(ListNode *head, int val)
     {
-        ListNode *cur = head;
-        ListNode *pre = head;
-        for (int i = 0; i < k; i++)
-        {
-            cur = cur->next;
+        ListNode* pre=head;
+        ListNode* cur=head->next;
+        if(head->val ==val){
+            return head->next;
         }
+        // use cur as condition
+        while(cur->val!=val){
+            pre=cur;
+            cur=cur->next;
+        }
+        if(cur->next!=nullptr){
+            pre->next=cur->next;
+        }
+        return head;
 
-        while (cur != nullptr)
-        {
-            cur = cur->next;
-            pre = pre->next;
-        }
-        return pre;
     }
 };
 
@@ -101,16 +102,14 @@ string listNodeToString(ListNode *node)
 
 int main()
 {
-    string line = "[1,2,3,4,5]";
-
+    string line = "[4,5,1,9]";
     ListNode *head = stringToListNode(line);
+    string lineval = "1";
+    int val = stringToInteger(lineval);
 
-    int k = 2;
-
-    ListNode *ret = Solution().getKthFromEnd(head, k);
+    ListNode *ret = Solution().deleteNode(head, val);
 
     string out = listNodeToString(ret);
     cout << out << endl;
-
     return 0;
 }
