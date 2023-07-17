@@ -16,6 +16,7 @@ public:
         if (head->val == val)
             return head->next;
         ListNode *pre = head, *cur = head->next;
+        // iterate the previous same nodes
         while (cur->val != val)
         {
             pre = cur;
@@ -24,7 +25,8 @@ public:
         // is not tail
         if (cur->next != nullptr)
         {
-            pre->next = cur->next; // 删除节点
+            // 删除节点
+            pre->next = cur->next; 
         }
         return head;
     }
