@@ -155,6 +155,6 @@ di gui `pre`+`cur`
 ##  7/18 **Day 12**  **双指针（简单）** 
 1. 剑指 Offer 25. 合并两个排序的链表
 * 当你需要创造一条新链表的时候，可以使用虚拟头结点简化边界情况的处理。
-* cur->next=l1;cur->next=l2; 
-* create dummy node;these two linked all have value, we can compare the value, execute choose l1 or l2 value; after choose ,make the linked walk; boundry condtion ;
+* core: cur->next=l1 or cur->next=l2; then walk through
+* create dummy node;these two linked all have value, we can compare the value, execute choose l1 or l2 value; after choose ,make the linked walk; if one exhauted. execute boundry condtion ;
 2. 剑指 Offer 52. 两个链表的第一个公共节点
