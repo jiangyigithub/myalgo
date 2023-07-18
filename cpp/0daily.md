@@ -140,7 +140,7 @@ di gui `pre`+`cur`
 2. 剑指 Offer 48. 最长不含重复字符的子字符串
     * unordered_map 的使用方法： find ,判断元素在不在hash_map中
 
-## 7/17  **Day 11**  **双指针（简单）** 
+## 7/16  **Day 11**  **双指针（简单）** 
 1. 剑指 Offer 18. 删除链表的节点
     * how to delete one node in the linked.pre->next = cur->next; 
     * broundy condition about the linked, is the head?, is the tail?
@@ -152,7 +152,7 @@ di gui `pre`+`cur`
     * we want to design a double pointer model, the distance `cur` pointer advance `pre` pointer is K,
     while `cur` arrive the end of the linked, the distance between `pre` to the end is K
 
-##  7/18 **Day 12**  **双指针（简单）** 
+##  7/17 **Day 12**  **双指针（简单）** 
 1. 剑指 Offer 25. 合并两个排序的链表
 * 当你需要创造一条新链表的时候，可以使用虚拟头结点简化边界情况的处理。
 * core: cur->next=l1 or cur->next=l2; then walk through (merge)
@@ -160,3 +160,7 @@ di gui `pre`+`cur`
 2. 剑指 Offer 52. 两个链表的第一个公共节点
 * A+ B = B+ A
 * p1 =A,if A is exhausted,p1=B
+
+## 7/18
+1. 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
+* quick sort 中交换的metric, 以大小为metric，以奇偶为metric
