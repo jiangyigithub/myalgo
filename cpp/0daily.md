@@ -164,3 +164,7 @@ di gui `pre`+`cur`
 ## 7/18
 1. 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
 * quick sort 中交换的metric, 以大小为metric，以奇偶为metric
+
+2. 剑指 Offer 57. 和为 s 的两个数字
+
+3. 剑指 Offer 58 - I. 翻转单词顺序
