@@ -161,9 +161,10 @@ di gui `pre`+`cur`
 * A+ B = B+ A
 * p1 =A,if A is exhausted,p1=B
 
-## 7/18
+## 7/18 **Day 13**  **双指针（简单）**
 1. 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
-* quick sort 中交换的metric, 以大小为metric，以奇偶为metric
+* quick sort 中交换的metric, 以大小为metric，以奇偶为metric, pivot one time, quick sort need recur
+* double while loop template
 
 2. 剑指 Offer 57. 和为 s 的两个数字
 

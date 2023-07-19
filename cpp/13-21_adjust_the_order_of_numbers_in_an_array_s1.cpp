@@ -27,8 +27,8 @@ public:
         int i = 0, j = nums.size() - 1;
         while (i < j)
         {
-            while(i < j && (nums[i] & 1) == 1) i++;
-            while(i < j && (nums[j] & 1) == 0) j--;
+            if(i < j && (nums[i] & 1) == 1) i++;
+            if(i < j && (nums[j] & 1) == 0) j--;
             swap(nums[i], nums[j]);
         }
         return nums;
@@ -37,7 +37,7 @@ public:
 
 int main() {
     // ======= Test Case =======
-    vector<int> nums = { 1, 2, 3, 4 };
+    vector<int> nums = { 1, 2, 4,7,9, 5, 6, 3 };
     // ====== Driver Code ======
     Solution* slt = new Solution();
     vector<int> res = slt->exchange(nums);
