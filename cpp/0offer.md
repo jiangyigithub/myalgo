@@ -263,7 +263,7 @@ def binary_search(arr, x):
 - (子问题)数位和的求法，数位增量公式
 - 怎么把一个矩阵看做一个抽象的二叉树
 - 显式metric1-位数和，隐式metric2-无法跨越obstacle
-- dfs 和 bfs
+- DFS 和 BFS
 
 **offer 26 二叉树的子树**
 
