@@ -1,3 +1,8 @@
+# basic problem
+## recur
+## double while
+## digit problem
+
 ## 06/29 **Day 1**  **栈与队列（简单）**
 1. 剑指 Offer 09. 用两个栈实现队列
 2. 剑指 Offer 30.  包含 min 函数的栈
