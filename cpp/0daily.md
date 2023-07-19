@@ -85,7 +85,7 @@ two dimension
 * dic[c] = dic.find(c) == dic.end(); // 第一个出现,marked as "true"
 * while we use `return` in the if condition among for loop, the `return` have the function of `break`
 
-# 二叉树+递归+DFS+回溯 | BFS+队列
+# 二叉树+递归/栈+DFS+回溯 | BFS+队列
 https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
 https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
