@@ -119,6 +119,17 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 1. 剑指 Offer 12. 矩阵中的路径
 * `size()` `< size()` VS `size()-1` `<=size()-1`
 2. 剑指 Offer 13. 机器人的运动范围
+* combination problem: DigitSum  --> (i + 1) % 10 != 0 ? si + 1 : si - 8
+```c++
+int getDigitSum(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+```
 
 # 动态规划
 
