@@ -114,6 +114,7 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
     * return --> bool
     * recur function parameter
     * 1 recur call 2 recur base
+## 动态规划
 
 ## 7/12 **Day 8**   **动态规划（简单）**
 1. 剑指 Offer 10- I. 斐波那契数列
@@ -139,6 +140,8 @@ di gui `pre`+`cur`
     * code structure same as 斐波那契数列
 2. 剑指 Offer 48. 最长不含重复字符的子字符串
     * unordered_map 的使用方法： find ,判断元素在不在hash_map中
+
+## 双指针
 
 ## 7/16  **Day 11**  **双指针（简单）** 
 1. 剑指 Offer 18. 删除链表的节点
@@ -169,6 +172,8 @@ di gui `pre`+`cur`
 2. 剑指 Offer 57. 和为 s 的两个数字
 
 3. 剑指 Offer 58 - I. 翻转单词顺序
+
+## 回溯
 
 ## 7/19  **Day 14**  **搜索与回溯算法（中等）**
 1. 剑指 Offer 12. 矩阵中的路径
