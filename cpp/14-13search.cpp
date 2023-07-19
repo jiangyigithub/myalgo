@@ -34,11 +34,10 @@ int main()
     string line;
     while (getline(cin, line))
     {
-        int m = stringToInteger(line);
-        getline(cin, line);
-        int n = stringToInteger(line);
-        getline(cin, line);
-        int k = stringToInteger(line);
+
+        int m = 2;
+        int n = 3;
+        int k = 1;
 
         int ret = Solution().movingCount(m, n, k);
 

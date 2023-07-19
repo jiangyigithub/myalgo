@@ -11,7 +11,7 @@
 1. 剑指 Offer 05. 替换空格
 2. 剑指 Offer 58 - II. 左旋转字符串
 
-## binary search
+# binary search
 * Goal: binary search
 
 * detail
@@ -78,6 +78,11 @@ two dimension
 * dic[c] = dic.find(c) == dic.end(); // 第一个出现,marked as "true"
 * while we use `return` in the if condition among for loop, the `return` have the function of `break`
 
+# 二叉树 递归 DFS 回溯
+https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
+快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
+https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
+
 ## 7/04 **Day 6**   **搜索与回溯算法（简单）**
 1. 剑指 Offer 32 - I. 从上到下打印二叉树
 visit the root,then push the left sub and the right sub to the queue, loop to vist this queue, then this tree will be traversal
@@ -97,11 +102,6 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 3. 剑指 Offer 32 - III. 从上到下打印二叉树 III
    * 双端队列 deque
 
-## 二叉树 递归 DFS/BFS 
-https://labuladong.github.io/algo/di-ling-zh-bfe1b/dong-ge-da-334dd/
-快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
-https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
-
 ## 7/05 **Day 7**   **搜索与回溯算法（简单）** 
 1. 剑指 Offer 26. 树的子结构 --> ????
     
@@ -114,7 +114,13 @@ https://www.hello-algo.com/chapter_tree/binary_tree_traversal/#_4
     * return --> bool
     * recur function parameter
     * 1 recur call 2 recur base
-## 动态规划
+
+## 7/19  **Day 14**  **搜索与回溯算法（中等）**
+1. 剑指 Offer 12. 矩阵中的路径
+* `size()` `< size()` VS `size()-1` `<=size()-1`
+2. 剑指 Offer 13. 机器人的运动范围
+
+# 动态规划
 
 ## 7/12 **Day 8**   **动态规划（简单）**
 1. 剑指 Offer 10- I. 斐波那契数列
@@ -141,7 +147,7 @@ di gui `pre`+`cur`
 2. 剑指 Offer 48. 最长不含重复字符的子字符串
     * unordered_map 的使用方法： find ,判断元素在不在hash_map中
 
-## 双指针
+# 双指针
 
 ## 7/16  **Day 11**  **双指针（简单）** 
 1. 剑指 Offer 18. 删除链表的节点
@@ -172,10 +178,3 @@ di gui `pre`+`cur`
 2. 剑指 Offer 57. 和为 s 的两个数字
 
 3. 剑指 Offer 58 - I. 翻转单词顺序
-
-## 回溯
-
-## 7/19  **Day 14**  **搜索与回溯算法（中等）**
-1. 剑指 Offer 12. 矩阵中的路径
-* `size()` `< size()` VS `size()-1` `<=size()-1`
-2. 剑指 Offer 13. 机器人的运动范围
