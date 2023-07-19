@@ -2,6 +2,8 @@
 ## recur
 ## double while
 ## digit problem
+## swap
+## binary search
 
 ## 06/29 **Day 1**  **栈与队列（简单）**
 1. 剑指 Offer 09. 用两个栈实现队列
