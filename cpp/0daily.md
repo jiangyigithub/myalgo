@@ -148,6 +148,9 @@ int getDigitSum(int num) {
 * recur parameter: target
 * recur end condtion
 * 记录解 if no return
+* private memeber: define `path` to add or substract, define `result` to store if the condition is satified
+
+
 # 动态规划
 
 ## 7/12 **Day 8**   **动态规划（简单）**
