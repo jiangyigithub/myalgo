@@ -1,87 +1,35 @@
-/*
-剑指 Offer 34. 二叉树中和为某一值的路径
-给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
-
-叶子节点 是指没有子节点的节点。
-
- 
-
-示例 1：
-
-
-
-输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
-输出：[[5,4,11,2],[5,8,4,5]]
-示例 2：
-
-
-
-输入：root = [1,2,3], targetSum = 5
-输出：[]
-示例 3：
-
-输入：root = [1,2], targetSum = 0
-输出：[]
- 
-
-提示：
-
-树中节点总数在范围 [0, 5000] 内
--1000 <= Node.val <= 1000
--1000 <= targetSum <= 1000
+/* 前序遍历：例题三 
+在二叉树中搜索值为 7 的节点，返回根节点到这些节点的路径，要求路径中有且只有一个值为 7 的节点，并且不能包含值为 3 的节点。
 */
-
-// 子集和问题：给定一个集合和一个目标和，找到集合中所有和为目标和的子集。
 #include "head.hpp"
 #include "PrintUtil.hpp"
 
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int node) : val(node), left(nullptr), right(nullptr) {}
-};
-
 class Solution
 {
-public:
-    vector<vector<int>> pathSum(TreeNode *root, int sum)
-    {
-        recur(root, sum);
-        return res;
-    }
 
-private:
+public:
+
+void preOrder(TreeNode *root) {
+    // 剪枝
+    if (root == nullptr) {
+        return;
+    }
+    // 尝试
+    path.push_back(root->val);
+    if (root->val == 7) {
+        // 记录解
+        res.push_back(path);
+    }
+    preOrder(root->left);
+    preOrder(root->right);
+    // 回退
+    path.pop_back();
+}
+
+public:
     vector<vector<int>> res;
     vector<int> path;
-
-private:
-    void recur(TreeNode *root, int tar)
-    {   
-        // 剪枝
-        if (root == nullptr)
-            return;
-        // 尝试
-        path.push_back(root->val);
-        tar -= root->val;
-        // 记录解
-        if (tar == 0 && root->left == nullptr && root->right == nullptr)
-            res.push_back(path);
-        recur(root->left, tar);
-        recur(root->right, tar);
-        // 回退
-        path.pop_back();
-    }
 };
-
-//       5
-//      / \
-//     4   8
-//    /   / \
-//   11  13  4
-//  /  \    / \
-// 7    2  5   1
 
 void trimLeftTrailingSpaces(string &input)
 {
@@ -180,26 +128,18 @@ string integerVectorToString(vector<int> list, int length = -1)
 //      / \
 //     4   8
 //    /   / \
-//   11  13  4
+//   11  13  14
 //  /  \    / \
-// 7    2  5   1
+// 7    2  5   7
 
 int main()
 {
-    string line = "[5,4,8,11,null,13,4,7,2,null,null,5,1]";
+    string line = "[5,4,8,11,null,13,14,7,2,null,null,5,7]";
 
     TreeNode *root = stringToTreeNode(line);
 
-    line = "22";
-
-    int target = stringToInteger(line);
-
-    vector<vector<int>> rets = Solution().pathSum(root, target);
-
-    for (auto ret : rets)
-    {
-        string out = integerVectorToString(ret);
-        cout << out << endl;
-    }
-    return 0;
+    Solution* slt = new Solution();
+     slt->preOrder(root);
+    vector<vector<int>> output = slt->res;
+    int a = 1;
 }
