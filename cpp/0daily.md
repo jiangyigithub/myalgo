@@ -130,6 +130,7 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
     * recur parameter: i j si sj
     * recur return value: int
     * recur end condition(if-return): if(i >= m || j >= n || k < si + sj || visited[i][j]) return 0;
+    * matrix boundary i >= m || j >= n 
 ```c++
 int getDigitSum(int num) {
         int sum = 0;
