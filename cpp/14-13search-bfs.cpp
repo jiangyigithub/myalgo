@@ -29,13 +29,21 @@ int stringToInteger(string input)
     return stoi(input);
 }
 
+/*
+m=4 n=4 k=2
+[0,0] [0,1] [0,2] [0,3]
+[1,0] [1,1] [1,2] [1,3]
+[2,0] [2,1] [2,2] [2,3]
+[3,0] [3,1] [3,2] [3,3]
+*/
+
 int main()
 {
     string line;
 
-    int m = 2;
-    int n = 3;
-    int k = 1;
+    int m = 4;
+    int n = 4;
+    int k = 3;
 
     int ret = Solution().movingCount(m, n, k);
 
