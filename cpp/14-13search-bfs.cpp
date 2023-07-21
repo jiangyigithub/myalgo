@@ -32,17 +32,15 @@ int stringToInteger(string input)
 int main()
 {
     string line;
-    while (getline(cin, line))
-    {
 
-        int m = 2;
-        int n = 3;
-        int k = 1;
+    int m = 2;
+    int n = 3;
+    int k = 1;
 
-        int ret = Solution().movingCount(m, n, k);
+    int ret = Solution().movingCount(m, n, k);
 
-        string out = to_string(ret);
-        cout << out << endl;
-    }
+    string out = to_string(ret);
+    cout << out << endl;
+
     return 0;
 }
