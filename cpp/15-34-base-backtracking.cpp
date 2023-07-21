@@ -4,33 +4,6 @@
 #include "head.hpp"
 #include "PrintUtil.hpp"
 
-class Solution
-{
-
-public:
-
-void preOrder(TreeNode *root) {
-    // 剪枝
-    if (root == nullptr) {
-        return;
-    }
-    // 尝试
-    path.push_back(root->val);
-    if (root->val == 7) {
-        // 记录解
-        res.push_back(path);
-    }
-    preOrder(root->left);
-    preOrder(root->right);
-    // 回退
-    path.pop_back();
-}
-
-public:
-    vector<vector<int>> res;
-    vector<int> path;
-};
-
 void trimLeftTrailingSpaces(string &input)
 {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch)
@@ -128,13 +101,39 @@ string integerVectorToString(vector<int> list, int length = -1)
 //      / \
 //     4   8
 //    /   / \
-//   11  13  14
+//   11  13  3
 //  /  \    / \
 // 7    2  5   7
+class Solution
+{
+
+public:
+
+void preOrder(TreeNode *root) {
+    // 剪枝
+    if (root == nullptr||root->val == 3) {
+        return;
+    }
+    // 尝试
+    path.push_back(root->val);
+    if (root->val == 7) {
+        // 记录解
+        res.push_back(path);
+    }
+    preOrder(root->left);
+    preOrder(root->right);
+    // 回退
+    path.pop_back();
+}
+
+public:
+    vector<vector<int>> res;
+    vector<int> path;
+};
 
 int main()
 {
-    string line = "[5,4,8,11,null,13,14,7,2,null,null,5,7]";
+    string line = "[5,4,8,11,null,13,3,7,2,null,null,5,7]";
 
     TreeNode *root = stringToTreeNode(line);
 
