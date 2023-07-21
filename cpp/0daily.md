@@ -129,7 +129,7 @@ visit the root,then push the left sub and the right sub to the queue, loop to vi
 * combination problem: DigitSum  --> (i + 1) % 10 != 0 ? si + 1 : si - 8
     * recur parameter: i j si sj
     * recur return value: int
-    * recur end condition: if(i >= m || j >= n || k < si + sj || visited[i][j]) return 0;
+    * recur end condition(if-return): if(i >= m || j >= n || k < si + sj || visited[i][j]) return 0;
 ```c++
 int getDigitSum(int num) {
         int sum = 0;
