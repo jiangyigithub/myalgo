@@ -154,6 +154,7 @@ int getDigitSum(int num) {
 ## 7/24
 2. 剑指 Offer 36. 二叉搜索树与双向链表
 * 二叉树中序遍历 <--> 二叉搜索树
+* DoublyList
 
 
 3. 剑指 Offer 54. 二叉搜索树的第 k 大节点
