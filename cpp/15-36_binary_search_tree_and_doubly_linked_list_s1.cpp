@@ -7,7 +7,7 @@
       4
      / \
     2   5
-   /  \ 
+   /  \
   1    3
  
 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。
@@ -29,7 +29,8 @@
 /**
  * Definition for a linked list node.
  */
-struct Node {
+struct Node
+{
     int val;
     Node *left;
     Node *right;
@@ -37,53 +38,73 @@ struct Node {
 };
 
 // ===== Solution Code =====
-class Solution {
+class Solution
+{
 public:
-    Node* treeToDoublyList(Node* root) {
-        if(root == nullptr) return nullptr;
+    Node *treeToDoublyList(Node *root)
+    {
+        if (root == nullptr)
+            return nullptr;
         dfs(root);
         head->left = pre;
         pre->right = head;
         return head;
     }
+/*
+      4
+     / \
+    2   5
+   /  \
+  1    3
+
+1 <--> 2<--> 3 <--> 4 <--> 5
+*/
+
 private:
     Node *pre, *head;
-    void dfs(Node* cur) {
-        if(cur == nullptr) return;
+
+private:
+    void dfs(Node *cur)
+    {
+        if (cur == nullptr)
+            return;
         dfs(cur->left);
-        if(pre != nullptr) pre->right = cur;
-        else head = cur;
+        if (pre != nullptr)
+            pre->right = cur;
+        else
+            head = cur;
         cur->left = pre;
         pre = cur;
         dfs(cur->right);
     }
 };
 
-int main() {
+int main()
+{
     // ======= Test Case =======
-    vector<Node*> nodeList = {
+    vector<Node *> nodeList = {
         new Node(1),
         new Node(2),
         new Node(3),
         new Node(4),
-        new Node(5)
-    };
+        new Node(5)};
     nodeList[3]->left = nodeList[1];
     nodeList[3]->right = nodeList[4];
     nodeList[1]->left = nodeList[0];
     nodeList[1]->right = nodeList[2];
-    Node* root = nodeList[3];
+    Node *root = nodeList[3];
 
     // ====== Driver Code ======
-    Solution* slt = new Solution();
-    Node* res = slt->treeToDoublyList(root);
+    Solution *slt = new Solution();
+    Node *res = slt->treeToDoublyList(root);
     // Print the Doubly circular linked list
     vector<int> nodesVal;
-    for (int i = 0; i <= nodeList.size(); i++) {
+    for (int i = 0; i <= nodeList.size(); i++)
+    {
         nodesVal.push_back(res->val);
         res = res->right;
     }
     cout << PrintUtil::strJoin(" <-> ", nodesVal) << endl;
-    
+
     return 0;
 }
