@@ -59,6 +59,14 @@ public:
 
 1 <--> 2 <--> 3 <--> 4 <--> 5
 树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继
+
+双向链表节点结构体:
+struct ListNode {
+    int val;         // 节点值
+    ListNode *next;  // 指向后继节点的指针（引用）
+    ListNode *prev;  // 指向前驱节点的指针（引用）
+    ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 构造函数
+};
 */
 
 private:
