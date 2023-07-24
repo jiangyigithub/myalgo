@@ -101,7 +101,7 @@ string integerVectorToString(vector<int> list, int length = -1)
 //      / \
 //     4   8
 //    /   / \
-//   11  13  3
+//   11  13  14
 //  /  \    / \
 // 7    2  5   7
 class Solution
@@ -126,6 +126,25 @@ void preOrder(TreeNode *root) {
     path.pop_back();
 }
 
+void preOrder2(TreeNode *root) {
+    // 剪枝
+    if (root == nullptr||root->val == 3) {
+        return;
+    }
+    // 尝试
+    path.push_back(root->val);
+    if (root->val == 7) {
+        // 记录解
+        res.push_back(path);
+        path.pop_back();
+        return;
+    }
+    preOrder2(root->left);
+    preOrder2(root->right);
+    // 回退
+    path.pop_back();
+}
+
 public:
     vector<vector<int>> res;
     vector<int> path;
@@ -133,7 +152,7 @@ public:
 
 int main()
 {
-    string line = "[5,4,8,11,null,13,3,7,2,null,null,5,7]";
+    string line = "[5,4,8,11,null,13,14,7,2,null,null,5,7]";
 
     TreeNode *root = stringToTreeNode(line);
 
