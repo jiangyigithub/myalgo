@@ -144,11 +144,15 @@ int getDigitSum(int num) {
 
 ## 7/21
 1. 剑指 Offer 34. 二叉树中和为某一值的路径
+* 二叉树遍历 前序 后序
 * 前序遍历(cpp/dfs_tree.cpp) --> 前序遍历搜索路径 --> 二叉树中和为某一值的路径
 * recur parameter: target
 * recur end condtion
 * 记录解 if no return
 * private memeber: define `path` to add or substract, define `result` to store if the condition is satified
+
+2. 剑指 Offer 36. 二叉搜索树与双向链表
+* 二叉树遍历 中序 二叉搜索树
 
 
 # 动态规划
