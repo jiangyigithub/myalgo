@@ -235,8 +235,10 @@ di gui `pre`+`cur`
 
 2. 剑指 Offer 61. 扑克牌中的顺子
 * list all situations
- - 大小王
- - 重复
+    - 大小王
+    - 重复
+ * sort while include specific value
+    - use `continue` to skip specific value
 
 
 

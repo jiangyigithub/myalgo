@@ -23,17 +23,17 @@
 拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0
 */
 
-#include "../include/include.hpp"
+#include "head.hpp"
 
 // ===== Solution Code =====
 class Solution {
 public:
     string minNumber(vector<int>& nums) {
         vector<string> strs;
+        string res;
         for(int i = 0; i < nums.size(); i++)
             strs.push_back(to_string(nums[i]));
         quickSort(strs, 0, strs.size() - 1);
-        string res;
         for(string s : strs)
             res.append(s);
         return res;

@@ -47,14 +47,14 @@ public:
     }
 };
 
-int maxin()
+int main()
 {
     // ======= Test Case =======
     vector<int> nums = {0, 0, 1, 2, 5};
     // ====== Driver Code ======
     Solution *slt = new Solution();
     bool res = slt->isStraight(nums);
-    cout << boolalpha << res << endl;
+    std::cout << res << std::endl;
 
     return 0;
 }
