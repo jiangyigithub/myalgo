@@ -230,8 +230,7 @@ di gui `pre`+`cur`
 
 ## 7/25 **Day 16**  **排序（简单）**  
 1. 剑指 Offer 45. 把数组排成最小的数
-规定 排序判断规则 为：当 AB < BA 且 AC < CA时
-如何证明 ABC < CBA?
+排序判断规则 为：当 AB < BA , A>B  --> sort metric --> lambda expression
 
 2. 剑指 Offer 61. 扑克牌中的顺子
 * list all situations
