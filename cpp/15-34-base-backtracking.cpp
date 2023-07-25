@@ -153,11 +153,41 @@ public:
 int main()
 {
     string line = "[5,4,8,11,null,13,14,7,2,null,null,5,7]";
-
+    string line2 ="[5,4,8,11,null,13,14,7,2,null,null,5,7,7,null]";
     TreeNode *root = stringToTreeNode(line);
+    TreeNode *root2 = stringToTreeNode(line2);
 
     Solution* slt = new Solution();
      slt->preOrder(root);
+    
+    Solution* slt2 = new Solution();
+     slt2->preOrder(root2);
     vector<vector<int>> output = slt->res;
+    vector<vector<int>> output2 = slt2->res;
     int a = 1;
 }
+
+/*
+//         5
+//        / \
+//       4   8
+//      /   / \
+//     11  13  14
+//    /  \    / \
+//   7    2  5   7
+//  /    
+// 7  
+
+Please try the test case [5,4,8,11,null,13,14,7,2,null,null,5,7,null,null,7] and compare them.
+
+# Solution 1
+[5, 4, 11, 7]
+[5, 8, 13, 7]
+
+# Solution 2
+[5, 4, 11, 7]
+[5, 4, 11, 7, 7]
+[5, 8, 13, 7]
+
+We got [5, 4, 11, 7, 7] in Solution 2 because it will continue searching when finding node 7.
+*/
