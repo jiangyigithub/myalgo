@@ -1,9 +1,9 @@
 # basic problem
-## recur
-## double while
-## digit problem
-## swap
-## binary search
+## recur 递归
+## double while 双循环
+## digit problem 数位问题
+## swap 交换
+## binary search 二分搜索
 
 ## 06/29 **Day 1**  **栈与队列（简单）**
 1. 剑指 Offer 09. 用两个栈实现队列
