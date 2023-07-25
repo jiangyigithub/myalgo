@@ -153,15 +153,15 @@ public:
 int main()
 {
     string line = "[5,4,8,11,null,13,14,7,2,null,null,5,7]";
-    string line2 ="[5,4,8,11,null,13,14,7,2,null,null,5,7,7,null]";
+    string line2 ="[5,4,8,7,null,13,14,7,2,null,null,5,7,7,null]";
     TreeNode *root = stringToTreeNode(line);
     TreeNode *root2 = stringToTreeNode(line2);
 
     Solution* slt = new Solution();
-     slt->preOrder(root);
+     slt->preOrder(root2);
     
     Solution* slt2 = new Solution();
-     slt2->preOrder(root2);
+     slt2->preOrder2(root2);
     vector<vector<int>> output = slt->res;
     vector<vector<int>> output2 = slt2->res;
     int a = 1;
@@ -172,7 +172,7 @@ int main()
 //        / \
 //       4   8
 //      /   / \
-//     11  13  14
+//     7  13  14
 //    /  \    / \
 //   7    2  5   7
 //  /    
