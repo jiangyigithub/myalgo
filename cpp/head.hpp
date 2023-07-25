@@ -8,6 +8,7 @@
 #include <sstream>
 #include <map>
 #include <unordered_map>
+#include <unordered_set>
 #include <assert.h>
 #include <queue>
 #include <limits.h>
