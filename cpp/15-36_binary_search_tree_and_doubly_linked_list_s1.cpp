@@ -79,9 +79,9 @@ private:
             return;
         dfs(cur->left);
         if (pre != nullptr)
-            pre->right = cur;
+            pre->right = cur;//normal operation
         else
-            head = cur;
+            head = cur;//init operation
         cur->left = pre;
         pre = cur;
         dfs(cur->right);

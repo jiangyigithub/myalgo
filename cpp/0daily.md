@@ -154,7 +154,10 @@ int getDigitSum(int num) {
 ## 7/24
 2. 剑指 Offer 36. 二叉搜索树与双向链表
 * 二叉树中序遍历 <--> 二叉搜索树
-* DoublyList   pre<=>cur
+* DoublyList   
+ pre-->cur
+ pre<--cur
+ pre=pre->next
         pre->next = cur;
         cur->prev = pre;
         pre = cur;
