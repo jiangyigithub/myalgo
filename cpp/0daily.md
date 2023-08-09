@@ -1,9 +1,9 @@
 # basic problem
-## recur
-## double while
-## digit problem
-## swap
-## binary search
+## recur 递归
+## double while 双循环
+## digit problem 数位问题
+## swap 交换
+## binary search 二分搜索
 
 ## 06/29 **Day 1**  **栈与队列（简单）**
 1. 剑指 Offer 09. 用两个栈实现队列
@@ -230,9 +230,11 @@ di gui `pre`+`cur`
 
 ## 7/25 **Day 16**  **排序（简单）**  
 1. 剑指 Offer 45. 把数组排成最小的数
-排序判断规则 为：当 AB < BA , A>B  --> sort metric --> lambda expression
+* 通常情况下，std::sort使用的是快速排序（QuickSort）算法或者是归并排序（MergeSort）算法。这两种算法都属于基于比较的排序算法，并且具有较好的平均时间复杂度。
+* 直接在快速排序算法里，修改排序判断规则 为：当 AB < BA , A>B
+* 类似于修改快排的sort metric，可以使用系统函数std::sort，运用 lambda expression，自定义比较函数来指定排序顺序
 
-2. 剑指 Offer 61. 扑克牌中的顺子
+1. 剑指 Offer 61. 扑克牌中的顺子
 * list all situations
     - 大小王
     - 重复

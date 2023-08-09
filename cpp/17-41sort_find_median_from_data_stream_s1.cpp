@@ -31,7 +31,8 @@ double findMedian() - 返回目前所有元素的中位数。
 最多会对 addNum、findMedian 进行 50000 次调用。
 */
 
-#include "../include/include.hpp"
+#include "head.hpp"
+#include "PrintUtil.hpp"
 
 // ===== Solution Code =====
 class MedianFinder {
@@ -57,12 +58,16 @@ public:
 
 int main() {
     // ====== Driver Code ======
+    // [5 2 4 3 1 6]
     vector<double> res;
     MedianFinder* medianFinder = new MedianFinder();
-    medianFinder->addNum(1);
+    medianFinder->addNum(5);
     medianFinder->addNum(2);
+    medianFinder->addNum(4);
     res.push_back(medianFinder->findMedian());
     medianFinder->addNum(3);
+    medianFinder->addNum(1);
+    medianFinder->addNum(6);
     res.push_back(medianFinder->findMedian());
     PrintUtil::printVector(res);
 
