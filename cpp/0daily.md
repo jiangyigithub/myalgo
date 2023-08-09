@@ -238,7 +238,7 @@ di gui `pre`+`cur`
 * list all situations
     - 大小王
     - 重复
- * sort while include specific value
+* sort while include specific value
     - use `continue` to skip specific value
 
 ## 8/09 **Day 17**  **排序（中等）**
