@@ -18,7 +18,7 @@ private:
         while (i < j) {
             // Move j towards left until arr[j] < arr[l]
             while (i < j && arr[j] >= arr[l]) j--;
-             // Move i towards right until arr[i] > arr[l]
+            // Move i towards right until arr[i] > arr[l]
             while (i < j && arr[i] <= arr[l]) i++;
             // Swap elements at indices i and j to maintain the partitioning
             swap(arr[i], arr[j]);
