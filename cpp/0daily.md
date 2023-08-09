@@ -247,8 +247,10 @@ di gui `pre`+`cur`
 * return the recursive function
 
 2. 剑指 Offer 41. 数据流中的中位数
-* design two priority queue
-* A保存较大的一半, B保存较小的一半
+   * 怎么动态的把数据分到两个容器，其中较大的在一个，较小的在另一个
+   * 排序有很多子问题，全部有序是一种，现在是要求，要得到较大容器中的最小值，和较小容器中的最大值
+   * design two priority queue
+   * A保存较大的一半, B保存较小的一半
 
 
 
