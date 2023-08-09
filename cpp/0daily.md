@@ -244,6 +244,7 @@ di gui `pre`+`cur`
 ## 8/09 **Day 17**  **排序（中等）**
 1. 剑指 Offer 40. 最小的 k 个数
 * deep understood of quick sort
+* return the recursive function
 
 2. 剑指 Offer 41. 数据流中的中位数
 * design two priority queue
