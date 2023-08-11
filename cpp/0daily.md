@@ -250,5 +250,9 @@ di gui `pre`+`cur`
 * design two priority queue
 * A保存较大的一半, B保存较小的一半
 
+## 8/11 **Day 18**  **搜索与回溯算法（中等）** 
+1. 剑指 Offer 55 - I. 二叉树的深度
+2. 剑指 Offer 55 - II. 平衡二叉树
+
 
 
