@@ -254,11 +254,14 @@ di gui `pre`+`cur`
 
 ## 8/11 **Day 18**  **搜索与回溯算法（中等）** 
 1. 剑指 Offer 55 - I. 二叉树的深度
-* 涉及到分层的题目，最常见的做法是while 循环里再嵌套一个 for 循环 --> it is a solution for specific question
-* 之前常见的bfs套路是先进入根节点指针然后while循环只要que不为空就一直循环，先front记录再pop出根节点指针，然后下面再根据其左右节点是否存在来进入其左右节点的指针，但这样有个问题就是que队列里可能会既有上一层的结点又有下一层的结点，所以这里很巧妙的引入了tmp队列，把左右子节点指针存到tmp里，这样就避免了父子节点指针在同一个que队列里。而把tmp赋值给que，然后新的一层循环初始化tmp这一迭代的设定则是保证tmp里是同一层节点的关键。而且本题因为没有出队操作，所以还要有一个for循环来处理，这里是增强型for循环，如果选容器适配器queue就麻烦了，因为queue没有迭代器，不能顺序访问，没法采用增强型 for 循环。
-* relationship with 06-32tree_b 
-
-* return int for recur in DFS solution
+   `BFS`
+   * 涉及到分层的题目，最常见的做法是while 循环里再嵌套一个 for 循环 --> it is a solution for specific question
+   * 之前常见的bfs套路是先进入根节点指针然后while循环只要que不为空就一直循环，先front记录再pop出根节点指针，然后下面再根据其左右节点是否存在来进入其左右节点的指针，但这样有个问题就是que队列里可能会既有上一层的结点又有下一层的结点，所以这里很巧妙的引入了tmp队列，把左右子节点指针存到tmp里，这样就避免了父子节点指针在同一个que队列里。而把tmp赋值给que，然后新的一层循环初始化tmp这一迭代的设定则是保证tmp里是同一层节点的关键。而且本题因为没有出队操作，所以还要有一个for循环来处理，这里是增强型for循环，如果选容器适配器queue就麻烦了，因为queue没有迭代器，不能顺序访问，没法采用增强型 for 循环。
+   * relationship with 06-32tree_b 
+   
+   `BFS`
+   * return int for recur in DFS solution，递归终止条件，指的是递归树的最低端，但不代表最终结果是在执行递归终止时执行，递归最终结果，是在递归过程中，"归"这个步骤
+  
 
 2. 剑指 Offer 55 - II. 平衡二叉树
 
