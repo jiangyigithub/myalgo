@@ -3,6 +3,7 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "unordered_set": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "limits": "cpp"
     }
 }
