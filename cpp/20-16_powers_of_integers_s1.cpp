@@ -48,15 +48,14 @@ public:
         }
         return res;
     }
-
+    
+    // https://leetcode.cn/leetbook/read/illustration-of-algorithm/9h1gyt/
     int sumNums(int n) {
         int res = 0;
         for(int i = 1; i <= n; i++)
             res += i;
         return res;
     }
-
-
 };
 
 int main() {
