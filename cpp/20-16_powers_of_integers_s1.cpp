@@ -42,12 +42,21 @@ public:
             b = -b;
         }
         while(b > 0) {
-            if((b & 1) == 1) res *= x;
+            if((b & 1) == 1) res *= x; // --> "治"
             x *= x;
-            b >>= 1;
+            b >>= 1;//右移一位 -->"分"
         }
         return res;
     }
+
+    int sumNums(int n) {
+        int res = 0;
+        for(int i = 1; i <= n; i++)
+            res += i;
+        return res;
+    }
+
+
 };
 
 int main() {
