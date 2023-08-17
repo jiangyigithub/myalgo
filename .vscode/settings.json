@@ -4,6 +4,8 @@
         "iostream": "cpp",
         "unordered_set": "cpp",
         "ios": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp"
     }
 }
