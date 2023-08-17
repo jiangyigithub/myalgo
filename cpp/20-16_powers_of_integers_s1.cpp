@@ -44,7 +44,7 @@ public:
         while(b > 0) {
             if((b & 1) == 1) res *= x; // --> "治"
             x *= x;
-            b >>= 1;//右移一位 -->"分"
+            b >>= 1;//右移一位 (same as /2) -->"分"
         }
         return res;
     }
