@@ -32,7 +32,7 @@ p、q 为不同节点且均存在于给定的二叉搜索树中。
 
  */
 
-#include "../include/include.hpp"
+#include "include.hpp"
 
 // ===== Solution Code =====
 class Solution
