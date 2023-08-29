@@ -22,4 +22,6 @@ https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B
 ## how to make a video
 https://www.youtube.com/watch?v=N6-Q2dgodLs
 
+## 为什么C++难，因为C++ 涉及操作系统，编译器，计算机组成这些知识
+
 
