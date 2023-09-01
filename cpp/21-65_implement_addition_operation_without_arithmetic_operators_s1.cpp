@@ -7,6 +7,7 @@
 #include "include.hpp"
 
 // ===== Solution Code =====
+// https://iq.opengenus.org/addition-using-bitwise-operations/
 class Solution {
 public:
     int add(int a, int b) {
