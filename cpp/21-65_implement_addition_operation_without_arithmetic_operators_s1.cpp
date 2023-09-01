@@ -12,8 +12,8 @@ public:
     int add(int a, int b) {
         while(b != 0)
         {
-            int c = (unsigned int)(a & b) << 1;
-            a ^= b;
+            int c = (unsigned int)(a & b) << 1;  // bitwise left shift
+            a ^= b;                              // bitwise Xor
             b = c;
         }
         return a;
