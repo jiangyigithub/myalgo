@@ -273,9 +273,13 @@ di gui `pre`+`cur`
 2. 剑指 Offer 16. 数值的整数次方
 3. 剑指 Offer 33. 二叉搜索树的后序遍历序列
 
-## 9/1 **
-1.
+## 9/1 **Day 21**  **位运算（简单）**
+1. 剑指 Offer 15. 二进制中 1 的个数
+
+
+2. 剑指 Offer 65. 不用加减乘除做加法
 异或
 左移
+https://iq.opengenus.org/addition-using-bitwise-operations/
 
 
