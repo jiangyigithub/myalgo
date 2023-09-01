@@ -6,7 +6,7 @@ public:
         int res = 0;
         while(n!=0){
             res+=n&1; // bitwise and
-            n>>=1; // bitwise right shift
+            n>>=1;    // bitwise right shift
         }
         return res;
     }
