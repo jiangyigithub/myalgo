@@ -2,10 +2,21 @@
 
 class Solution {
 public:
+    // int hammingWeight(uint32_t n) {
+    //     int res = 0;
+    //     while(n!=0){
+    //         res+=n&1; // bitwise and
+    //         n>>=1;    // bitwise right shift
+    //     }
+    //     return res;
+    // }
+
     int hammingWeight(uint32_t n) {
         int res = 0;
         while(n!=0){
-            res+=n&1; // bitwise and
+            if((n&1)==1){
+                res++;
+            }
             n>>=1;    // bitwise right shift
         }
         return res;
@@ -17,7 +28,7 @@ int stringToInteger(string input) {
 }
 
 int main() {
-    string line = "123";
+    string line = "3";
    
     int n = stringToInteger(line);
     
