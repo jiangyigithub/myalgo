@@ -284,4 +284,11 @@ di gui `pre`+`cur`
 左移
 https://iq.opengenus.org/addition-using-bitwise-operations/
 
+**Day 22** | **位运算（中等）**
+1. 剑指 Offer 56 - I. 数组中数字出现的次数
+2. 剑指 Offer  56 - II. 数组中数字出现的次数 II
+
+## 9/12 **Day 23** | **数学（简单）**
+1. 剑指 Offer 39. 数组中出现次数超过一半的数字
+2. 剑指 Offer 66. 构建乘积数组
 
