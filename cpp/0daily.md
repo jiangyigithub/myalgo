@@ -290,5 +290,12 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 
 ## 9/12 **Day 23** | **数学（简单）**
 1. 剑指 Offer 39. 数组中出现次数超过一半的数字
+- initialize candidate and the vote of the candidata
+- iterate the vote pool,then start vote
+    while the candidate is choosed, votes +1, else -1;`votes += num == x ? 1 : -1;`
+    while votes equal 0; change other candidate
+
+* `common method` sort all elements , then choose the mid element of sorted array
+
 2. 剑指 Offer 66. 构建乘积数组
 
