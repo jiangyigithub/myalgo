@@ -295,7 +295,7 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
     while the candidate is choosed, votes +1, else -1;`votes += num == x ? 1 : -1;`
     while votes equal 0; change other candidate
 
-* `common method` sort all elements , then choose the mid element of sorted array
+* `general solution` sort all elements , then choose the mid element of sorted array
 
 2. 剑指 Offer 66. 构建乘积数组
 
