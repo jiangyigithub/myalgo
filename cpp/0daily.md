@@ -284,11 +284,11 @@ di gui `pre`+`cur`
 左移
 https://iq.opengenus.org/addition-using-bitwise-operations/
 
-**Day 22** | **位运算（中等）**
+**Day 22**  **位运算（中等）**
 1. 剑指 Offer 56 - I. 数组中数字出现的次数
 2. 剑指 Offer  56 - II. 数组中数字出现的次数 II
 
-## 9/12 **Day 23** | **数学（简单）**
+## 9/12 **Day 23**  **数学（简单）**
 1. 剑指 Offer 39. 数组中出现次数超过一半的数字
 - initialize candidate and the vote of the candidata
 - iterate the vote pool,then start vote
@@ -313,3 +313,8 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 ```
 * reverse order
 * handle boundery condition, `L[0]`,`R[len-1]`
+
+## 9/26 **Day 24**  **数学（中等）**
+1. 剑指 Offer 14- I. 剪绳子
+2. 剑指 Offer 57 - II. 和为 s 的连续正数序列
+3. 剑指 Offer 62. 圆圈中最后剩下的数字
