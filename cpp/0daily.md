@@ -334,6 +334,7 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
                     ans.push_back(k);
                 res.push_back(ans);
 ```
+*substract first, move left second; move right first,sum second
 
 3. 剑指 Offer 62. 圆圈中最后剩下的数字
 这是经典的约瑟夫问题
