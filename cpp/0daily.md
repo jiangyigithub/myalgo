@@ -298,4 +298,6 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 * `general solution` sort all elements , then choose the mid element of sorted array
 
 2. 剑指 Offer 66. 构建乘积数组
-
+* sum --> product , but exclude `a[i]`
+* reverse order
+* handle boundery condition, `L[0]`,`R[len-1]`
