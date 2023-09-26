@@ -325,7 +325,15 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 ## 9/26 **Day 24**  **数学（中等）**
 1. 剑指 Offer 14- I. 剪绳子
 2. 剑指 Offer 57 - II. 和为 s 的连续正数序列
-滑动窗口
+* key condition:`连续正整数序列` method: 滑动窗口
+* 窗口左边界右移 have two condtions:1. find the target 2. target is smaller
+* how to handle the problem which have multiple results.
+```c++
+                vector<int> ans;
+                for (int k = i; k <= j; k++)
+                    ans.push_back(k);
+                res.push_back(ans);
+```
 
 3. 剑指 Offer 62. 圆圈中最后剩下的数字
 这是经典的约瑟夫问题

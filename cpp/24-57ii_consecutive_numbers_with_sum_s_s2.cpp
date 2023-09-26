@@ -34,6 +34,7 @@ public:
                     ans.push_back(k);
                 res.push_back(ans);
             }
+            // 窗口左边界右移
             if (s >= target)
             {
                 s -= i;
@@ -65,7 +66,7 @@ public:
                     sequence.push_back(i);
                 }
                 result.push_back(sequence);
-                // 向右移动窗口
+                // 窗口左边界右移
                 sum -= left;
                 left++;
             }
