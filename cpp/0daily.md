@@ -298,6 +298,14 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 * `general solution` sort all elements , then choose the mid element of sorted array
 
 2. 剑指 Offer 66. 构建乘积数组
+* initiate vector 
+```c++
+    int n = 3;
+  
+    // Create a vector of size n with
+    // all values as 10.
+    vector<int> vect(n, 10);
+```
 * sum --> product --> product array output--> product array output, but exclude `a[i]`
 ```c++ product
     // Calculate the product of array elements
@@ -311,8 +319,8 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
         L[i] = L[i - 1] * arr[i-1];
     };
 ```
-* reverse order
-* handle boundery condition, `L[0]`,`R[len-1]`
+* reverse order --> boundery`j>=0`  index `R[j+1]`
+* handle boundery condition equal to 1, `L[0]`,`R[len-1]`
 
 ## 9/26 **Day 24**  **数学（中等）**
 1. 剑指 Offer 14- I. 剪绳子
