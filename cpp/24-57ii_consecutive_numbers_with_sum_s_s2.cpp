@@ -90,10 +90,10 @@ public:
 int main()
 {
     // ======= Test Case =======
-    int target = 9;
+    int target = 15;
     // ====== Driver Code ======
     Solution *slt = new Solution();
-    vector<vector<int>> res = slt->findContinuousSequence(target);
+    vector<vector<int>> res = slt->findContinuousSequence2(target);
     PrintUtil::printVectorMatrix(res);
 
     return 0;
