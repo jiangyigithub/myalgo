@@ -325,4 +325,9 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 ## 9/26 **Day 24**  **数学（中等）**
 1. 剑指 Offer 14- I. 剪绳子
 2. 剑指 Offer 57 - II. 和为 s 的连续正数序列
+滑动窗口
+
 3. 剑指 Offer 62. 圆圈中最后剩下的数字
+这是经典的约瑟夫问题
+递推公式f(n, m) = (f(n-1, m) + m) % n
+其中，f(1, m)等于0，因为只剩下一个数字时，它的索引肯定是0。

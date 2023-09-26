@@ -18,37 +18,83 @@
 #include "include.hpp"
 
 // ===== Solution Code =====
-class Solution {
+class Solution
+{
 public:
-    vector<vector<int>> findContinuousSequence(int target) {
+    vector<vector<int>> findContinuousSequence(int target)
+    {
         int i = 1, j = 2, s = 3;
         vector<vector<int>> res;
-        while(i < j) {
-            if(s == target) {
+        while (i < j)
+        {
+            if (s == target)
+            {
                 vector<int> ans;
-                for(int k = i; k <= j; k++)
+                for (int k = i; k <= j; k++)
                     ans.push_back(k);
                 res.push_back(ans);
             }
-            if(s >= target) {
+            if (s >= target)
+            {
                 s -= i;
                 i++;
-            } else {
+            }
+            else
+            {
                 j++;
                 s += j;
             }
         }
         return res;
     }
+
+    vector<vector<int>> findContinuousSequence2(int target)
+    {
+        vector<vector<int>> result;
+        int left = 1;  // 滑动窗口的左边界
+        int right = 2; // 滑动窗口的右边界
+        int sum = 3;   // 滑动窗口中数字的和，初始为1+2=3
+
+        while (left < right)
+        {
+            if (sum == target)
+            {
+                vector<int> sequence;
+                for (int i = left; i <= right; ++i)
+                {
+                    sequence.push_back(i);
+                }
+                result.push_back(sequence);
+                // 向右移动窗口
+                sum -= left;
+                left++;
+            }
+            else if (sum < target)
+            {
+                // 窗口右边界右移
+                right++;
+                sum += right;
+            }
+            else
+            {
+                // 窗口左边界右移
+                sum -= left;
+                left++;
+            }
+        }
+
+        return result;
+    }
 };
 
-int main() {
+int main()
+{
     // ======= Test Case =======
     int target = 9;
     // ====== Driver Code ======
-    Solution* slt = new Solution();
+    Solution *slt = new Solution();
     vector<vector<int>> res = slt->findContinuousSequence(target);
     PrintUtil::printVectorMatrix(res);
-    
+
     return 0;
 }
