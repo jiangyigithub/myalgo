@@ -284,11 +284,11 @@ di gui `pre`+`cur`
 左移
 https://iq.opengenus.org/addition-using-bitwise-operations/
 
-**Day 22** | **位运算（中等）**
+**Day 22**  **位运算（中等）**
 1. 剑指 Offer 56 - I. 数组中数字出现的次数
 2. 剑指 Offer  56 - II. 数组中数字出现的次数 II
 
-## 9/12 **Day 23** | **数学（简单）**
+## 9/12 **Day 23**  **数学（简单）**
 1. 剑指 Offer 39. 数组中出现次数超过一半的数字
 - initialize candidate and the vote of the candidata
 - iterate the vote pool,then start vote
@@ -298,4 +298,45 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 * `general solution` sort all elements , then choose the mid element of sorted array
 
 2. 剑指 Offer 66. 构建乘积数组
+* initiate vector 
+```c++
+    int n = 3;
+  
+    // Create a vector of size n with
+    // all values as 10.
+    vector<int> vect(n, 10);
+```
+* sum --> product --> product array output--> product array output, but exclude `a[i]`
+```c++ product
+    // Calculate the product of array elements
+    for (int i = 0; i < n; i++) {
+        product *= arr[i];
+    }
+```
+```c++ product array output
+    // Calculate the product array output of array elements
+    for (int i = 0; i < n; i++) {
+        L[i] = L[i - 1] * arr[i-1];
+    };
+```
+* reverse order --> boundery`j>=0`  index `R[j+1]`
+* handle boundery condition equal to 1, `L[0]`,`R[len-1]`
 
+## 9/26 **Day 24**  **数学（中等）**
+1. 剑指 Offer 14- I. 剪绳子
+2. 剑指 Offer 57 - II. 和为 s 的连续正数序列
+* key condition:`连续正整数序列` method: 滑动窗口
+* 窗口左边界右移 have two condtions:1. find the target 2. target is smaller
+* how to handle the problem which have multiple results.
+```c++
+                vector<int> ans;
+                for (int k = i; k <= j; k++)
+                    ans.push_back(k);
+                res.push_back(ans);
+```
+*substract first, move left second; move right first,sum second
+
+3. 剑指 Offer 62. 圆圈中最后剩下的数字
+这是经典的约瑟夫问题
+递推公式f(n, m) = (f(n-1, m) + m) % n
+其中，f(1, m)等于0，因为只剩下一个数字时，它的索引肯定是0。
