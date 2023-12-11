@@ -340,3 +340,9 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 这是经典的约瑟夫问题
 递推公式f(n, m) = (f(n-1, m) + m) % n
 其中，f(1, m)等于0，因为只剩下一个数字时，它的索引肯定是0。
+
+
+## 12/11 **Day 27** **滑动窗口的最大值**
+1. 剑指 Offer 59 - I. 滑动窗口的最大值
+The tricky, and didactic, part of this problem is to store index, rather than value, in the deque— which enables you to tell when the bottom of the deque is outside the window.
+这个问题的巧妙之处，就是将索引而不是值存储在双端队列中——这样可以帮助您判断双端队列底部是否超出了窗口范围。
