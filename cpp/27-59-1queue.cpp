@@ -63,6 +63,30 @@ public:
         }
         return ans;
     }
+
+
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        if(nums.size() == 0 || k == 0) return {};
+        deque<int> deque;
+        vector<int> res(nums.size() - k + 1);
+        // 未形成窗口
+        for(int i = 0; i < k; i++) {
+            while(!deque.empty() && deque.back() < nums[i])
+                deque.pop_back();
+            deque.push_back(nums[i]);
+        }
+        res[0] = deque.front();
+        // 形成窗口后
+        for(int i = k; i < nums.size(); i++) {
+            if(deque.front() == nums[i - k])
+                deque.pop_front();
+            while(!deque.empty() && deque.back() < nums[i])
+                deque.pop_back();
+            deque.push_back(nums[i]);
+            res[i - k + 1] = deque.front();
+        }
+        return res;
+    }
 };
 
 void trimLeftTrailingSpaces(string &input)
