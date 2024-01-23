@@ -16,6 +16,7 @@ lowInit/
 
 #logfile
 *.log
+*.out
 
 
 #CANoe/CANalyzer Binary files
