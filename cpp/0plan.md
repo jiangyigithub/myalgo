@@ -90,8 +90,8 @@
 |            | [剑指 Offer 20. 表示数值的字符串](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5d6vi6/)               |
 |            | [剑指 Offer 67. 把字符串转换成整数](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/58pq8g/)             |
 | **Day 27** | **栈与队列（困难）**                              |
-|            | [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/58o46i/)           |
-|            | [剑指 Offer 59 - II. 队列的最大值](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/e2t5ug/)              |
+|            | [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode.cn/leetbook/read/illustration-of-algorithm/lhsv7e/)           |
+|            | [剑指 Offer 59 - II. 队列的最大值](https://leetcode.cn/leetbook/read/illustration-of-algorithm/lh4adg/)              |
 | **Day 28** | **搜索与回溯算法（困难）**                        |
 |            | [剑指 Offer 37. 序列化二叉树](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/990pf2/)                   |
 |            | [剑指 Offer 38. 字符串的排列](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5dfv5h/)                   |
