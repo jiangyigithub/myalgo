@@ -346,3 +346,8 @@ https://iq.opengenus.org/addition-using-bitwise-operations/
 1. 剑指 Offer 59 - I. 滑动窗口的最大值
 The tricky, and didactic, part of this problem is to store index, rather than value, in the deque— which enables you to tell when the bottom of the deque is outside the window.
 这个问题的巧妙之处，就是将索引而不是值存储在双端队列中——这样可以帮助您判断双端队列底部是否超出了窗口范围。
+
+## 1/29 **Day 27** **队列的最大值**
+1. 剑指 Offer 59 - 2. 队列的最大值
+* 类的设计，queue类实现 pop 和 push功能， deque类实现max功能，因为queue类和deque类要处理相同的数据，还需要考虑函数操作对各自的影响。
+比如push时，你需要在queue类中存数据，但deque为保存单调，需要将deque的数据降序存储。
