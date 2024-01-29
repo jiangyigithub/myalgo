@@ -351,3 +351,5 @@ The tricky, and didactic, part of this problem is to store index, rather than va
 1. 剑指 Offer 59 - 2. 队列的最大值
 * 类的设计，queue类实现 pop 和 push功能， deque类实现max功能，因为queue类和deque类要处理相同的数据，还需要考虑函数操作对各自的影响。
 比如push时，你需要在queue类中存数据，但deque为保存单调，需要将deque的数据降序存储。
+
+2. 设计一个类，空间上包含queue和deque，每个成员负责特定功能，保证时间复杂度。这样实现了空间换时间
