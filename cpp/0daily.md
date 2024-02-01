@@ -353,3 +353,5 @@ The tricky, and didactic, part of this problem is to store index, rather than va
 比如push时，你需要在queue类中存数据，但deque为保存单调，需要将deque的数据降序存储。
 
 2. 设计一个类，空间上包含queue和deque，每个成员负责特定功能，保证时间复杂度。这样实现了空间换时间
+
+## 2/1 
