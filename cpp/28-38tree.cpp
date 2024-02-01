@@ -22,12 +22,12 @@ private:
         set<int> st;
         for (int i = x; i < s.size(); i++)
         {
-            if (st.find(s[i]) != st.end())
+            if (st.find(s[i]) != st.end()) // 重复，因此剪枝
                 continue;
             st.insert(s[i]);
             swap(s[i], s[x]);
             dfs(s, x + 1);
-            swap(s[i], s[x]);
+            swap(s[i], s[x]); // 回溯/撤销
         }
     }
 };
