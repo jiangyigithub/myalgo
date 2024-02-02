@@ -25,7 +25,7 @@ private:
             if (st.find(s[i]) != st.end()) // 重复，因此剪枝
                 continue;
             st.insert(s[i]);
-            swap(s[i], s[x]);
+            swap(s[i], s[x]); // 降低空间复杂度
             dfs(s, x + 1);
             swap(s[i], s[x]); // 回溯/撤销
         }
