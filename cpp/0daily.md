@@ -354,7 +354,10 @@ The tricky, and didactic, part of this problem is to store index, rather than va
 
 2. 设计一个类，空间上包含queue和deque，每个成员负责特定功能，保证时间复杂度。这样实现了空间换时间
 
-## 2/1 
-1. 循环中index的初值是一个动态的值
-2. if 条件语句一开始不会执行，但写到前方
-3. 剪枝放在循环内部
+## 2/1 **Day 28** **搜索与回溯算法（困难**
+1. 剑指 Offer 37. 序列化二叉树
+
+2. 剑指 Offer 38. 字符串的排列
+* 循环中index的初值是一个动态的值
+* if 条件语句一开始不会执行，但写到前方
+* 剪枝放在循环内部
