@@ -15,9 +15,11 @@ public:
 };
 
 int main() {
+    int a = 0;
     Base baseObj;
     Derived derivedObj;
-
+    
+    std::cout << "Size of int a: " << sizeof(a) << std::endl;
     std::cout << "Size of Base object: " << sizeof(baseObj) << std::endl;
     std::cout << "Size of Derived object: " << sizeof(derivedObj) << std::endl;
 
