@@ -21,5 +21,10 @@ int main() {
     std::cout << "Size of Base object: " << sizeof(baseObj) << std::endl;
     std::cout << "Size of Derived object: " << sizeof(derivedObj) << std::endl;
 
+    Base* ptr1=new Derived();
+    ptr1->virtualFunction();
+    Base* ptr2=new Base();
+    ptr2->virtualFunction();
+
     return 0;
 }
