@@ -33,7 +33,7 @@ private:
 };
 
 int main(){
-    string s="abc";
+    string s="abcd";
     vector<string> out = Solution().permutation(s);
     for(auto elem:out){
          cout << elem << endl;
