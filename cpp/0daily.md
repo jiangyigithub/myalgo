@@ -365,4 +365,5 @@ The tricky, and didactic, part of this problem is to store index, rather than va
 * 剪枝需要额外的临时变量,set/unordered_set
 * DFS的参数，递归的意思是，问题最终可以回归到很小的规模，所以递归的问题规
 * if reture ;for 进深退; 剪枝用if,单独放在for中
+* 递归退出的方法， return, 递归这种抽象的方法来看，DFS中先去定义if，把搜索结果放在if的中，return语句也在其中这样保证递归的退出。
 模会缩减，通过递归参数的更新来体现。
