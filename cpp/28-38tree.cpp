@@ -19,7 +19,7 @@ private:
             res.push_back(s); // 添加排列方案
             return;
         }
-        set<int> st;
+        set<char> st;
         for (int i = x; i < s.size(); i++)
         {
             if (st.find(s[i]) != st.end()) // 重复，因此剪枝
