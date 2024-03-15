@@ -362,4 +362,6 @@ The tricky, and didactic, part of this problem is to store index, rather than va
 * if 条件语句一开始不会执行，但写到前方
 * 剪枝放在循环内部
 * 剪枝不是必须的，只是用来提升算法效率
-* DFS的参数，递归的意思是，问题最终可以回归到很小的规模，所以递归的问题规模会缩减，通过递归参数的更新来体现。
+* 剪枝需要额外的临时变量,set/unordered_set
+* DFS的参数，递归的意思是，问题最终可以回归到很小的规模，所以递归的问题规
+模会缩减，通过递归参数的更新来体现。
