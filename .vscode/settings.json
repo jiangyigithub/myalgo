@@ -6,6 +6,7 @@
         "ios": "cpp",
         "limits": "cpp",
         "cmath": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "stdexcept": "cpp"
     }
 }

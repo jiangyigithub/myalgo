@@ -1,7 +1,62 @@
 {
+    // this file is the configure file for DEBUG
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        // python debug setting
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        // C++ setting for g++ debug
+        {
+            "name": "g++ - Build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/interview/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        // C++ visual studio debug setting
+        {
+            "name": "vs_offer_executable",
+            // Indicates the underlying debugger being used. Must be cppvsdbg when using the Visual Studio Windows debugger, 
+            // and cppdbg when using GDB or LLDB. This is automatically set to the correct value when the launch.json file is created.
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/offer/RelWithDebInfo/code01stl.exe",
+            // debug at program entry
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "Path",
+                    "value": "C:\\TCC\\Tools\\boost\\1.63.0_WIN64\\lib64-msvc-14.0;C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\bin;${env:Path}"
+                },
+                {
+                    "name": "QT_QPA_PLATFORM_PLUGIN_PATH",
+                    "value": "C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\plugins\\platforms"
+                }
+            ],
+            "console": "integratedTerminal",
+        }
+    ]
 }
