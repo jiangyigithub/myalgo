@@ -139,17 +139,26 @@ void mergeTimeSeries(TimeSeries const &ts1, TimeSeries const &ts2, TimeSeries *m
 
 // Example usage
 int main()
-{
+{   
+    TimeSeriesPoint point1 = {Time{0.0}, 10.0};
+    TimeSeriesPoint point2 = {Time{1.0}, 20.0};
+    TimeSeriesPoint result = interpolate(point1, point2, 0.5);
+    std::cout << "Interpolate value at time " << result.time.value << " is " << result.value << std::endl;
+
     TimeSeries time_series = {
         {Time{0}, 0.0},
         {Time{10}, 10.0},
         {Time{20}, 20.0}
     };
+
+    Time desired_time = Time{1.5};
+    TimeSeriesPoint sample_out = sample(time_series, desired_time);
+    
+    std::cout << "Interpolated value at time " << desired_time.value << " is " << sample_out.value << std::endl;
     
     TimeSeries resampled_series;
     double dt = 2.0;
 
-  
     resample(time_series, dt, &resampled_series);
 
     for (const auto& point : resampled_series)
