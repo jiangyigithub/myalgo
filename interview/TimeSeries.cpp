@@ -32,7 +32,7 @@ struct TimeSeriesPoint
     double value;
 };
 
-/// A TimeSeries is a list of TimeSeriesPoint data, with data elements associated to a particular time. TimeSeries data can be interpolated.
+// A TimeSeries is a list of TimeSeriesPoint data, with data elements associated to a particular time. TimeSeries data can be interpolated.
 typedef std::vector<TimeSeriesPoint> TimeSeries;
 
 /// @brief Return interpolated value. Weight in [0.0, 1.0]
