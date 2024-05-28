@@ -20,6 +20,7 @@ int inList(Node* pHead, int value) {
 }
 
 // 从列表中移除一个值。如果该值不存在于列表中，则返回 "0"
+// 因为要修改Node*，所以函数传入Node**
 int removeValue(Node** ppHead, int value) {
     Node* current = *ppHead;
     Node* previous = NULL;
