@@ -265,6 +265,7 @@ def binary_search(arr, x):
 - 怎么把一个矩阵看做一个抽象的二叉树
 - 显式metric1-位数和，隐式metric2-无法跨越obstacle
 - DFS 和 BFS
+- {0, 0, 0, 0} 和 k < si + sj
 
 **offer 26 二叉树的子树**
 
