@@ -42,7 +42,8 @@
             // and cppdbg when using GDB or LLDB. This is automatically set to the correct value when the launch.json file is created.
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/offer/RelWithDebInfo/code01stl.exe",
+            // "program": "${workspaceFolder}/build/offer/RelWithDebInfo/code01stl.exe",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             // debug at program entry
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
