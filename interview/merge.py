@@ -1,3 +1,8 @@
+"""
+1. 对区间进行排序，根据左边界排序
+2. 更新区间右边界
+2. 无法再更新，则存放merge好的结果
+"""
 def merge_segments(intervals):
     result = []
     if len(intervals) == 0:
