@@ -5,14 +5,14 @@ def merge_segments(intervals):
 
     intervals.sort(key=lambda x: x[0])  # 按照区间的左边界进行排序
 
-    result.append(intervals[0])  # 第一个区间可以直接放入结果集中
+    result.append(intervals[0])  # 第一个区间可以直接放入结果集中，一开始result[-1]是第一个区间，后面result[-1]会更新
 
     for i in range(1, len(intervals)):
         if result[-1][1] >= intervals[i][0]:  # 发现重叠区间
             # 合并区间，只需要更新结果集最后一个区间的右边界，因为根据排序，左边界已经是最小的
             result[-1][1] = max(result[-1][1], intervals[i][1])
         else:
-            result.append(intervals[i])  # 区间不重叠
+            result.append(intervals[i])  # 区间不重叠，才会被放在result中
 
     return result
 
