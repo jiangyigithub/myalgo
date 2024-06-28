@@ -4,42 +4,38 @@
 
 using namespace std;
 
-vector<pair<int, int>> mergeSegments(vector<pair<int, int>>& segments) {
-    sort(segments.begin(), segments.end());
+vector<vector<int>> mergeSegments(vector<vector<int>>& intervals) {
+    vector<vector<int>> result;
+    if (intervals.empty()) {
+        return result;  // 区间集合为空直接返回
+    }
 
-    vector<pair<int, int>> mergedSegments;
-    int start = segments[0].first;
-    int end = segments[0].second;
+    // 按照区间的左边界进行排序
+    sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+        return a[0] < b[0];
+    });
 
-    // 遍历所有线段，检查相邻的线段是否可以合并
-    for (size_t i = 1; i < segments.size(); ++i) {
-        int seg_start = segments[i].first;
-        int seg_end = segments[i].second;
+    result.push_back(intervals[0]);  // 第一个区间可以直接放入结果集中
 
-        // 如果当前线段的起始点在前一个线段的终点之后，则不能合并，将前一个线段添加到结果中
-        if (seg_start > end) {
-            mergedSegments.push_back({start, end});
-            start = seg_start;
-            end = seg_end;
+    for (size_t i = 1; i < intervals.size(); ++i) {
+        if (result.back()[1] >= intervals[i][0]) {  // 发现重叠区间
+            // 合并区间，只需要更新结果集最后一个区间的右边界，因为根据排序，左边界已经是最小的
+            result.back()[1] = max(result.back()[1], intervals[i][1]);
         } else {
-            // 如果可以合并，则更新合并后的终点
-            end = max(end, seg_end);
+            result.push_back(intervals[i]);  // 区间不重叠
         }
     }
 
-    // 添加最后一个合并后的线段
-    mergedSegments.push_back({start, end});
-
-    return mergedSegments;
+    return result;
 }
 
 int main() {
-    vector<pair<int, int>> segments = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    vector<pair<int, int>> merged = mergeSegments(segments);
+    vector<vector<int>> segments = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    vector<vector<int>> merged = mergeSegments(segments);
 
     cout << "拼接后的线段：";
     for (const auto& seg : merged) {
-        cout << "(" << seg.first << ", " << seg.second << ") ";
+        cout << "[" << seg[0] << ", " << seg[1] << "] ";
     }
     cout << endl;
 
