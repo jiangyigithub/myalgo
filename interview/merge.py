@@ -1,7 +1,15 @@
 """
-1. 对区间进行排序，根据左边界排序
-2. 更新区间右边界
-2. 无法再更新，则存放merge好的结果
+1. 对区间进行排序，根据左边界排序（对左边界排序后，就可以只考虑如何更新右边界的问题了）
+2. intervals[i] 与result[-1]发现重叠区间，更新result[-1]的右边界
+2. intervals[i] 与result[-1]无重叠，intervals[i]设置为result[-1]
+
+两个对象:
+待更新项：result[-1]
+待merge项: intervals[i]
+
+trick:
+1. 跟消消乐有点像，可能会触发连环消消乐
+2. for (if, else) 结构
 """
 def merge_segments(intervals):
     result = []
@@ -17,7 +25,7 @@ def merge_segments(intervals):
             # 合并区间，只需要更新结果集最后一个区间的右边界，因为根据排序，左边界已经是最小的
             result[-1][1] = max(result[-1][1], intervals[i][1])
         else:
-            result.append(intervals[i])  # 区间不重叠，才会被放在result中
+            result.append(intervals[i])  # 区间不重叠，才会被放在result中，result[-1]的左边界不会再更新，在下一次迭代中，右边界可能会被更新，result[-2]倒数第二个元素的边界不会再更新，
 
     return result
 
