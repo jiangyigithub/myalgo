@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+Below is a structure definition for a singly linked list node:
+ typedef struct node_t {
+    int value;
+    struct node_t* next;
+} Node;
+Implement a function to find if a node exists in the list, return "0" if not found.
+ int inList(Node* pHead, int value);
+
+Implement a function to remove a value from a list. If the value does not exist in the list, return "0".
+ int removeValue(Node** ppHead, int value);
+
+Note: Passing in a pointer-to-pointer of the list allows us to modify the list head pointer. This is needed if the first element has the matching value.
+https://inside-docupedia.bosch.com/confluence/display/HAD/Coding+Interview#CodingInterview-LinkedList
+*/
 // 结构定义
 typedef struct node_t {
     int value;
