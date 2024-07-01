@@ -1,9 +1,6 @@
-
-
-// 平方数之和
 #include <cmath>
 #include <iostream>
-
+// 平方数之和
 bool judgeSquareSum(int c) {
     long left = 0;
     long right = static_cast<long>(sqrt(c)); // 使用 long 来避免溢出问题
