@@ -17,6 +17,8 @@ lowInit/
 #logfile
 *.log
 *.out
+interview/build/
+cpp/build/
 
 
 #CANoe/CANalyzer Binary files
