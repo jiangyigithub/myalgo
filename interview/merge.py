@@ -10,6 +10,7 @@
 trick:
 1. 跟消消乐有点像，可能会触发连环消消乐
 2. for (if, else) 结构
+https://leetcode.cn/problems/merge-intervals/description/
 """
 def merge_segments(intervals):
     result = []
