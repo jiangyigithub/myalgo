@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Greedy strategy: prioritize keeping intervals that end earlier and do not overlap.
+/// Greedy strategy: prioritize keeping intervals that end earlier and do not overlap.
 int eraseOverlapIntervals(vector<vector<int>>& intervals)
 {
     // If there are no intervals, there's nothing to remove
@@ -19,7 +19,7 @@ int eraseOverlapIntervals(vector<vector<int>>& intervals)
         return a[1] < b[1];
     });
 
-    int removed = 0;                // Count of removed intervals
+    int removed = 0;                
     vector<int> prev = intervals[0]; // Track the last interval that was kept
 
     // Iterate through the intervals starting from the second one
@@ -28,7 +28,7 @@ int eraseOverlapIntervals(vector<vector<int>>& intervals)
         // If the current interval starts before the previous one ends, it overlaps
         if (intervals[i][0] < prev[1])
         {
-            ++removed; // Increment the count of removed intervals
+            ++removed;
         }
         else
         {
