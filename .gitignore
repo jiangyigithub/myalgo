@@ -19,6 +19,7 @@ lowInit/
 *.out
 interview/build/
 cpp/build/
+cpptest/build
 
 
 #CANoe/CANalyzer Binary files
