@@ -31,8 +31,9 @@ struct TestCase {
 };
 
 int main() {
-    vector<TestCase> testCases = {
-        {{1, 2, 5}, 11, 3},     // Test case 1: 11 can be made with 5 + 5 + 1
+    TestCase testCases[] = {
+        {{5,4,3},20,4},
+        {{1, 2, 5}, 11, 3},    // Test case 1: 11 can be made with 5 + 5 + 1
         {{2}, 3, -1},           // Test case 2: 3 cannot be made with only coin 2
         {{1, 2, 5}, 0, 0},      // Test case 3: 0 can be made with no coins
         {{1}, 2, 2},            // Test case 4: 2 can be made with two 1 coins
@@ -40,9 +41,10 @@ int main() {
         {{1, 2, 5, 10}, 27, 4}  // Test case 6: 27 can be made with 10 + 10 + 5 + 2
     };
 
-    for (size_t i = 0; i < testCases.size(); ++i) {
+    for (size_t i = 0; i < 6; ++i) {
         const TestCase& testCase = testCases[i];
-        int result = coinChange(testCase.coins, testCase.amount);
+        const vector<int> temp = testCase.coins;
+        int result = coinChange(temp, testCase.amount);
         cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
         if (result == testCase.expected) {
             cout << " [PASSED]" << endl;

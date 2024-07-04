@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm> // for std::min
-using namespace std;
 /*
 递推表达式:dp[i]=min(dp[i],dp[i-coin]+1)
 dp参数:i金额,coin硬币
@@ -20,6 +16,9 @@ if(i-coin >=0)，dp[3] = 0+1,dp[4]= 0+1,dp[5]=0+1,保证dp第一次更新正确
 2. dp的初值是什么？ --> dp[0]=0
 3. dp第一次更新的条件是什么？ --> if(i-coin >=0)
 */
+#include <vector>
+#include <iostream>
+#include <algorithm> // for std::min
 using namespace std;
 int coinChange(const vector<int>& coins, int amount)
 {
