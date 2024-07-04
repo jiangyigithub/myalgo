@@ -40,17 +40,30 @@ int eraseOverlapIntervals(vector<vector<int>>& intervals)
     return removed;
 }
 
+struct TestCase {
+    vector<vector<int>> intervals;
+    int expected;
+};
+
 int main() {
-  vector<vector<int>> testCases[] = {
-        {{1, 2}, {3, 4}, {5, 6}},                // Test case 1: No intervals overlap
-        {{1, 3}, {1, 3}, {1, 3}},                // Test case 2: All intervals completely overlap
-        {{1, 2}, {2, 3}, {3, 4}, {1, 3}},        // Test case 3: Partial overlap with one interval
-        {{1, 2}, {1, 3}, {2, 4}, {3, 5}, {2, 3}},// Test case 4: Mixed overlap
-        {{1, 10}}                                // Test case 5: Single interval
+    TestCase testCases[] = {
+        {{{1, 2}, {3, 4}, {5, 6}}, 0},                   // Test case 1: No intervals overlap
+        {{{1, 3}, {1, 3}, {1, 3}}, 2},                   // Test case 2: All intervals completely overlap
+        {{{1, 2}, {2, 3}, {3, 4}, {1, 3}}, 1},           // Test case 3: Partial overlap with one interval
+        {{{1, 2}, {1, 3}, {2, 4}, {3, 5}, {2, 3}}, 2},   // Test case 4: Mixed overlap
+        {{{1, 10}}, 0}                                 // Test case 5: Single interval
     };
 
-    for (int i = 0; i < 5; ++i) {
-        cout << "Test case " << i + 1 << ": " << eraseOverlapIntervals(testCases[i]) << endl;
+    for (size_t i = 0; i < sizeof(testCases) / sizeof(TestCase); ++i) {
+        int result = eraseOverlapIntervals(testCases[i].intervals);
+        
+        cout << "Test case " << i + 1 << ": expected = " << testCases[i].expected << ", got = " << result;
+        
+        if (result == testCases[i].expected) {
+            cout << " [PASSED]" << endl;
+        } else {
+            cout << " [FAILED]" << endl;
+        }
     }
 
     return 0;
