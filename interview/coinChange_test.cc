@@ -16,6 +16,11 @@ if(i-coin >=0)，dp[3] = 0+1,dp[4]= 0+1,dp[5]=0+1,保证dp第一次更新正确
 2. dp的初值是什么？ --> dp[0]=0
 3. dp第一次更新的条件是什么？ --> if(i-coin >=0)
 */
+
+/*
+DDD: 动态规划
+
+*/
 #include <vector>
 #include <iostream>
 #include <algorithm> // for std::min
@@ -26,11 +31,14 @@ int coinChange(const vector<int>& coins, int amount)
     dp[0]=0;
     for(int i=1;i<=amount;++i){
         for(int coin:coins){
-            if(i-coin >=0)
+            if(i-coin>=0){
                 dp[i]=min(dp[i],dp[i-coin]+1);
+            }
         }
     }
-    return dp[amount]== amount+1? -1:dp[amount];
+    return dp[amount]==amount+1?-1:dp[amount];
+    
+
 }
 
 struct TestCase {
@@ -41,16 +49,16 @@ struct TestCase {
 
 int main() {
     TestCase testCases[] = {
-        {{5,4,3},20,4},
         {{1, 2, 5}, 11, 3},     // Test case 1: 11 can be made with 5 + 5 + 1
         {{2}, 3, -1},           // Test case 2: 3 cannot be made with only coin 2
         {{1, 2, 5}, 0, 0},      // Test case 3: 0 can be made with no coins
         {{1}, 2, 2},            // Test case 4: 2 can be made with two 1 coins
         {{2}, 1, -1},           // Test case 5: 1 cannot be made with only coin 2
-        {{1, 2, 5, 10}, 27, 4}  // Test case 6: 27 can be made with 10 + 10 + 5 + 2
+        {{1, 2, 5, 10}, 27, 4},  // Test case 6: 27 can be made with 10 + 10 + 5 + 2
+        {{5,4,3},20,4}
     };
 
-    for (size_t i = 0; i < 6; ++i) {
+    for (size_t i = 0; i < sizeof(testCases) / sizeof(TestCase); ++i) {
         const TestCase& testCase = testCases[i];
         vector<int> temp = testCase.coins;
         int result = coinChange(temp, testCase.amount);
