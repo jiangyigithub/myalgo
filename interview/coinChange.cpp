@@ -8,7 +8,6 @@ using namespace std;
 // {{1}, 2, 2},            // Test case 4: 2 can be made with two 1 coins
 // {{2}, 1, -1},           // Test case 5: 1 cannot be made with only coin 2
 // {{1, 2, 5, 10}, 27, 4}  // Test case 6: 27 can be made with 10 + 10 + 5 + 2
-11--> 5 5 1
 
 int coinChange(vector<int>& coins, int amount) {
     vector<int> dp(amount + 1, amount + 1);
