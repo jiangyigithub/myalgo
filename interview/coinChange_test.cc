@@ -52,7 +52,7 @@ int main() {
 
     for (size_t i = 0; i < 6; ++i) {
         const TestCase& testCase = testCases[i];
-        const vector<int> temp = testCase.coins;
+        vector<int> temp = testCase.coins;
         int result = coinChange(temp, testCase.amount);
         cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
         if (result == testCase.expected) {

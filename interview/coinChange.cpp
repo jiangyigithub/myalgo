@@ -9,7 +9,7 @@ using namespace std;
 // {{2}, 1, -1},           // Test case 5: 1 cannot be made with only coin 2
 // {{1, 2, 5, 10}, 27, 4}  // Test case 6: 27 can be made with 10 + 10 + 5 + 2
 
-int coinChange(vector<int>& coins, int amount) {
+int coinChange(const vector<int>& coins, int amount) {
     vector<int> dp(amount + 1, amount + 1);
     dp[0] = 0; // 凑成0金额所需硬币数量为0
 
@@ -43,7 +43,7 @@ int main() {
 
     for (size_t i = 0; i < 6; ++i) {
         const TestCase& testCase = testCases[i];
-        const vector<int> temp = testCase.coins;
+        vector<int> temp = testCase.coins;
         int result = coinChange(temp, testCase.amount);
         cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
         if (result == testCase.expected) {
