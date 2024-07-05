@@ -61,7 +61,8 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "xhash": "cpp"
     },
     "editor.parameterHints.enabled": true
 }
