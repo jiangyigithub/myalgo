@@ -1,5 +1,9 @@
+#include <iostream>
+#include <vector>
 // 二分查找也可以看作双指针的一种特殊情况，但我们一般会将二者区分。双指针类型的题，
 // 指针通常是一步一步移动的，而在二分查找里，指针每次移动半个区间长度
+
+using namespace std;
 int mySqrt(int a)
 {
     if (a == 0)
