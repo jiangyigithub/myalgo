@@ -14,12 +14,8 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "console": "externalTerminal"
-        },
-        {
-            "name": "(Windows) Attach",
-            "type": "cppvsdbg",
-            "request": "attach",
+            "console": "externalTerminal",
+            "preLaunchTask": "C/C++: cl.exe build active file",
         },
         // python debug setting
         {
