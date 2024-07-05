@@ -6,7 +6,7 @@ using namespace std;
 class Timer {
 public:
     // Constructor: Initializes the timer with the current time and sets elapsed to false
-    Timer(int duration) 
+    Timer(int duration) //需要动态初始化
         : start_time(std::chrono::steady_clock::now()), elapsed(false), duration(duration) {}
     
     // Resets the timer to the current time and sets elapsed to false
