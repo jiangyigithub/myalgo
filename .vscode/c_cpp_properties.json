@@ -37,6 +37,17 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             }
+        },
+        {
+            "name": "Win32",
+            "defines": [
+                "_DEBUG"
+            ],
+            "windowsSdkVersion": "10.0.10240.0",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "msvc-x86",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe"
         }
     ],
     "version": 4
