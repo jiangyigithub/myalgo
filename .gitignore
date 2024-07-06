@@ -17,6 +17,7 @@ lowInit/
 #logfile
 *.log
 *.out
+*.exe
 interview/build/
 cpp/build/
 cpptest/build
