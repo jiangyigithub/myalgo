@@ -13,8 +13,9 @@
         },
         {
             "name": "WIN GCC",
-            "includePath": ["${workspaceFolder}/**",
-            "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include\\**"],
+            "includePath": ["${workspaceFolder}/**"
+            // ,"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include\\**"
+            ],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
             "windowsSdkVersion": "10.0.22000.0",
             "compilerPath":"C:\\msys64\\ucrt64\\bin\\g++.exe",
