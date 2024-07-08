@@ -61,30 +61,31 @@
             ],
             "preLaunchTask": "C/C++: g++ build active file",
             "miDebuggerPath": "/usr/bin/gdb"
-        },
-        // C++ visual studio debug setting
-        {
-            "name": "vs_offer_executable",
-            // Indicates the underlying debugger being used. Must be cppvsdbg when using the Visual Studio Windows debugger, 
-            // and cppdbg when using GDB or LLDB. This is automatically set to the correct value when the launch.json file is created.
-            "type": "cppvsdbg",
-            "request": "launch",
-            // "program": "${workspaceFolder}/build/offer/RelWithDebInfo/code01stl.exe",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-            // debug at program entry
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [
-                {
-                    "name": "Path",
-                    "value": "C:\\TCC\\Tools\\boost\\1.63.0_WIN64\\lib64-msvc-14.0;C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\bin;${env:Path}"
-                },
-                {
-                    "name": "QT_QPA_PLATFORM_PLUGIN_PATH",
-                    "value": "C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\plugins\\platforms"
-                }
-            ],
-            "console": "integratedTerminal",
         }
+        // ,
+        // // C++ visual studio debug setting
+        // {
+        //     "name": "vs_offer_executable",
+        //     // Indicates the underlying debugger being used. Must be cppvsdbg when using the Visual Studio Windows debugger, 
+        //     // and cppdbg when using GDB or LLDB. This is automatically set to the correct value when the launch.json file is created.
+        //     "type": "cppvsdbg",
+        //     "request": "launch",
+        //     // "program": "${workspaceFolder}/build/offer/RelWithDebInfo/code01stl.exe",
+        //     "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+        //     // debug at program entry
+        //     "stopAtEntry": false,
+        //     "cwd": "${workspaceFolder}",
+        //     "environment": [
+        //         {
+        //             "name": "Path",
+        //             "value": "C:\\TCC\\Tools\\boost\\1.63.0_WIN64\\lib64-msvc-14.0;C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\bin;${env:Path}"
+        //         },
+        //         {
+        //             "name": "QT_QPA_PLATFORM_PLUGIN_PATH",
+        //             "value": "C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\plugins\\platforms"
+        //         }
+        //     ],
+        //     "console": "integratedTerminal",
+        // }
     ]
 }
