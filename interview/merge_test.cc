@@ -8,7 +8,10 @@ struct TestCase {
     vector<vector<int>> input;
     vector<vector<int>> expected;
 };
-
+/*
+循环从1开始
+可能会执行多次merge,循环内用if而不是while
+ */
 vector<vector<int>> mergeSegments(vector<vector<int>> &intervals)
 {
     vector<vector<int>> result;
