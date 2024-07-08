@@ -25,7 +25,9 @@ int lengthOfLongestSubstring(string s) {
     return maxLength; // 返回最长子串长度
 }
 
-
+/// @brief  两种方法更新左边界的方法不同，一个通过unordered set更新左边界，一个通过ordered map更新左边界
+/// @param s 
+/// @return 
 int lengthOfLongestSubstring2(string s) {
     unordered_map<char, int> dic;
     int i = -1, res = 0, len = s.size();
