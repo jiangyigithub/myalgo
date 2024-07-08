@@ -9,6 +9,7 @@
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "gnu++14",
+            "mergeConfigurations": true,
             "intelliSenseMode": "linux-gcc-x64"
         },
         {
