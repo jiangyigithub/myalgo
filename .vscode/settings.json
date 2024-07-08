@@ -64,5 +64,6 @@
         "bit": "cpp",
         "xhash": "cpp"
     },
-    "editor.parameterHints.enabled": true
+    "editor.parameterHints.enabled": true,
+    "C_Cpp.errorSquiggles": "enabled"
 }
