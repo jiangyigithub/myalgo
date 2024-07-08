@@ -62,7 +62,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "climits": "cpp"
     },
     "editor.parameterHints.enabled": true,
     "C_Cpp.errorSquiggles": "enabled"
