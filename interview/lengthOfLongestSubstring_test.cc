@@ -46,29 +46,41 @@ int lengthOfLongestSubstring2(string s)
     return res;
 }
 
+// Define the TestCase struct
+struct TestCase
+{
+    string input;
+    int expected;
+};
+
 int main()
 {
-    // 测试用例
-    string s1 = "abcabcbb";
-    cout << lengthOfLongestSubstring(s1) << endl; // 输出：3，最长子串为 "abc"
+    // Initialize the test cases
+    TestCase testCases[] = {
+        {"abcabcbb", 3}, // Test case 1: "abcabcbb" has longest substring "abc" with length 3
+        {"bbbbb", 1},    // Test case 2: "bbbbb" has longest substring "b" with length 1
+        {"pwwkew", 3},   // Test case 3: "pwwkew" has longest substring "wke" with length 3
+        {"", 0},         // Test case 4: empty string has longest substring of length 0
+        {" ", 1},        // Test case 5: " " has longest substring " " with length 1
+        {"au", 2},       // Test case 6: "au" has longest substring "au" with length 2
+        {"dvdf", 3}      // Test case 7: "dvdf" has longest substring "vdf" with length 3
+    };
 
-    string s2 = "bbbbb";
-    cout << lengthOfLongestSubstring(s2) << endl; // 输出：1，最长子串为 "b"
-
-    string s3 = "pwwkew";
-    cout << lengthOfLongestSubstring(s3) << endl; // 输出：3，最长子串为 "wke"
-
-    string s4 = "";
-    cout << lengthOfLongestSubstring(s4) << endl; // 输出：0，最长子串为空
-
-    string s5 = " ";
-    cout << lengthOfLongestSubstring(s5) << endl; // 输出：1，最长子串为 " "
-
-    string s6 = "au";
-    cout << lengthOfLongestSubstring(s6) << endl; // 输出：2，最长子串为 "au"
-
-    string s7 = "dvdf";
-    cout << lengthOfLongestSubstring(s7) << endl; // 输出：3，最长子串为 "vdf"
+    // Run each test case
+    for (size_t i = 0; i < 7; ++i)
+    {
+        const TestCase &testCase = testCases[i];
+        int result = lengthOfLongestSubstring(testCase.input);
+        cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
+        if (result == testCase.expected)
+        {
+            cout << " [PASSED]" << endl;
+        }
+        else
+        {
+            cout << " [FAILED]" << endl;
+        }
+    }
 
     return 0;
 }
