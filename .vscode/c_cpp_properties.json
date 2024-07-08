@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Linux GCC",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
@@ -12,7 +12,7 @@
             "intelliSenseMode": "linux-gcc-x64"
         },
         {
-            "name": "WIN GCC",
+            "name": "Windows GCC",
             "includePath": ["${workspaceFolder}/**"
             // ,"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include\\**"
             ],
