@@ -7,7 +7,7 @@
     "configurations": [
         // C++ setting for g++ debug in windows gcc
         {
-            "name": "C/C++: win g++.exe build and debug active file",
+            "name": "windows g++.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
@@ -42,7 +42,7 @@
         },
         // C++ setting for g++ debug in linux gcc
         {
-            "name": "g++ - linux Build and debug active file",
+            "name": "linux g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/build/${fileBasenameNoExtension}",
