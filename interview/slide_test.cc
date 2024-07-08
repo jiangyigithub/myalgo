@@ -3,7 +3,9 @@
 #include <deque>
 
 using namespace std;
-
+/*
+维护单调双端队列，以求最小
+*/
 // Function to compute minimum sliding window
 std::vector<int> minSlidingWindow(std::vector<int> &nums, int k)
 {
