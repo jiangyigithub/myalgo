@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
-
+/*
+1. 在循环中更新mid --> int mid = low + (high - low) / 2; 
+2. 不要重复checkarr[mid] --> low = mid + 1; high = mid - 1;
+*/
 int binary_search(const std::vector<int>& arr, int target) {
     int low = 0;
     int high = arr.size() - 1;
