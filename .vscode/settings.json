@@ -67,5 +67,5 @@
     },
     "editor.parameterHints.enabled": true,
     "C_Cpp.errorSquiggles": "enabled",
-    "C_Cpp.intelliSenseEngine": "disabled"
+    "C_Cpp.intelliSenseEngine": "default"
 }
