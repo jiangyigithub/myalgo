@@ -10,19 +10,11 @@ struct TestCase {
 
 // 判断是否是回文数的函数
 bool isPalindrome(int x) {
-    if (x < 0) {
+    if(x<0){
         return false;
     }
 
-    int cur = 0;
-    int num = x;
 
-    while (num != 0) {
-        cur = cur * 10 + num % 10;
-        num /= 10;
-    }
-
-    return cur == x;
 }
 
 int main() {
@@ -35,11 +27,12 @@ int main() {
         {0, true},
         {1, true},
         {1221, true},
-        {123, false}
+        {123, false},
+        {1234567899,false}
     };
 
     // 输出测试用例结果
-    for (size_t i = 0; i < 8; ++i)
+    for (size_t i = 0; i < 9; ++i)
     {
         const TestCase &testCase = testCases[i];
         bool result = isPalindrome(testCase.input);
