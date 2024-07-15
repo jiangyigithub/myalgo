@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
 // 定义结构体存储测试用例
 struct TestCase {
     int input;
-    bool expectedOutput;
+    bool expected;
 };
 
 // 判断是否是回文数的函数
@@ -38,15 +39,19 @@ int main() {
     };
 
     // 输出测试用例结果
-    std::cout << std::boolalpha; // 打印布尔值为 true/false 而不是 1/0
-    for (const auto& testCase : testCases) {
-        bool actualOutput = isPalindrome(testCase.input);
-        bool testPassed = (actualOutput == testCase.expectedOutput);
-        std::cout << "Input: " << testCase.input 
-                  << ", Expected Output: " << testCase.expectedOutput 
-                  << ", Actual Output: " << actualOutput 
-                  << ", Test Passed: " << testPassed 
-                  << std::endl;
+    for (size_t i = 0; i < 8; ++i)
+    {
+        const TestCase &testCase = testCases[i];
+        bool result = isPalindrome(testCase.input);
+        cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
+        if (result == testCase.expected)
+        {
+            cout << " [PASSED]" << endl;
+        }
+        else
+        {
+            cout << " [FAILED]" << endl;
+        }
     }
 
     return 0;
