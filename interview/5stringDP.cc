@@ -17,8 +17,6 @@ public:
         // 单字符都是回文
         for (int i = 0; i < n; ++i) {
             dp[i][i] = true;
-            start = 0;
-            maxLen = 1;
         }
 
         // 判断长度为2的子串是否为回文
