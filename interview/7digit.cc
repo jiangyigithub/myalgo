@@ -10,7 +10,6 @@ public:
         /// 判断条件是
         while (x != 0) {
             int unitsDigit = x % 10; // 提取个位数字
-            x /= 10; // 移除个位数字
             
             // 检查加入unitsDigit后是否会溢出，再拼接最终结果前，判断溢出
             /// 规律是 2 4 8 6，4次一循环
@@ -18,6 +17,7 @@ public:
             if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && unitsDigit < -8)) return 0;
             
             reversed = reversed * 10 + unitsDigit; // 将unitsDigit加入reversed中
+            x /= 10; // 移除个位数字
         }
         return reversed;//x=0 输出结果
     }
