@@ -40,7 +40,7 @@ public:
     }
 };
 
-double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+double findMedianSortedArrays(const vector<int>& nums1, const vector<int>& nums2) {
     MedianFinder medianFinder;
     
     for (int num : nums1) {
