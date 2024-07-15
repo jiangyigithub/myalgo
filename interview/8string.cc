@@ -2,11 +2,7 @@
 #include <string>
 #include <climits>
 #include <vector>
-
-struct TestCase {
-    std::string input;
-    int expected_output;
-};
+using namespace std;
 
 class Solution {
 public:
@@ -42,6 +38,11 @@ public:
 
         return static_cast<int>(result * sign);
     }
+};
+
+struct TestCase {
+    std::string input;
+    int expected_output;
 };
 
 void runTest(const TestCase& testCase) {
