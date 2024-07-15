@@ -22,8 +22,6 @@ bool isPalindrome(int x)
         int unitsDigit = num % 10;
         if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && unitsDigit > 7))
             return false;
-        if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && unitsDigit < -8))
-            return false;
         reversed = 10 * reversed + unitsDigit;
         num /= 10;
     }
