@@ -13,6 +13,29 @@ using namespace std;
 +---------+    +---------+
 */
 
+void printMaxHeap(priority_queue<int> maxHeap)
+{
+    cout << "MaxHeap: ";
+    while (!maxHeap.empty())
+    {
+        cout << maxHeap.top() << " ";
+        maxHeap.pop();
+    }
+    cout << endl;
+}
+
+// Helper function to print a min-heap (priority_queue with greater<int>)
+void printMinHeap(priority_queue<int, vector<int>, greater<int>> minHeap)
+{
+    cout << "MinHeap: ";
+    while (!minHeap.empty())
+    {
+        cout << minHeap.top() << " ";
+        minHeap.pop();
+    }
+    cout << endl;
+}
+
 
 class MedianFinder {
 public:
@@ -69,6 +92,8 @@ double findMedianSortedArrays(const vector<int>& nums1, const vector<int>& nums2
         medianFinder.addNum(num);
     }
     
+    printMaxHeap(medianFinder.maxHeap);
+    printMinHeap(medianFinder.minHeap);
     // Return the median of the combined arrays
     return medianFinder.findMedian();
 }
