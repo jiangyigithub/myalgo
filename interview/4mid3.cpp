@@ -4,6 +4,15 @@
 #include <cmath> // for fabs function to compare floating-point numbers
 
 using namespace std;
+/*
+ maxHeap        minHeap
++---------+    +---------+
+|    3    |    |    4    |
+|    2    |    |    5    |
+|    1    |    |    6    |
++---------+    +---------+
+*/
+
 
 class MedianFinder {
 public:
@@ -14,17 +23,22 @@ public:
 
     // Adds a number into the data structure.
     void addNum(int num) {
+        // Always push the new number into maxHeap first
         maxHeap.push(num);
         
+        // Ensure the largest number in maxHeap is not greater than the smallest in minHeap
         if (!maxHeap.empty() && !minHeap.empty() && (maxHeap.top() > minHeap.top())) {
             minHeap.push(maxHeap.top());
             maxHeap.pop();
         }
 
+        // Balance the sizes of the two heaps if necessary
         if (maxHeap.size() > minHeap.size() + 1) {
+            // Move the top of maxHeap to minHeap to balance the sizes
             minHeap.push(maxHeap.top());
             maxHeap.pop();
         } else if (minHeap.size() > maxHeap.size()) {
+            // Move the top of minHeap to maxHeap to balance the sizes
             maxHeap.push(minHeap.top());
             minHeap.pop();
         }
@@ -32,26 +46,33 @@ public:
 
     // Returns the median of current data stream
     double findMedian() {
+        // If maxHeap has more elements, the median is the top of maxHeap
         if (maxHeap.size() > minHeap.size()) {
             return maxHeap.top();
         } else {
+            // If both heaps are balanced, the median is the average of both tops
             return (maxHeap.top() + minHeap.top()) / 2.0;
         }
     }
 };
 
+// Function to find the median of two sorted arrays using MedianFinder class
 double findMedianSortedArrays(const vector<int>& nums1, const vector<int>& nums2) {
     MedianFinder medianFinder;
     
+    // Add all elements from the first array to the median finder
     for (int num : nums1) {
         medianFinder.addNum(num);
     }
+    // Add all elements from the second array to the median finder
     for (int num : nums2) {
         medianFinder.addNum(num);
     }
     
+    // Return the median of the combined arrays
     return medianFinder.findMedian();
 }
+
 
 // Structure to store test cases
 struct TestCase {
