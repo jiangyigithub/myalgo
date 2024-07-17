@@ -6,11 +6,28 @@
 using namespace std;
 
 int longestConsecutive(vector<int>& nums) {
-    int longest_streak = 0;
-
-
-
-    return longest_streak;
+    if(nums.size()<1){
+        return 0;
+    }
+    int lenMax=1;
+    unordered_set<int> hashSet;
+    for(auto num:nums){
+        hashSet.insert(num);
+    }
+    
+    for(int i=1;i<nums.size();++i){
+        if(hashSet.find(nums[i]-1)==hashSet.end()){
+            int len=1;
+            int temp=nums[i];
+            while(hashSet.find(temp+1)!=hashSet.end()){
+                len++;
+                temp++;
+            }
+            lenMax = max(lenMax,len);
+        } 
+        
+    }
+    return lenMax;
 }
 
 // 测试结构体
@@ -26,7 +43,7 @@ void runTestCases() {
         {{100, 4, 200, 1, 3, 2}, 4, "Basic test case"},
         {{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}, 9, "Test with duplicates and larger sequence"},
         {{1, 2, 0, 1}, 3, "Test with small sequence and duplicates"},
-        {{9, 1, -3, 7, 5, 0, -1, 2, -2, 1}, 4, "Test with negative and positive numbers"},
+        {{9, 1, -3, 7, 5, 0, -1, 2, -2, 1}, 6, "Test with negative and positive numbers"},
         {{}, 0, "Test with empty array"}
     };
 
