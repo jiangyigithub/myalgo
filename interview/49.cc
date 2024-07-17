@@ -6,7 +6,9 @@
 
 using namespace std;
 // {{"eat", "tea", "tan", "ate", "nat", "bat"}, {{"eat", "tea", "ate"}, {"tan", "nat"}, {"bat"}}, "Basic test case"},
-
+/*
+通过 hash map 来分组
+*/
 vector<vector<string>> groupAnagrams(vector<string>& strs) {
     vector<vector<string>> ret;
     unordered_map<string,vector<string>> hashMap;
