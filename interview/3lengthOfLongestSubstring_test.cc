@@ -9,7 +9,7 @@ using namespace std;
 /*
 维护unordered set保证不重复
 */
-// 函数：计算字符串中不含重复字符的最长子串的长度
+// 函数：计算字符串中不含重复字符的最长子串的长度(128类似)
 int lengthOfLongestSubstring(string s)
 {
     int res = 0;
