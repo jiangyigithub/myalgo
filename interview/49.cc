@@ -6,53 +6,20 @@
 
 using namespace std;
 // {{"eat", "tea", "tan", "ate", "nat", "bat"}, {{"eat", "tea", "ate"}, {"tan", "nat"}, {"bat"}}, "Basic test case"},
-bool isMatch(string& temp, string& temp2){
-    bool ret=false;
-    unordered_map<char,int> hashMap;
-    for(auto c:temp){
-        hashMap[c]++;
-    }
-    int matchNum=temp.size();
-    for(auto c:temp2){
-        if(hashMap.find(c)!=hashMap.end()){
-            matchNum--;
-        }
-    }
-    if(matchNum==0){
-        ret =true;
-        
-    }
-    return ret;
-}
-
-vector<string>group(vector<string>& strs) {
-
-    if(strs.size()<2){
-        return strs;
-    }
-        vector<vector<string>> ret;
-    string comp = strs[0];
-    vector<string> newStr;
-    vector<string> temp;
-    newStr.push_back(strs[0]);
-    for(int i=1;i<strs.size();++i){
-        if(isMatch(strs[i],comp)){
-            newStr.push_back(strs[i]);
-        }
-        else{
-            
-            temp.push_back(strs[i]);
-        }
-    }
-    group(temp);
-
-    return newStr;
-}
 
 vector<vector<string>> groupAnagrams(vector<string>& strs) {
     vector<vector<string>> ret;
-    vector<string> newStr = group(strs);
-    ret.push_back(newStr);
+    unordered_map<string,vector<string>> hashMap;
+    for(auto str:strs){
+        string key=str;
+        sort(key.begin(),key.end());
+        hashMap[key].push_back(str);
+    }
+
+    for (const auto& pair : hashMap) {
+        ret.push_back(pair.second);
+    }
+
     return ret;
 }
 
