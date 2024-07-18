@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+/*
+两数之和应用双指针的方法求和的前提得有序
+因此，需先排序，再应用双指针
+这道题还要求要输出所有结果，所以求得结果后，还需要继续查找
+*/
 // 函数计算和为 0 的三元组
 std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
     std::vector<std::vector<int>> result;
@@ -16,7 +20,7 @@ std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
         int right = nums.size() - 1;
         
         while (left < right) {
-            /// 先固定一个，再求两数之和
+            /// 先固定一个，再求两数之和(两数之和应用双指针的方法求和的前提得有序)
             int sum = nums[i] + nums[left] + nums[right];
             
             if (sum == 0) {
