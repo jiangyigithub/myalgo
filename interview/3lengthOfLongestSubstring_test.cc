@@ -10,6 +10,9 @@ using namespace std;
 维护unordered set保证不重复
 */
 // 函数：计算字符串中不含重复字符的最长子串的长度(128类似)
+/*
+右边界每次移动1，左边界根据具体条件来移动，hashSet作为该条件的辅助数据结构
+*/
 int lengthOfLongestSubstring(string s)
 {
     int res = 0;
