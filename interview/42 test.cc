@@ -26,7 +26,7 @@ public:
     */
     /// 暴力解法
     int trap(vector<int> &height)
-    {   
+    {
         // 计算总的接雨水量
         int sum = 0;
         if (height.empty())
@@ -35,13 +35,13 @@ public:
         int n = height.size();
         vector<int> water(n, 0); // 初始化 water 数组的大小为 n，并全部赋值为 0
 
-        for (int i = 1; i < n-1; ++i)
+        for (int i = 1; i < n - 1; ++i)
         {
             int leftmax = 0;
             int rightmax = 0;
 
             // 找到左边最高的柱子
-            for (int k = i; k>=0; k--)
+            for (int k = i; k >= 0; k--)
             {
                 leftmax = max(leftmax, height[k]);
             }
@@ -54,7 +54,68 @@ public:
 
             // 计算当前柱子可以接的雨水量
             water[i] = max(0, min(leftmax, rightmax) - height[i]);
-            sum += water[i] ;
+            sum += water[i];
+        }
+        return sum;
+    }
+
+    /// @brief 带memory的
+    /// @param height
+    /// @return
+    int trapWithMemory(vector<int> &height)
+    {
+        if (height.size() == 0)
+        {
+            return 0;
+        }
+        int n = height.size();
+        int res = 0;
+        // 数组充当备忘录
+        vector<int> l_max(n);
+        vector<int> r_max(n);
+        // 初始化 base case
+        l_max[0] = height[0];
+        r_max[n - 1] = height[n - 1];
+        // 从左向右计算 l_max
+        for (int i = 1; i < n; i++)
+            l_max[i] = max(height[i], l_max[i - 1]);
+        // 从右向左计算 r_max
+        for (int i = n - 2; i >= 0; i--)
+            r_max[i] = max(height[i], r_max[i + 1]);
+        // 计算答案
+        for (int i = 1; i < n - 1; i++)
+            res += min(l_max[i], r_max[i]) - height[i];
+        return res;
+    }
+
+    int trapWithDP(vector<int> &height)
+    {
+        if (height.empty())
+            return 0;
+
+        int n = height.size();
+        vector<int> left_max(n, 0);
+        vector<int> right_max(n, 0);
+
+        // 填充 left_max 数组
+        left_max[0] = height[0];
+        for (int i = 1; i < n; ++i)
+        {
+            left_max[i] = max(left_max[i - 1], height[i]);
+        }
+
+        // 填充 right_max 数组
+        right_max[n - 1] = height[n - 1];
+        for (int i = n - 2; i >= 0; --i)
+        {
+            right_max[i] = max(right_max[i + 1], height[i]);
+        }
+
+        // 计算总水量
+        int sum = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            sum += min(left_max[i], right_max[i]) - height[i];
         }
         return sum;
     }
