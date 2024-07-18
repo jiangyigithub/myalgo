@@ -23,6 +23,8 @@ public:
         # 右边最高的柱子
         max(height[i..end])
     ) - height[i]
+
+    https://labuladong.online/algo/frequency-interview/trapping-rain-water/#%E4%B8%89%E3%80%81%E5%8F%8C%E6%8C%87%E9%92%88%E8%A7%A3%E6%B3%95
     */
 
     /// 暴力解法
