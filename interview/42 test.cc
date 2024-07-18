@@ -160,85 +160,35 @@ public:
         }
         return sum;
     }
-    
+
     /*
     备忘录解法中，l_max[i] 和 r_max[i] 分别代表 height[0..i] 和 height[i..end] 的最高柱子高度。
     双指针解法中，l_max 和 r_max 代表的是 height[0..left] 和 height[right..end] 的最高柱子高度
     */
-    int trap3(vector<int> &height)
+    int trapWithDoublePointer(vector<int> &height)
     {
-        if (height.size() <= 2)
-            return 0;
+        int left = 0, right = height.size() - 1;
+        int l_max = 0, r_max = 0;
 
-        int l = 0;
-        int r = height.size() - 1;
-        int cap = 0;                   // 待返回的水量 (water capacity)
-        int leftCeil = height.front(); // 左侧上限 c(l)
-        int rightCeil = height.back(); // 右侧上限 c(r)
-
-        while (l <= r)
+        int res = 0;
+        while (left < right)
         {
-            if (leftCeil < rightCeil)
+            l_max = max(l_max, height[left]);
+            r_max = max(r_max, height[right]);
+
+            ///  res += min(l_max, r_max) - height[i]
+            if (l_max < r_max)
             {
-                cap += leftCeil - height[l]; // 增加水量
-                l++;                         // l 右移
-                if (l < height.size())
-                    leftCeil = max(leftCeil, height[l]); // 更新 c(l)
-            }
-            else
-            {
-                cap += rightCeil - height[r]; // 增加水量
-                r--;                          // r 左移
-                if (r >= 0)
-                    rightCeil = max(rightCeil, height[r]); // 更新 c(r)
-            }
-        }
-
-        return cap;
-    }
-
-    // 计算能接的雨水总量
-    int trap2(vector<int> &height)
-    {
-        int n = height.size();
-        if (n == 0)
-            return 0;
-
-        int left = 0, right = n - 1;
-        int left_max = 0, right_max = 0;
-        int water = 0;
-
-        while (left <= right)
-        {
-            if (height[left] <= height[right])
-            {
-                // 如果左边柱子较低或相等，处理左边柱子
-                if (height[left] >= left_max)
-                {
-                    left_max = height[left];
-                }
-                else
-                {
-                    water += left_max - height[left];
-                }
+                res += l_max - height[left];
                 left++;
             }
             else
             {
-                // 如果右边柱子较低，处理右边柱子
-                if (height[right] >= right_max)
-                {
-                    right_max = height[right];
-                }
-                else
-                {
-                    water += right_max - height[right];
-                }
+                res += r_max - height[right];
                 right--;
             }
         }
-
-        return water;
+        return res;
     }
 
     // 运行单个测试用例并输出结果
