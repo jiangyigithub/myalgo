@@ -24,6 +24,45 @@ public:
         max(height[i..end])
     ) - height[i]
     */
+
+    /// 暴力解法
+    int trap0(vector<int> &height)
+    {
+        // 计算总的接雨水量
+        int sum = 0;
+        if (height.empty())
+            return 0;
+
+        int n = height.size();
+        vector<int> water(n, 0); // 初始化 water 数组的大小为 n，并全部赋值为 0
+
+        for (int i = 1; i < n - 1; ++i)
+        {
+            int leftmax = 0;
+            int rightmax = 0;
+
+            // 找到左边最高的柱子
+            for (int k = i; k >= 0; k--)
+            {
+                leftmax = max(leftmax, height[k]);
+            }
+
+            // 找到右边最高的柱子
+            for (int k = i; k < n; k++)
+            { // 从 i+1 开始，因为 i 本身不应该包括在内
+                rightmax = max(rightmax, height[k]);
+            }
+
+            // 计算当前柱子可以接的雨水量
+            water[i] = max(0, min(leftmax, rightmax) - height[i]);
+        }
+        for (auto elem : water)
+        {
+            sum += elem;
+        }
+        return sum;
+    }
+
     /// 暴力解法
     int trap(vector<int> &height)
     {
@@ -298,7 +337,7 @@ int main()
         {{2, 2, 2, 2, 2, 2, 2, 2}, 0},
 
         // 大量相等且有不同高度的柱子
-        {{3, 3, 1, 2, 2, 1, 3, 3}, 9}};
+        {{3, 3, 1, 2, 2, 1, 3, 3}, 6}};
 
     // 遍历每个测试用例，运行并输出结果
     for (auto &testCase : testCases)
