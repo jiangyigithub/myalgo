@@ -19,7 +19,7 @@ int maxArea(const std::vector<int>& height) {
         int current_water = width * container_height;
         max_water = std::max(max_water, current_water);
         
-        // 每次移动较短的一边
+        // 每次移动较短的一边，双指针不是更新同时更新
         if (height[left] < height[right]) {
             left++;
         } else {
