@@ -13,6 +13,9 @@ using namespace std;
 /*
 右边界每次移动1，左边界根据具体条件来移动，hashSet作为该条件的辅助数据结构
 */
+/*
+滑动窗口
+*/
 int lengthOfLongestSubstring(string s)
 {
     int res = 0;
