@@ -21,6 +21,10 @@ vector<int> findAnagrams2(string s, string p)
     vector<int> res;
     int len = p.size();
     int n = s.size();
+    if (n < len)
+    {
+        return res;
+    }
     vector<int> pCount(26, 0);
     vector<int> sCount(26, 0);
     for (auto ch : p)
@@ -32,14 +36,16 @@ vector<int> findAnagrams2(string s, string p)
     for (int right = 0; right < n; right++)
     {
         int temp = s[right] - 'a';
+        sCount[temp]++;
+
+        /// 条件中要先将right存入，再判断，且第一个周期不会执行
         while (sCount[temp] > pCount[temp])
         {
             int l_digit = s[left] - 'a';
-            sCount[left]--;
+            sCount[l_digit]--;
             left++;
         }
 
-        sCount[temp]++;
         if (right - left + 1 == len)
         {
             res.push_back(left);
