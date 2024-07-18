@@ -28,7 +28,7 @@ public:
     */
 
     /// 暴力解法
-    int trap0(vector<int> &height)
+    int trap(vector<int> &height)
     {
         // 计算总的接雨水量
         int sum = 0;
@@ -66,7 +66,7 @@ public:
     }
 
     /// 暴力解法
-    int trap(vector<int> &height)
+    int trapBruteForce(vector<int> &height)
     {
         // 计算总的接雨水量
         int sum = 0;
@@ -198,6 +198,7 @@ public:
         int expected = testCase.expected;
 
         int result = trap(heights);
+        int result = trapWithDoublePointer(heights);
 
         // 输出测试用例的输入数组
         cout << "Input: [";
