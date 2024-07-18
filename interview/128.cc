@@ -14,7 +14,10 @@ int longestConsecutive(vector<int>& nums) {
     for(auto num:nums){
         hashSet.insert(num);
     }
-    
+    /*
+    左边界的条件是-1的没出现过
+    右边界的条件是移动符合+1
+    */
     for(int i=1;i<nums.size();++i){
         if(hashSet.find(nums[i]-1)==hashSet.end()){
             int len=1;
