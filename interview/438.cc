@@ -56,15 +56,16 @@ vector<int> findAnagrams(string s, string p) {
 }
 
 vector<int> findAnagrams2(string s, string p) {
-        int n = s.size(), m = p.size();
+        int n = s.size();
+        int len = p.size();
         vector<int> res;
-        if (n < m) return res;
+        if (n < len) return res;
 
         vector<int> p_cnt(26, 0);
         vector<int> s_cnt(26, 0);
 
         // 计算 p 的字符计数
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < len; i++) {
             p_cnt[p[i] - 'a']++;
         }
 
@@ -79,7 +80,7 @@ vector<int> findAnagrams2(string s, string p) {
                 left++;
             }
             
-            if (right - left + 1 == m) {
+            if (right - left + 1 == len) {
                 res.push_back(left);
             }
         }
