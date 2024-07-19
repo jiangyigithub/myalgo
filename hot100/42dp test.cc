@@ -51,7 +51,7 @@ public:
         int n = height.size();
         vector<int> leftMax(n,0);
         vector<int> rightMax(n,0);
-        leftMax[0] = height[0];
+        leftMax[0] = height[0]; // DP table init
         rightMax[0] = height[n];
         for (int i = 1; i < height.size(); ++i){
             leftMax[i]=max(leftMax[i-1],height[i]);
