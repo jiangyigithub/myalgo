@@ -11,6 +11,9 @@
 /// 函数计算和为 0 的三元组
 std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
     sort(nums.begin(),nums.end());
+    for(int i=0;i<nums.size()-2;++i){
+        int target = -nums[i];
+    }
 
     
 }
