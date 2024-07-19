@@ -17,22 +17,50 @@ class Solution
 {
 public:
     int trap(vector<int> &height)
-    {   
-        int res =0;
-        if(height.size()<2){
+    {
+        int res = 0;
+        if (height.size() < 2)
+        {
             return 0;
         }
-        for(int i=1;i<height.size()-1;++i){
-            int leftMax=0;
-            int rightMax=0;
-            for(int m=i;m>=0;m--){
-                leftMax = max(height[m],leftMax);
+        for (int i = 1; i < height.size() - 1; ++i)
+        {
+            int leftMax = 0;
+            int rightMax = 0;
+            for (int m = i; m >= 0; m--)
+            {
+                leftMax = max(height[m], leftMax);
             }
-            for(int n=i;n<height.size();n++){
-                rightMax = max(height[n],rightMax);
+            for (int n = i; n < height.size(); n++)
+            {
+                rightMax = max(height[n], rightMax);
             }
+            res += (min(leftMax, rightMax) - height[i]);
+        }
 
-            res+= (min(leftMax,rightMax)-height[i]);
+        return res;
+    }
+
+    int trap2(vector<int> &height)
+    {
+        int res = 0;
+        if (height.size() < 2)
+        {
+            return 0;
+        }
+        int n = height.size();
+        vector<int> leftMax(n,0);
+        vector<int> rightMax(n,0);
+        for (int i = 1; i < height.size(); ++i){
+            leftMax[i]=max(leftMax[i-1],height[i]);
+        }
+        for (int i = n-1; i >=0; --i){
+            rightMax[i]=max(rightMax[i-1],height[i]);
+        }
+        for (int i = 1; i < height.size() - 1; ++i)
+        {
+   
+            res += (min(leftMax[i], rightMax[i]) - height[i]);
         }
 
         return res;
