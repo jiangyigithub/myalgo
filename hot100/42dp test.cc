@@ -51,11 +51,13 @@ public:
         int n = height.size();
         vector<int> leftMax(n,0);
         vector<int> rightMax(n,0);
+        leftMax[0] = height[0];
+        rightMax[0] = height[n];
         for (int i = 1; i < height.size(); ++i){
             leftMax[i]=max(leftMax[i-1],height[i]);
         }
         for (int i = n-1; i >=0; --i){
-            rightMax[i]=max(rightMax[i-1],height[i]);
+            rightMax[i]=max(rightMax[i+1],height[i]);
         }
         for (int i = 1; i < height.size() - 1; ++i)
         {
@@ -72,7 +74,7 @@ public:
         vector<int> heights = testCase.heights;
         int expected = testCase.expected;
 
-        int result = trap(heights);
+        int result = trap2(heights);
 
         // 输出测试用例的输入数组
         cout << "Input: [";
