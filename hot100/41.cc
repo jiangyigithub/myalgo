@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+/// 对数组中的元素，从1开始排序，
 /*
 方法：原地哈希
 
@@ -31,6 +31,7 @@ int firstMissingPositive(std::vector<int>& nums) {
     for (int i = 0; i < n; ++i) {
         while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
             // Swap nums[i] and nums[nums[i] - 1]
+            /// 排序后 nums[i] 应当在 i-1的位置
             std::swap(nums[i], nums[nums[i] - 1]);//哈希函数为：f(nums[i]) = nums[i] - 1
         }
     }
