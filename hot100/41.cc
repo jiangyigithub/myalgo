@@ -21,6 +21,7 @@
 链接：https://leetcode.cn/problems/first-missing-positive/solutions/304743/que-shi-de-di-yi-ge-zheng-shu-by-leetcode-solution/
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+https://leetcode.cn/problems/first-missing-positive/solutions/7703/tong-pai-xu-python-dai-ma-by-liweiwei1419/?envType=study-plan-v2&envId=top-100-liked
 */
 // Function to find the first missing positive integer
 int firstMissingPositive(std::vector<int>& nums) {
@@ -30,7 +31,7 @@ int firstMissingPositive(std::vector<int>& nums) {
     for (int i = 0; i < n; ++i) {
         while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
             // Swap nums[i] and nums[nums[i] - 1]
-            std::swap(nums[i], nums[nums[i] - 1]);
+            std::swap(nums[i], nums[nums[i] - 1]);//哈希函数为：f(nums[i]) = nums[i] - 1
         }
     }
     
