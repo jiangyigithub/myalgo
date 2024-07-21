@@ -4,7 +4,8 @@
 using namespace std;
 
 // Function to reverse a portion of the array
-// 旋转数组-->旋转数-->旋转字符串
+// 旋转 --> 反转问题
+// 反转数组-->反转数-->反转字符串
 void reverse(vector<int>& nums, int start, int end) {
     while (start < end) {
         swap(nums[start], nums[end]);
