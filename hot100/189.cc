@@ -12,6 +12,12 @@ void reverse(vector<int>& nums, int start, int end) {
     }
 }
 
+// 输入: nums = [1,2,3,4,5,6,7], k = 3
+
+// 7->5 4->1 (7-->1)
+// 5->7 4->1
+// 5->7 1->4
+// 输出: [5,6,7,1,2,3,4]
 // Function to rotate the array to the right by k positions
 void rotate(vector<int>& nums, int k) {
     int n = nums.size();
