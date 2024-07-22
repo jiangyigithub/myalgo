@@ -24,23 +24,30 @@
 https://leetcode.cn/problems/first-missing-positive/solutions/7703/tong-pai-xu-python-dai-ma-by-liweiwei1419/?envType=study-plan-v2&envId=top-100-liked
 */
 // Function to find the first missing positive integer
+using namespace std;
+
+// {{3, 4, -1, 1}, 2},
+// {{1, 2, 0}, 3},
+// {{7, 8, 9, 11, 12}, 1},
+// {{1, 1, 0, -1, -2}, 2},
+// {{5, 6, 7, 8, 9, 10, 11, 12}, 1},
+// {{1}, 2},
+// {{}, 1}};
 int firstMissingPositive(std::vector<int> &nums)
 {
     int n = nums.size();
-
-    // 1. Place each number in its correct index
     for (int i = 0; i < n; ++i)
     {
-        while (nums[i] >= 1 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
+        while ((nums[i] >= 1)&& (nums[i] < n+1)&& (nums[nums[i] - 1] != nums[i]))
         {
-            // Swap nums[i] and nums[nums[i] - 1]
-            // 数值为 i 的数映射到下标为 i - 1 的位置
-            /// 排序后 nums[i] 应当在 i-1的位置
-            std::swap(nums[i], nums[nums[i] - 1]); // 哈希函数为：f(nums[i]) = nums[i] - 1 -->
+            /// 1 2 3 4
+            /// nums[i] = i+1
+            /// nums[i]-1 =i
+            /// nums[nums[i]-1] =nums[i]
+            swap(nums[nums[i] - 1], nums[i]);
         }
     }
 
-    // 2. Find the first index where the number does not match the index + 1
     for (int i = 0; i < n; ++i)
     {
         if (nums[i] != i + 1)
@@ -48,8 +55,7 @@ int firstMissingPositive(std::vector<int> &nums)
             return i + 1;
         }
     }
-
-    // 3. If all numbers from 1 to n are in the array, then the smallest missing positive is n + 1
+    /// 本身有序
     return n + 1;
 }
 
@@ -85,11 +91,12 @@ int main()
     std::vector<TestCase> testCases = {
         {{3, 4, -1, 1}, 2},
         {{1, 2, 0}, 3},
+        {{1, 2, 3}, 4}, // return n + 1;
         {{7, 8, 9, 11, 12}, 1},
         {{1, 1, 0, -1, -2}, 2},
         {{5, 6, 7, 8, 9, 10, 11, 12}, 1},
-        {{1}, 2},
-        {{}, 1}};
+        {{1}, 2}, // return n + 1;
+        {{}, 1}}; // return n + 1;
 
     // Run each test case
     for (const auto &testCase : testCases)
