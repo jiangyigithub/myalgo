@@ -34,6 +34,7 @@ int firstMissingPositive(std::vector<int> &nums)
         while (nums[i] >= 1 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
         {
             // Swap nums[i] and nums[nums[i] - 1]
+            // 数值为 i 的数映射到下标为 i - 1 的位置
             /// 排序后 nums[i] 应当在 i-1的位置
             std::swap(nums[i], nums[nums[i] - 1]); // 哈希函数为：f(nums[i]) = nums[i] - 1 -->
         }
