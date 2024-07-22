@@ -36,7 +36,11 @@ int firstMissingPositive(std::vector<int> &nums)
 
     // 1. Place each number in its correct index
     for (int i = 0; i < n; ++i)
-    {
+    {   
+
+        /// nums[i] = i+1 
+        /// --> nums[i]-1 == i
+        /// 为满足交换,必须为 nums[x]和nums[y]交换， nums[nums[i]-1] == nums[i]
         while (nums[i] >= 1 && nums[i] <= n && nums[i]!= nums[nums[i]-1] )
         {
             // Swap nums[i] and nums[nums[i] - 1]
