@@ -53,6 +53,8 @@ int firstMissingPositive(std::vector<int> &nums)
     // 2. Find the first index where the number does not match the index + 1
     for (int i = 0; i < n; ++i)
     {
+        // {{3, 4, -1, 1}, 2},
+        // 1 -1 3 4
         if (nums[i] != i + 1)
         {
             return i + 1;
