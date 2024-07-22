@@ -24,44 +24,52 @@
 https://leetcode.cn/problems/first-missing-positive/solutions/7703/tong-pai-xu-python-dai-ma-by-liweiwei1419/?envType=study-plan-v2&envId=top-100-liked
 */
 // Function to find the first missing positive integer
-int firstMissingPositive(std::vector<int>& nums) {
+int firstMissingPositive(std::vector<int> &nums)
+{
     int n = nums.size();
-    
+
     // 1. Place each number in its correct index
-    for (int i = 0; i < n; ++i) {
-        while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+    for (int i = 0; i < n; ++i)
+    {
+        while (nums[i] >= 1 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
+        {
             // Swap nums[i] and nums[nums[i] - 1]
             /// 排序后 nums[i] 应当在 i-1的位置
-            std::swap(nums[i], nums[nums[i] - 1]);//哈希函数为：f(nums[i]) = nums[i] - 1
+            std::swap(nums[i], nums[nums[i] - 1]); // 哈希函数为：f(nums[i]) = nums[i] - 1 -->
         }
     }
-    
+
     // 2. Find the first index where the number does not match the index + 1
-    for (int i = 0; i < n; ++i) {
-        if (nums[i] != i + 1) {
+    for (int i = 0; i < n; ++i)
+    {
+        if (nums[i] != i + 1)
+        {
             return i + 1;
         }
     }
-    
+
     // 3. If all numbers from 1 to n are in the array, then the smallest missing positive is n + 1
     return n + 1;
 }
 
 // Struct to hold a test case
-struct TestCase {
-    std::vector<int> nums;    // Input array
-    int expected;             // Expected result
+struct TestCase
+{
+    std::vector<int> nums; // Input array
+    int expected;          // Expected result
 };
 
 // Function to run a test case and output the result
-void runTestCase(const TestCase& testCase) {
+void runTestCase(const TestCase &testCase)
+{
     std::vector<int> nums = testCase.nums;
     int expected = testCase.expected;
     int result = firstMissingPositive(nums);
-    
+
     std::cout << "Test case:\n";
     std::cout << "Input: ";
-    for (int num : testCase.nums) {
+    for (int num : testCase.nums)
+    {
         std::cout << num << " ";
     }
     std::cout << "\nExpected result: " << expected << "\n";
@@ -70,7 +78,8 @@ void runTestCase(const TestCase& testCase) {
     std::cout << "----------------------------------\n";
 }
 
-int main() {
+int main()
+{
     // Define test cases
     std::vector<TestCase> testCases = {
         {{3, 4, -1, 1}, 2},
@@ -79,11 +88,11 @@ int main() {
         {{1, 1, 0, -1, -2}, 2},
         {{5, 6, 7, 8, 9, 10, 11, 12}, 1},
         {{1}, 2},
-        {{}, 1}
-    };
+        {{}, 1}};
 
     // Run each test case
-    for (const auto& testCase : testCases) {
+    for (const auto &testCase : testCases)
+    {
         runTestCase(testCase);
     }
 
