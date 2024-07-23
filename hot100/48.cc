@@ -31,6 +31,8 @@ void rotate(vector<vector<int>> &matrix)
     // 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
     // 输出：[[7,4,1],[8,5,2],[9,6,3]]
     // Step 1: Transpose the matrix
+
+    /// 对角旋转，只交接一半元素
     for (int i = 0; i < n; ++i)
     {
         for (int j = i; j < n; ++j)
