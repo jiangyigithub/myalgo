@@ -37,55 +37,88 @@ void printVector(const vector<int> &vec)
 
 // 螺旋顺序函数
 /// 你的边界，我来更新
-vector<int> spiralOrder(const vector<vector<int>> &matrix)
+
+vector<int> spiralOrder(vector<vector<int>> &matrix)
 {
-    vector<int> result;
-    if (matrix.empty() || matrix[0].empty())
+    if (matrix.empty())
+        return {};
+    int m = matrix.size();
+    int n = matrix[0].size();
+    int top = 0;
+    int right = n - 1;
+    int left = 0;
+    int bottom = m - 1;
+    vector<int> res;
+    while (true)
     {
-        return result;
+        for (int i = left; i <= right; i++)
+            res.push_back(matrix[top][i]); // left to right
+        if (++top > bottom)
+            break;
+        for (int i = top; i <= bottom; i++)
+            res.push_back(matrix[i][right]); // top to bottom
+        if (left > --right)
+            break;
+        for (int i = right; i >= left; i--)
+            res.push_back(matrix[bottom][i]); // right to left
+        if (top > --bottom)
+            break;
+        for (int i = bottom; i >= top; i--)
+            res.push_back(matrix[i][left]); // bottom to top
+        if (++left > right)
+            break;
     }
+    return res;
+}
 
-    int top = 0, bottom = matrix.size() - 1;
-    int left = 0, right = matrix[0].size() - 1;
-
-    while (top <= bottom && left <= right)
+vector<int> spiralOrder2(vector<vector<int>> &matrix)
+{
+    int m = matrix.size();
+    int n = matrix[0].size();
+    int top = 0;
+    int right = n - 1;
+    int left = 0;
+    int bottom = m - 1;
+    vector<int> ret;
+    while (true)
     {
-        // 从左到右
-        for (int j = left; j <= right; ++j)
+        // 从左到右，更新top边界
+        for (int j = left; j <= right; j++)
         {
-            result.push_back(matrix[top][j]);
+            ret.push_back(matrix[top][j]);
         }
-        ++top;
+        top++;
+        if (top > bottom)
+            break;
 
-        // 从上到下
-        for (int i = top; i <= bottom; ++i)
+        // 从上到下，更新right边界
+        for (int i = top; i <= bottom; i++)
         {
-            result.push_back(matrix[i][right]);
+            ret.push_back(matrix[i][right]);
         }
-        --right;
+        right--;
+        if (right < left)
+            break;
 
-        if (top <= bottom)
+        // 从右到左，更新bottom 边界
+        for (int j = right; j >= left; j--)
         {
-            // 从右到左
-            for (int j = right; j >= left; --j)
-            {
-                result.push_back(matrix[bottom][j]);
-            }
-            --bottom;
+            ret.push_back(matrix[bottom][j]);
         }
+        bottom--;
+        if (top > bottom)
+            break;
 
-        if (left <= right)
+        // 从下到上，更新left边界
+        for (int i = bottom; i >= top; i--)
         {
-            // 从下到上
-            for (int i = bottom; i >= top; --i)
-            {
-                result.push_back(matrix[i][left]);
-            }
-            ++left;
+            ret.push_back(matrix[i][left]);
         }
+        left++;
+        if (right < left)
+            break;
     }
-
-    return result;
+    return ret;
 }
 
 // 比较结果函数
