@@ -25,6 +25,7 @@ public:
         int m = matrix.size();
         int n = matrix[0].size();
         int flag_col0 = false, flag_row0 = false;
+        // 1. 扫描「首行」和「首列」记录「首行」和「首列」是否该被置零
         for (int i = 0; i < m; i++)
         {
             if (!matrix[i][0])
@@ -39,6 +40,7 @@ public:
                 flag_row0 = true;
             }
         }
+        // 2.1 扫描「非首行首列」的位置，如果发现零，将需要置零的信息存储到该行的「最左方」和「最上方」的格子内
         for (int i = 1; i < m; i++)
         {
             for (int j = 1; j < n; j++)
@@ -49,6 +51,7 @@ public:
                 }
             }
         }
+        // 2.2 根据刚刚记录在「最左方」和「最上方」格子内的置零信息，进行「非首行首列」置零
         for (int i = 1; i < m; i++)
         {
             for (int j = 1; j < n; j++)
@@ -59,6 +62,8 @@ public:
                 }
             }
         }
+
+        // 3. 根据最开始记录的「首行」和「首列」信息，进行「首行首列」置零
         if (flag_col0)
         {
             for (int i = 0; i < m; i++)
@@ -81,7 +86,7 @@ public:
         int n = matrix[0].size();
         bool flag_col0 = false, flag_row0 = false;
 
-        // 检查第一列是否有零，只标记不置0，不破坏标记
+        // 1. 检查第一列/第一行是否有零，只标记不置0，不破坏标记
         // 空间复杂度为O(1)，只能在数组内操作，直接检查会导致标记被破坏，导致额外的行和列被置0
         for (int i = 0; i < m; i++)
         {
@@ -91,8 +96,6 @@ public:
                 break;
             }
         }
-
-        // 检查第一行是否有零，只标记不置0
         for (int j = 0; j < n; j++)
         {
             if (matrix[0][j] == 0)
@@ -102,7 +105,7 @@ public:
             }
         }
 
-        // 借用第一行和第一列作为标记，第一行和第一列没有被破坏
+        // 2.1 借用第一行和第一列作为标记，第一行和第一列没有被破坏
         for (int i = 1; i < m; i++)
         {
             for (int j = 1; j < n; j++)
@@ -115,7 +118,7 @@ public:
             }
         }
 
-        // 根据标记将相应的行和列置零
+        // 2.2 根据标记将相应的行和列置零
         for (int i = 1; i < m; i++)
         {
             for (int j = 1; j < n; j++)
@@ -127,7 +130,7 @@ public:
             }
         }
 
-        // 如果需要，将第一列置零
+        // 3. 如果需要，将第一列/第一行置零
         if (flag_col0)
         {
             for (int i = 0; i < m; i++)
@@ -135,8 +138,6 @@ public:
                 matrix[i][0] = 0;
             }
         }
-
-        // 如果需要，将第一行置零
         if (flag_row0)
         {
             for (int j = 0; j < n; j++)
