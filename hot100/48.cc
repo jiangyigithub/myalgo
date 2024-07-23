@@ -1,0 +1,65 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+// Rotate the matrix 90 degrees clockwise
+void rotate(vector<vector<int>>& matrix) {
+
+}
+
+// Structure to store test case details
+struct TestCase {
+    vector<vector<int>> input_matrix;
+    vector<vector<int>> expected_output;
+    vector<vector<int>> actual_output;
+    bool passed;
+
+    TestCase(const vector<vector<int>>& input, const vector<vector<int>>& expected)
+        : input_matrix(input), expected_output(expected), passed(false) {}
+
+    void run_test() {
+        actual_output = input_matrix; // Copy input to actual_output for modification
+        rotate(actual_output);
+        passed = (actual_output == expected_output);
+    }
+
+    void print_result() {
+        cout << "Input Matrix: " << endl;
+        print_matrix(input_matrix);
+        cout << "Expected Output: " << endl;
+        print_matrix(expected_output);
+        cout << "Actual Output: " << endl;
+        print_matrix(actual_output);
+        cout << "Test Passed: " << (passed ? "True" : "False") << endl;
+    }
+
+    void print_matrix(const vector<vector<int>>& matrix) {
+        for (const auto& row : matrix) {
+            for (int val : row) {
+                cout << val << " ";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    // List of test cases
+    vector<TestCase> test_cases = {
+        TestCase({{1,2,3}, {4,5,6}, {7,8,9}}, {{7,4,1}, {8,5,2}, {9,6,3}}),
+        TestCase({{5,1,9,11}, {2,4,8,10}, {13,3,6,7}, {15,14,12,16}}, {{15,13,2,5}, {14,3,4,1}, {12,6,8,9}, {16,7,10,11}}),
+        TestCase({{1}}, {{1}}),
+        TestCase({{1,2}, {3,4}}, {{3,1}, {4,2}})
+    };
+
+    // Run and print test cases
+    for (auto& test : test_cases) {
+        test.run_test();
+        test.print_result();
+        cout << "--------------------------" << endl;
+    }
+
+    return 0;
+}
