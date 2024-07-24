@@ -15,6 +15,10 @@ struct ListNode
 class Solution
 {
 public:
+/*
+有相交在交点相遇
+无相交，等长都为nullptr,非等长，走完AB，都为nullptr
+*/
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
     {
         if (headA == nullptr || headB == nullptr)
