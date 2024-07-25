@@ -2,6 +2,8 @@
 
 https://www.hello-algo.com/chapter_preface/about_the_book/
 
+https://www.bilibili.com/read/cv22332590/?spm_id_from=333.999.0.0
+
 https://github.com/settings/tokens
 
 https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55bvvv/
