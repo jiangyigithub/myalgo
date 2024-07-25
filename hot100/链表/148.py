@@ -4,7 +4,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def sortList(self, head: ListNode) -> ListNode:
+    def sortList2(self, head: ListNode) -> ListNode:
         if not head or not head.next: return head # termination.
         # cut the LinkedList at the mid index.
         slow, fast = head, head.next
@@ -23,7 +23,7 @@ class Solution:
         return res.next
     
 
-    def sortList2(self, head: ListNode) -> ListNode:
+    def sortList(self, head: ListNode) -> ListNode:
         h, length, intv = head, 0, 1
         while h: h, length = h.next, length + 1
         res = ListNode(0)
