@@ -15,47 +15,63 @@ struct TestCase {
         : s(s), p(p), expected(expected), passed(false) {}
 };
 
-vector<int> findAnagrams(string s, string p) {
-    vector<int> result;
-    int s_len = s.size();
-    int p_len = p.size();
-    
-    if (p_len > s_len) return result;
+#include <vector>
+#include <string>
+using namespace std;
 
-    unordered_map<char, int> p_count, s_count;
 
-    // 初始化 p 的字符计数器
-    for (char c : p) {
-        p_count[c]++;
+
+    bool check(const vector<int>& c1, const vector<int>& c2) {
+        for (int i = 0; i < 26; i++) {
+            if (c1[i] != c2[i]) return false;
+        }
+        return true;
     }
 
-    // 初始化 s 的前 p_len - 1 个字符的计数器
-    for (int i = 0; i < p_len - 1; i++) {
-        s_count[s[i]]++;
-    }
+    vector<int> findAnagrams(string s, string p) {
+        vector<int> ans;
+        int n = s.size(), m = p.size();
+        if (n < m) return ans;
 
-    // 滑动窗口遍历 s
-    for (int i = p_len - 1; i < s_len; i++) {
-        // 增加当前字符到窗口计数器
-        s_count[s[i]]++;
+        vector<int> c1(26, 0), c2(26, 0);
+        for (int i = 0; i < m; ++i) c2[p[i] - 'a']++;
         
-        // 检查当前窗口是否为异位词
-        if (s_count == p_count) {
-            result.push_back(i - p_len + 1);
+        int l = 0;
+        for (int r = 0; r < n; r++) {
+            c1[s[r] - 'a']++;
+            if (r - l + 1 > m) c1[s[l++] - 'a']--;
+            if (check(c1, c2)) ans.push_back(l);
+        }
+
+        return ans;
+    }
+
+// 使用变量 a 统计 p 中不同字符的数量，
+// 使用变量 b 统计滑动窗口（子串）内有多少个字符词频与 p 相等。
+ vector<int> findAnagrams2(string s, string p) {
+        vector<int> ans;
+        int n = s.size(), m = p.size();
+        if (n < m) return ans;
+
+        vector<int> cnt(26, 0);
+        for (int i = 0; i < m; i++) cnt[p[i] - 'a']++;
+
+        int a = 0;
+        for (int i = 0; i < 26; i++) {
+            if (cnt[i] != 0) a++;
         }
         
-        // 移除窗口左端字符
-        s_count[s[i - p_len + 1]]--;
-        // 如果计数为 0，删除该字符
-        if (s_count[s[i - p_len + 1]] == 0) {
-            s_count.erase(s[i - p_len + 1]);
+        /// 滑动窗口左移，右移只更新b
+        for (int l = 0, r = 0, b = 0; r < n; r++) {
+            if (--cnt[s[r] - 'a'] == 0) b++;
+            if (r - l + 1 > m && ++cnt[s[l++] - 'a'] == 1) b--;
+            if (b == a) ans.push_back(l);
         }
+
+        return ans;
     }
 
-    return result;
-}
-
-vector<int> findAnagrams2(string s, string p) {
+vector<int> findAnagrams3(string s, string p) {
         int n = s.size();
         int len = p.size();
         vector<int> res;

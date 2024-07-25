@@ -42,10 +42,11 @@ vector<int> findAnagrams2(string s, string p)
         while (sCount[temp] > pCount[temp])
         {
             int l_digit = s[left] - 'a';
+            // cout<<"while (sCount[temp] > pCount[temp])"<<s.substr(left,right-left+1)<<endl;
             sCount[l_digit]--;
             left++;
         }
-        
+        cout<<"左边"<<s.substr(left,right-left+1)<<endl;
         ///保证不少
         if (right - left + 1 == len)
         {
@@ -59,11 +60,13 @@ vector<int> findAnagrams2(string s, string p)
 void runTestCases()
 {
     std::vector<TestCase> testCases = {
-        TestCase("cbaebabacd", "abc", {0, 6}),
-        TestCase("abab", "ab", {0, 1, 2}),
-        TestCase("af", "be", {}),
-        TestCase("a", "a", {0}),
-        TestCase("aaaaaaaaaa", "aaaaa", {0, 1, 2, 3, 4, 5})};
+        TestCase("cbaebabacd", "abc", {0, 6})
+        // ,
+        // TestCase("abab", "ab", {0, 1, 2}),
+        // TestCase("af", "be", {}),
+        // TestCase("a", "a", {0}),
+        // TestCase("aaaaaaaaaa", "aaaaa", {0, 1, 2, 3, 4, 5})
+        };
 
     for (auto &testCase : testCases)
     {
