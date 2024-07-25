@@ -95,6 +95,7 @@ def runTestCases():
     for i, testCase in enumerate(testCases):
         print(f"Test Case {i + 1}:")
         print(f"Input: {linkedListToList(testCase.input)}")
+        # print(f"Input: {testCase.input}")
         print(f"Expected: {testCase.expected}")
         print(f"Actual: {testCase.actual}")
         print(f"Passed: {'Yes' if testCase.passed else 'No'}\n")
