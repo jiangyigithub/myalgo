@@ -59,9 +59,19 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
         int x = nums[i];
         if (i > 0 && nums[i] == nums[i - 1])
             continue;
-        
-        if (x + nums[i + 1] + nums[i + 2] > 0) break; // 优化一
-        if (x + nums[n - 2] + nums[n - 1] < 0) continue; // 优化二
+
+        if (x + nums[i + 1] + nums[i + 2] > 0)
+            break; // 优化一
+        // 优化一的作用
+        // 如果当前数 x 加上数组中接下来的两个数的和大于0，那么由于数组是排序的，
+        // 接下来的所有数都会大于 x，因此不可能找到任何和为0的三元组。所以可以提前退出循环，节省时间。
+
+        // 优化二的作用
+        // 当当前数x和数组中最后两个数的和仍然小于0时，
+        // 说明即使将最小的两个数加在一起，也无法使和达到0。
+        // 因此，可以跳过当前数，直接进行下一个数的检查，从而提高效率。
+        if (x + nums[n - 2] + nums[n - 1] < 0)
+            continue; // 优化二
 
         int left = i + 1;
         int right = n - 1;
