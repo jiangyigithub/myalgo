@@ -15,11 +15,8 @@ public:
 
     Node(int k = 0, int v = 0) : key(k), value(v) {}
 };
-namespace ling
-{
-    class LRUCache;
-}
-class ling::LRUCache
+
+class LRUCache
 {
 private:
     int capacity;
@@ -89,52 +86,6 @@ public:
         }
     }
 };
-// LRUCache class definition
-class LRUCache {
-private:
-    int capacity;
-    std::list<std::pair<int, int>> cache; // Stores key-value pairs
-    std::unordered_map<int, std::list<std::pair<int, int>>::iterator> map; // Maps key to list iterator
-
-    // Move a key-value pair to the end of the list (mark as recently used)
-    void moveToEnd(std::list<std::pair<int, int>>::iterator it) {
-        cache.splice(cache.end(), cache, it);
-    }
-
-public:
-    LRUCache(int capacity) : capacity(capacity) {}
-
-    int get(int key) {
-        auto it = map.find(key);
-        if (it == map.end()) {
-            return -1; // Key not found
-        }
-        // Move the accessed key-value pair to the end
-        moveToEnd(it->second);
-        return it->second->second; // Return the value
-    }
-
-    void put(int key, int value) {
-        auto it = map.find(key);
-        if (it != map.end()) {
-            // 1. Key already exists, update the value and move it to the end
-            it->second->second = value;
-            moveToEnd(it->second);
-        } else {
-            // 2. Key does not exist, insert the new key-value pair
-            /// 3. 插入前判满
-            if (cache.size() >= capacity) {
-                // Remove the least recently used element (front of the list)
-                auto old = cache.front().first;
-                cache.pop_front();
-                map.erase(old);
-            }
-            
-            cache.emplace_back(key, value);
-            map[key] = --cache.end(); // Update the map with the new key-value pair
-        }
-    }
-};
 
 // TestCase structure definition
 struct TestCase
@@ -148,7 +99,7 @@ struct TestCase
 void run_test_case(const TestCase &test_case)
 {
     // LRUCache cache(test_case.values[0].first); // Initialize cache with capacity
-    ling::LRUCache cache(test_case.values[0].first); // Initialize cache with capacity
+    LRUCache cache(test_case.values[0].first); // Initialize cache with capacity
 
     std::vector<int> results;
     size_t op_idx = 0;

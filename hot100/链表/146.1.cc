@@ -74,57 +74,6 @@ public:
     }
 };
 
-// class LRUCache
-// {
-// public:
-//     LRUCache(int capacity) : capacity(capacity) {}
-
-//     int get(int key)
-//     {
-//         auto it = cache.find(key);
-//         if (it == cache.end())
-//         {
-//             return -1; // key 不存在
-//         }
-//         else
-//         {
-//             // key 存在，将该节点移到链表头部（表示最近使用）
-//             data.splice(data.begin(), data, it->second);
-//             return it->second->second;
-//         }
-//     }
-
-//     void put(int key, int value)
-//     {
-//         auto it = cache.find(key);
-//         if (it != cache.end())
-//         {
-//             // key 存在，更新值并将节点移到链表头部
-//             it->second->second = value;
-//             data.splice(data.begin(), data, it->second);
-//         }
-//         else
-//         {
-//             // key 不存在，检查容量是否已满
-//             if (data.size() == capacity)
-//             {
-//                 // 容量已满，移除链表尾部的节点（最久未使用）
-//                 auto del = data.back();
-//                 cache.erase(del.first);
-//                 data.pop_back();
-//             }
-//             // 插入新的节点到链表头部
-//             data.emplace_front(key, value);
-//             cache[key] = data.begin();
-//         }
-//     }
-
-// private:
-//     int capacity;
-//     std::list<std::pair<int, int>> data;                                     // 存储缓存的键值对
-//     std::unordered_map<int, std::list<std::pair<int, int>>::iterator> cache; // 键到链表节点的映射
-// };
-
 // 定义一个参数类型，可以是 `std::pair<int, int>` 或 `int`
 using OperationParam = std::variant<std::pair<int, int>, int>;
 
