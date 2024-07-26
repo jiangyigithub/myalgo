@@ -20,6 +20,10 @@ vector<vector<int>> threeSum(vector<int> &nums)
         int x = nums[i];
         if (x > 0 && nums[x] == nums[x - 1])
             continue;
+        if (x + nums[i + 1] + nums[i + 2] > 0)
+            break; // 优化一
+        if (x + nums[n - 2] + nums[n - 1] < 0)
+            continue; // 优化二
         int left = i + 1;
         int right = n - 1;
         while (left < right)
@@ -32,12 +36,12 @@ vector<vector<int>> threeSum(vector<int> &nums)
             else
             {
                 ret.push_back({x, nums[left], nums[right]});
-                while (left < right && nums[left] == nums[left +1])
-                    left++;
-                while (left < right && nums[right] == nums[right -1])
-                    right--;
-                left++;
-                right--;
+                while (left < right && nums[left] == nums[left + 1])
+                    ++left;
+                while (left < right && nums[right] == nums[right - 1])
+                    --right;
+                ++left;
+                --right;
             }
         }
     }

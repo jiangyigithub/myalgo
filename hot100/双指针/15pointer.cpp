@@ -10,6 +10,45 @@ using namespace std;
 这道题还要求要输出所有结果，所以求得结果后，还需要继续查找
 */
 // 函数计算和为 0 的三元组
+
+vector<vector<int>> threeSum2(vector<int> &nums)
+{
+    vector<vector<int>> ret;
+    sort(nums.begin(), nums.end());
+    int n = nums.size();
+    for (int i = 0; i < n - 2; ++i)
+    {
+        int x = nums[i];
+        if (x > 0 && nums[x] == nums[x - 1])
+            continue;
+        if (x + nums[i + 1] + nums[i + 2] > 0)
+            break; // 优化一
+        if (x + nums[n - 2] + nums[n - 1] < 0)
+            continue; // 优化二
+        int left = i + 1;
+        int right = n - 1;
+        while (left < right)
+        {
+            int sum = x + nums[left] + nums[right];
+            if (sum < 0)
+                left++;
+            else if (sum > 0)
+                right--;
+            else
+            {
+                ret.push_back({x, nums[left], nums[right]});
+                while (left < right && nums[left] == nums[left + 1])
+                    ++left;
+                while (left < right && nums[right] == nums[right - 1])
+                    --right;
+                ++left;
+                --right;
+            }
+        }
+    }
+    return ret;
+}
+
 vector<std::vector<int>> threeSum(vector<int> &nums)
 {
     vector<std::vector<int>> result;
@@ -127,7 +166,7 @@ void runTestCases()
 
     for (auto &test : testCases)
     {
-        test.actual = threeSum(test.nums);
+        test.actual = threeSum2(test.nums);
         test.passed = compareVectors(test.actual, test.expected);
 
         std::cout << "Test Case - nums: ";
