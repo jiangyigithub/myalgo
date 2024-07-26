@@ -17,7 +17,7 @@ class LRUCache(collections.OrderedDict):
             self.move_to_end(key)  # 如果键已存在，移动到末尾
         self[key] = value
         if len(self) > self.capacity:
-            self.popitem(last=False)  # 移除最前面的键值对，即最久未使用的
+            self.popitem(False)  # 移除最前面的键值对，即最久未使用的
 
 def test_lru_cache():
     # 创建容量为2的LRU缓存
