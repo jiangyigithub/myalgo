@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+using namespace std;
 /*
 该题特点: 无序 有重复 求所以解；应用的基础模版是双指针求两数之和
 基础模版：两数之和应用双指针的方法求和的前提得有序，因此，需先排序，再应用双指针
@@ -9,14 +11,31 @@
 */
 
 /// 函数计算和为 0 的三元组
-std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
-    sort(nums.begin(),nums.end());
-    for(int i=0;i<nums.size()-2;++i){
-        int target = -nums[i];
+    vector<vector<int>> threeSum(vector<int> &nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        int n = nums.size();
+        for (int i = 0; i < n - 2; ++i) {
+            int x = nums[i];
+            if (i>0 && x == nums[i - 1]) continue; // 跳过重复数字
+            if (x + nums[i + 1] + nums[i + 2] > 0) break; // 优化一
+            if (x + nums[n - 2] + nums[n - 1] < 0) continue; // 优化二
+            /// 双指针
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int s = x + nums[j] + nums[k];
+                if (s > 0) --k;
+                else if (s < 0) ++j;
+                else {
+                    ans.push_back({x, nums[j], nums[k]});
+                    // 只动一个也可以，但是一个移动后，三数之和必然不等于 0，所以可以把另一个也移动了。
+                    for (++j; j < k && nums[j] == nums[j - 1]; ++j); // 跳过重复数字
+                    for (--k; k > j && nums[k] == nums[k + 1]; --k); // 跳过重复数字
+                }
+            }
+        }
+        return ans;
     }
-
-    
-}
 
 // 结构体存储测试用例
 struct TestCase {
