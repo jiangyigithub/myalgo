@@ -10,65 +10,38 @@ using namespace std;
 这道题还要求要输出所有结果，所以求得结果后，还需要继续查找
 */
 // 函数计算和为 0 的三元组
-vector<std::vector<int>> threeSum(vector<int> &nums)
+vector<vector<int>> threeSum(vector<int> &nums)
 {
-    vector<std::vector<int>> result;
-    std::sort(nums.begin(), nums.end());
+    vector<vector<int>> ret;
+    sort(nums.begin(), nums.end());
     int n = nums.size();
     for (int i = 0; i < n - 2; ++i)
     {
         int x = nums[i];
-        if (i > 0 && nums[i] == nums[i - 1])
+        if (x > 0 && nums[x] == nums[x - 1])
             continue;
-        
-        if (x + nums[i + 1] + nums[i + 2] > 0) break; // 优化一
-        if (x + nums[n - 2] + nums[n - 1] < 0) continue; // 优化二
-
         int left = i + 1;
         int right = n - 1;
-
         while (left < right)
         {
-            /// 先固定一个，再求两数之和(两数之和应用双指针的方法求和的前提得有序)
             int sum = x + nums[left] + nums[right];
-            cout << "nums sum" << sum << endl;
-            if (sum > 0)
-            {
-                --right;
-            }
-            else if (sum < 0)
-            {
-                ++left;
-            }
-
+            if (sum < 0)
+                left++;
+            else if (sum > 0)
+                right--;
             else
             {
-                /// 有多个解，怎么在找到一个解之后，继续求解
-                std::vector<int> temp = {x, nums[left], nums[right]};
-                result.push_back(temp);
-
-                cout << "nums[left]" << nums[left] << endl;
-                cout << "nums[left]" << nums[right] << endl;
-
-                while (left < right && nums[left] == nums[left + 1])
-                {
-                    ++left;
-                }
-
-                while (left < right && nums[right] == nums[right - 1])
-                {
-                    --right;
-                }
-                ++left;
-                --right;
-
-                cout << "nums[left]" << nums[left] << endl;
-                cout << "nums[left]" << nums[right] << endl;
+                ret.push_back({x, nums[left], nums[right]});
+                while (left < right && nums[left] == nums[left +1])
+                    left++;
+                while (left < right && nums[right] == nums[right -1])
+                    right--;
+                left++;
+                right--;
             }
         }
     }
-
-    return result;
+    return ret;
 }
 
 // 结构体存储测试用例
