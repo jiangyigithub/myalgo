@@ -5,6 +5,7 @@
             "label": "C/C++: g++ build active file",
             "command": "/usr/bin/g++",
             "args": [
+                "-std=c++17", // C++17 标准
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
