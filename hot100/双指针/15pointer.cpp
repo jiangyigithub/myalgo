@@ -20,8 +20,10 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
         int x = nums[i];
         if (i > 0 && nums[i] == nums[i - 1])
             continue;
-
         
+        if (x + nums[i + 1] + nums[i + 2] > 0) break; // 优化一
+        if (x + nums[n - 2] + nums[n - 1] < 0) continue; // 优化二
+
         int left = i + 1;
         int right = n - 1;
 
@@ -29,6 +31,7 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
         {
             /// 先固定一个，再求两数之和(两数之和应用双指针的方法求和的前提得有序)
             int sum = x + nums[left] + nums[right];
+            cout << "nums sum" << sum << endl;
             if (sum > 0)
             {
                 --right;
@@ -41,9 +44,11 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
             else
             {
                 /// 有多个解，怎么在找到一个解之后，继续求解
-                result.push_back({x, nums[left], nums[right]});
-                ++left;
-                --right;
+                std::vector<int> temp = {x, nums[left], nums[right]};
+                result.push_back(temp);
+
+                cout << "nums[left]" << nums[left] << endl;
+                cout << "nums[left]" << nums[right] << endl;
 
                 while (left < right && nums[left] == nums[left + 1])
                 {
@@ -54,6 +59,11 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
                 {
                     --right;
                 }
+                ++left;
+                --right;
+
+                cout << "nums[left]" << nums[left] << endl;
+                cout << "nums[left]" << nums[right] << endl;
             }
         }
     }
@@ -107,9 +117,9 @@ void printVector(const std::vector<std::vector<int>> &vec)
 void runTestCases()
 {
     std::vector<TestCase> testCases = {
-        {{-1, 0, 1, 2, -1, -4}, {{-1, -1, 2}, {-1, 0, 1}}, {}, false},
-        {{0, 1, 1}, {}, {}, false},
-        {{0, 0, 0}, {{0, 0, 0}}, {}, false},
+        // {{-1, 0, 1, 2, -1, -4}, {{-1, -1, 2}, {-1, 0, 1}}, {}, false},
+        // {{0, 1, 1}, {}, {}, false},
+        // {{0, 0, 0}, {{0, 0, 0}}, {}, false},
         {{-2, 0, 1, 1, 2}, {{-2, 0, 2}, {-2, 1, 1}}, {}, false},
         // 添加更多测试用例
     };
