@@ -25,25 +25,30 @@ public:
 
         // Create a hash map to store the mapping from original nodes to their copies
         std::unordered_map<Node *, Node *> map;
-        Node *current = head;
+        Node *cur = head;
 
         // First pass: Create all new nodes and store them in the hash map
-        while (current)
+        // 1. 复制各节点，并建立 “原节点 -> 新节点” 的 Map 映射
+        while (cur)
         {
-            map[current] = new Node(current->val);
-            current = current->next;
+            map[cur] = new Node(cur->val); // 复制值
+            cur = cur->next;
         }
 
         // Second pass: Assign next and random pointers for the copied nodes
-        current = head;
-        while (current)
+        // 2. 构建新链表的 next 和 random 指向
+        cur = head;
+        while (cur)
         {
-            map[current]->next = map[current->next];
-            map[current]->random = map[current->random];
-            current = current->next;
+            // {key,value} value->next = value 说明value是链表
+            // randow 指针和next指针本质没有区别
+            map[cur]->next = map[cur->next]; //复制next连接
+            map[cur]->random = map[cur->random];//复制random连接
+            cur = cur->next;
         }
 
         // Return the head of the copied list
+        // 3. 返回新链表的头节点
         return map[head];
     }
 
@@ -53,34 +58,35 @@ public:
             return nullptr;
 
         // Step 1: Insert copied nodes in between original nodes
-        Node *current = head;
-        while (current)
+        // 1. 复制各节点，并构建拼接链表
+        Node *cur = head;
+        while (cur)
         {
-            Node *copy = new Node(current->val);
-            copy->next = current->next;
-            current->next = copy;
-            current = copy->next;
+            Node *temp = new Node(cur->val);
+            temp->next = cur->next;
+            cur->next = temp;
+            cur = temp->next;
         }
 
         // Step 2: Assign random pointers for copied nodes
-        current = head;
-        while (current)
+        cur = head;
+        while (cur)
         {
-            Node *copy = current->next;
-            copy->random = (current->random) ? current->random->next : nullptr;
-            current = copy->next;
+            Node *copy = cur->next;
+            copy->random = (cur->random) ? cur->random->next : nullptr;
+            cur = copy->next;
         }
 
         // Step 3: Separate the original list from the copied list
         Node *newHead = head->next;
         Node *copyCurrent = newHead;
-        current = head;
-        while (current)
+        cur = head;
+        while (cur)
         {
-            current->next = copyCurrent->next;
-            current = current->next;
-            if (current)
-                copyCurrent->next = current->next;
+            cur->next = copyCurrent->next;
+            cur = cur->next;
+            if (cur)
+                copyCurrent->next = cur->next;
             copyCurrent = copyCurrent->next;
         }
 
