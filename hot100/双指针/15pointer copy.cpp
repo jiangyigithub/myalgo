@@ -18,7 +18,7 @@ vector<vector<int>> threeSum(vector<int> &nums)
     for (int i = 0; i < n - 2; ++i)
     {
         int x = nums[i];
-        if (x > 0 && nums[x] == nums[x - 1])
+        if (i > 0 && nums[i] == nums[i - 1])
             continue;
         if (x + nums[i + 1] + nums[i + 2] > 0)
             break; // 优化一
