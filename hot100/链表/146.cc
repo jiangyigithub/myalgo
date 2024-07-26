@@ -74,50 +74,50 @@ public:
         }
     }
 };
-// LRUCache class definition
-class LRUCache {
-private:
-    int capacity;
-    std::list<std::pair<int, int>> cache; // Stores key-value pairs
-    std::unordered_map<int, std::list<std::pair<int, int>>::iterator> map; // Maps key to list iterator
+// // LRUCache class definition
+// class LRUCache {
+// private:
+//     int capacity;
+//     std::list<std::pair<int, int>> cache; // Stores key-value pairs
+//     std::unordered_map<int, std::list<std::pair<int, int>>::iterator> map; // Maps key to list iterator
 
-    // Move a key-value pair to the end of the list (mark as recently used)
-    void moveToEnd(std::list<std::pair<int, int>>::iterator it) {
-        cache.splice(cache.end(), cache, it);
-    }
+//     // Move a key-value pair to the end of the list (mark as recently used)
+//     void moveToEnd(std::list<std::pair<int, int>>::iterator it) {
+//         cache.splice(cache.end(), cache, it);
+//     }
 
-public:
-    LRUCache(int capacity) : capacity(capacity) {}
+// public:
+//     LRUCache(int capacity) : capacity(capacity) {}
 
-    int get(int key) {
-        auto it = map.find(key);
-        if (it == map.end()) {
-            return -1; // Key not found
-        }
-        // Move the accessed key-value pair to the end
-        moveToEnd(it->second);
-        return it->second->second; // Return the value
-    }
+//     int get(int key) {
+//         auto it = map.find(key);
+//         if (it == map.end()) {
+//             return -1; // Key not found
+//         }
+//         // Move the accessed key-value pair to the end
+//         moveToEnd(it->second);
+//         return it->second->second; // Return the value
+//     }
 
-    void put(int key, int value) {
-        auto it = map.find(key);
-        if (it != map.end()) {
-            // Key already exists, update the value and move it to the end
-            it->second->second = value;
-            moveToEnd(it->second);
-        } else {
-            // Key does not exist, insert the new key-value pair
-            if (cache.size() >= capacity) {
-                // Remove the least recently used element (front of the list)
-                auto old = cache.front().first;
-                cache.pop_front();
-                map.erase(old);
-            }
-            cache.emplace_back(key, value);
-            map[key] = --cache.end(); // Update the map with the new key-value pair
-        }
-    }
-};
+//     void put(int key, int value) {
+//         auto it = map.find(key);
+//         if (it != map.end()) {
+//             // Key already exists, update the value and move it to the end
+//             it->second->second = value;
+//             moveToEnd(it->second);
+//         } else {
+//             // Key does not exist, insert the new key-value pair
+//             if (cache.size() >= capacity) {
+//                 // Remove the least recently used element (front of the list)
+//                 auto old = cache.front().first;
+//                 cache.pop_front();
+//                 map.erase(old);
+//             }
+//             cache.emplace_back(key, value);
+//             map[key] = --cache.end(); // Update the map with the new key-value pair
+//         }
+//     }
+// };
 
 // TestCase structure definition
 struct TestCase {
