@@ -25,7 +25,7 @@ public:
     string minWindow(string s, string t) {
         // 如果 T 为空串，则直接返回空串
         if (t.empty()) return "";
-        int m = s.length();
+        int m = s.size();
         int ans_left = -1, ans_right = m, left = 0;
         int cnt_s[128]{}, cnt_t[128]{};
         for (char c : t) {
@@ -34,6 +34,7 @@ public:
         for (int right = 0; right < m; right++) { // 移动子串右端点
             cnt_s[s[right]]++; // 右端点字母移入子串
             while (is_covered(cnt_s, cnt_t)) { // 涵盖
+                cout<<"is_covered"<<s.substr(left,right-left+1)<<endl;
                 if (right - left < ans_right - ans_left) { // 找到更短的子串
                     ans_left = left; // 记录此时的左右端点
                     ans_right = right;
@@ -45,22 +46,22 @@ public:
     }
 
      string minWindow2(string s, string t) {
-        int m = s.length();
-        int ans_left = -1, ans_right = m, left = 0, less = 0;
+        int m = s.size();
+        int ans_left = -1, ans_right = m, left = 0, gap = 0;
         int cnt_s[128]{}, cnt_t[128]{};
         for (char c : t) {
-            less += cnt_t[c]++ == 0; // 有 less 种字母的出现次数 < t 中的字母出现次数
+            gap += cnt_t[c]++ == 0; // 有 gap 种字母的出现次数 < t 中的字母出现次数
         }
         for (int right = 0; right < m; right++) { // 移动子串右端点
             char c = s[right]; // 右端点字母（移入子串）
-            less -= ++cnt_s[c] == cnt_t[c]; // c 的出现次数从 < 变成 >=
-            while (less == 0) { // 涵盖：所有字母的出现次数都是 >=
+            gap -= ++cnt_s[c] == cnt_t[c]; // c 的出现次数从 < 变成 >=
+            while (gap == 0) { // 涵盖：所有字母的出现次数都是 >=
                 if (right - left < ans_right - ans_left) { // 找到更短的子串
                     ans_left = left; // 记录此时的左右端点
                     ans_right = right;
                 }
                 char x = s[left++]; // 左端点字母（移出子串）
-                less += cnt_s[x]-- == cnt_t[x]; // x 的出现次数从 >= 变成 <
+                gap += cnt_s[x]-- == cnt_t[x]; // x 的出现次数从 >= 变成 <
             }
         }
         return ans_left < 0 ? "" : s.substr(ans_left, ans_right - ans_left + 1);
@@ -85,12 +86,13 @@ void runTestCases()
         {"a", "", ""},
         {"aa", "aa", "aa"},
         {"abcdefgh", "hgfedcba", "abcdefgh"},
-        {"ADOBECODEBANCCODE", "ABC", "BANC"}};
+        {"ADOBECODEBANCCODE", "ABC", "BANC"}
+        };
 
     for (size_t i = 0; i < testCases.size(); ++i)
     {
         const TestCase &testCase = testCases[i];
-        string result = Solution().minWindow(testCase.S, testCase.T);
+        string result = Solution().minWindow2(testCase.S, testCase.T);
         cout << "Test case " << i + 1 << ": expected = \"" << testCase.expected << "\", got = \"" << result << "\"";
         if (result == testCase.expected)
         {
