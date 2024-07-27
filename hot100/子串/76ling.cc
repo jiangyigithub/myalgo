@@ -49,21 +49,25 @@ public:
         int m = s.size();
         int ans_left = -1, ans_right = m, left = 0;
         
-        int cnt_s[128]{}, cnt_t[128]{};
+        vector<int> cnt_s(128),cnt_t(128);
         int gap = 0;
         for (char c : t) {
-            gap += cnt_t[c]++ == 0; // 有 gap 种字母的出现次数 < t 中的字母出现次数
+            cnt_t[c]++;
+            if(cnt_t[c]==1) gap++; // 有 gap 种字母的出现次数 < t 中的字母出现次数
         }
         for (int right = 0; right < m; right++) { // 移动子串右端点
             char c = s[right]; // 右端点字母（移入子串）
-            gap -= ++cnt_s[c] == cnt_t[c]; // c 的出现次数从 < 变成 >=
+            cnt_s[c]++;
+            if(cnt_s[c] == cnt_t[c])  gap --; // c 的出现次数从 < 变成 >=
             while (gap == 0) { // 涵盖：所有字母的出现次数都是 >=
                 if (right - left < ans_right - ans_left) { // 找到更短的子串
                     ans_left = left; // 记录此时的左右端点
                     ans_right = right;
                 }
-                char x = s[left++]; // 左端点字母（移出子串）
-                gap += cnt_s[x]-- == cnt_t[x]; // x 的出现次数从 >= 变成 <
+                char x = s[left]; // 左端点字母（移出子串）
+                cnt_s[x]-- ;
+                left++;
+                if(cnt_s[x]<cnt_t[x])  gap ++; // x 的出现次数从 >= 变成 <
             }
         }
         return ans_left < 0 ? "" : s.substr(ans_left, ans_right - ans_left + 1);
