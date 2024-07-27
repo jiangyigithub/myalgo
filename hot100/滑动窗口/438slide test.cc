@@ -61,7 +61,7 @@ vector<int> findAnagrams(string s, string p)
 /// @param s 
 /// @param p 
 /// @return 
-vector<int> findAnagrams(string s, string p) {
+vector<int> findAnagrams2(string s, string p) {
         int n = s.size(), m = p.size();
         vector<int> s_cnt(128), p_cnt(128);
         int gap = 0;
