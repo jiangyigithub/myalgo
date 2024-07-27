@@ -48,8 +48,9 @@ public:
      string minWindow2(string s, string t) {
         int m = s.size();
         int ans_left = -1, ans_right = m, left = 0;
-        int gap = 0;
+        
         int cnt_s[128]{}, cnt_t[128]{};
+        int gap = 0;
         for (char c : t) {
             gap += cnt_t[c]++ == 0; // 有 gap 种字母的出现次数 < t 中的字母出现次数
         }
