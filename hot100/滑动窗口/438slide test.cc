@@ -57,6 +57,42 @@ vector<int> findAnagrams(string s, string p)
     return res;
 }
 
+/// @brief 438 和 76 两道题是完全一样的
+/// @param s 
+/// @param p 
+/// @return 
+vector<int> findAnagrams(string s, string p) {
+        int n = s.size(), m = p.size();
+        vector<int> s_cnt(128), p_cnt(128);
+        int gap = 0;
+
+        for (auto c : p) {
+            p_cnt[c]++;
+            if (p_cnt[c] == 1)
+                gap++;
+        }
+
+        int left = 0;
+        vector<int> ans;
+        for (int right = 0; right < n; ++right) {
+            char c = s[right];
+            s_cnt[c]++;
+            if (s_cnt[c] == p_cnt[c])
+                gap--;
+            while (gap == 0) {
+                if (right - left + 1 == m)
+                    ans.push_back(left);
+
+                char x = s[left];
+                s_cnt[x]--;
+                if (s_cnt[x] < p_cnt[x])
+                    gap++;
+                left++;
+            }
+        }
+        return ans;
+    }
+
 void runTestCases()
 {
     std::vector<TestCase> testCases = {
