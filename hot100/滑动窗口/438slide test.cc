@@ -16,7 +16,7 @@ struct TestCase
         : s(s), p(p), expected(expected), passed(false) {}
 };
 
-vector<int> findAnagrams2(string s, string p)
+vector<int> findAnagrams(string s, string p)
 {
     vector<int> res;
     int len = p.size();
@@ -70,7 +70,7 @@ void runTestCases()
 
     for (auto &testCase : testCases)
     {
-        testCase.actual = findAnagrams2(testCase.s, testCase.p);
+        testCase.actual = findAnagrams(testCase.s, testCase.p);
         testCase.passed = (testCase.actual == testCase.expected);
 
         std::cout << "Test case - s: \"" << testCase.s << "\", p: \"" << testCase.p << "\"\n";
