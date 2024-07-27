@@ -88,37 +88,6 @@ vector<int> findAnagrams2(string s, string p)
     return ans;
 }
 
-vector<int> findAnagrams4(string s, string p)
-{
-    vector<int> ans;
-    // 初始化一个数组来统计字符串 p 中每个字符的出现次数
-    vector<int> cnt(26, 0);
-    for (int i = 0; i < p.size(); i++)
-    {
-        cnt[p[i] - 'a']++;
-    }
-    // left 和 right 分别表示滑动窗口的左右边界
-    int left = 0;
-    for (int right = 0; right < s.size(); right++)
-    {
-        // 更新当前窗口中字符的计数数组
-        cnt[s[right] - 'a']--;
-        // 从左侧收缩窗口，直到当前字符的计数在限定范围内
-        while (cnt[s[right] - 'a'] < 0)
-        {
-            cout<<"while "<<s.substr(left,right-left+1)<<endl;
-            cnt[s[left] - 'a']++;
-            left++;
-        }
-        // 检查当前窗口大小是否等于字符串 p 的大小
-        if (right - left + 1 == p.size())
-        {
-            ans.push_back(left);
-        }
-    }
-    return ans;
-}
-
 vector<int> findAnagrams3(string s, string p)
 {
     int n = s.size();
@@ -157,6 +126,39 @@ vector<int> findAnagrams3(string s, string p)
 
     return res;
 }
+
+vector<int> findAnagrams4(string s, string p)
+{
+    vector<int> ans;
+    // 初始化一个数组来统计字符串 p 中每个字符的出现次数
+    vector<int> cnt(26, 0);
+    for (int i = 0; i < p.size(); i++)
+    {
+        cnt[p[i] - 'a']++;
+    }
+    // left 和 right 分别表示滑动窗口的左右边界
+    int left = 0;
+    for (int right = 0; right < s.size(); right++)
+    {
+        // 更新当前窗口中字符的计数数组
+        cnt[s[right] - 'a']--;
+        // 从左侧收缩窗口，直到当前字符的计数在限定范围内
+        while (cnt[s[right] - 'a'] < 0)
+        {
+            cout<<"while "<<s.substr(left,right-left+1)<<endl;
+            cnt[s[left] - 'a']++;
+            left++;
+        }
+        // 检查当前窗口大小是否等于字符串 p 的大小
+        if (right - left + 1 == p.size())
+        {
+            ans.push_back(left);
+        }
+    }
+    return ans;
+}
+
+
 
 void runTestCases()
 {
