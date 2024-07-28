@@ -40,7 +40,7 @@ private:
     /// @brief 根据key找对应的node*,找到返回node*,找不到返回nullptr。该操作， 只更新双端队列的元素，hashMap不会有变化
     /// @param key 
     /// @return 
-    Node *find_node(int key)
+    Node *get_node(int key)
     {
         if (hashMap.find(key) != hashMap.end())
         {
@@ -61,7 +61,7 @@ public:
 
     int get(int key)
     {
-        Node *node = find_node(key);
+        Node *node = get_node(key);
         if (node) 
             return node->val;
         return -1;
@@ -70,7 +70,7 @@ public:
     void put(int key, int value)
     {
         //
-        Node *node = find_node(key);
+        Node *node = get_node(key);
         if (node)
         {
             node->val = value;
