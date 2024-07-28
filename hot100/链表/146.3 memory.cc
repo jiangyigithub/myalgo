@@ -21,9 +21,7 @@ private:
     unordered_map<int, Node *> hashMap;
     int capacity;
 
-    // 删除一个节点
-    // a->x->b    a->b
-    // a<-x<-b    a<-b
+
     /*
     核心是x指向谁，和x被谁指
     remove x不在被原来的指了，而是下一个位置的元素来替受罪
@@ -31,6 +29,9 @@ private:
 
     操作要逆序，a->x->b ，先出来x与b的关系，再处理a与x的关系
     */
+    // 删除一个节点
+    // a->x->b    a->b
+    // a<-x<-b    a<-b
     void remove(Node *x)
     {
         // x被删了，只有x的prev有next
@@ -84,8 +85,8 @@ public:
 
     void put(int key, int value)
     {
-        //或已存在
         Node *node = get_node(key);
+        //若已存在
         if (node)
         {
             node->val = value;
@@ -93,7 +94,7 @@ public:
         }
         // 不存在更新双端队列和哈希表
         node = new Node(key, value);
-        hashMap.insert({key, node}); // 哈希表
+        hashMap.insert({key, node}); // 加入哈希表
         push_front(node); //更新 双端队列
         // 超容了，更新双端队列和哈希表
         if (hashMap.size() > capacity)
@@ -104,39 +105,6 @@ public:
         }
     }
 };
-
-// class LRUCache {
-// public:
-//     LRUCache(int capacity) : cap(capacity) {
-//     }
-
-//     int get(int key) {
-//         if (map.find(key) == map.end()) return -1;
-//         auto key_value = *map[key];
-//         cache.erase(map[key]);
-//         cache.push_front(key_value);
-//         map[key] = cache.begin();
-//         return key_value.second;
-//     }
-
-//     void put(int key, int value) {
-//         if (map.find(key) == map.end()) {
-//             if (cache.size() == cap) {
-//                 map.erase(cache.back().first);
-//                 cache.pop_back();
-//             }
-//         }
-//         else {
-//             cache.erase(map[key]);
-//         }
-//         cache.push_front({key, value});
-//         map[key] = cache.begin();
-//     }
-// private:
-//     int cap;
-//     list<pair<int, int>> cache;
-//     unordered_map<int, list<pair<int, int>>::iterator> map;
-// };
 
 // TestCase structure definition
 struct TestCase
