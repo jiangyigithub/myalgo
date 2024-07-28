@@ -1,24 +1,4 @@
 import collections
-
-class LRUCache(collections.OrderedDict):
-
-    def __init__(self, capacity: int):
-        super().__init__()
-        self.capacity = capacity
-
-    def get(self, key: int) -> int:
-        if key not in self:
-            return -1
-        self.move_to_end(key) # 将访问的键移动到末尾，标记为最近使用
-        return self[key]
-
-    def put(self, key: int, value: int) -> None:
-        if key in self:
-            self.move_to_end(key)  # 如果键已存在，移动到末尾
-        self[key] = value
-        if len(self) > self.capacity:
-            self.popitem(False)  # 移除最前面的键值对，即最久未使用的
-
 def test_lru_cache():
     # 创建容量为2的LRU缓存
     cache = LRUCache(2)
@@ -48,6 +28,28 @@ def test_lru_cache():
     assert cache.get(5) == 5  # 返回 5
 
     print("所有测试用例通过！")
+    
+class LRUCache(collections.OrderedDict):
+
+    def __init__(self, capacity: int):
+        super().__init__()
+        self.capacity = capacity
+
+    def get(self, key: int) -> int:
+        if key not in self:
+            return -1
+        self.move_to_end(key,False) # 将访问的键移动到末尾，标记为最近使用
+        return self[key]
+
+    def put(self, key: int, value: int) -> None:
+        if key in self:
+            self.move_to_end(key,False)  # 如果键已存在，移动到末尾
+        self[key] = value
+        self.move_to_end(key,False)  # 如果键已存在，移动到末尾
+        if len(self) > self.capacity:
+            self.popitem()  # 移除最前面的键值对，即最久未使用的
+
+
 
 # 运行测试用例
 # 创建一个有序字典

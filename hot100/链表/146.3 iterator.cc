@@ -21,23 +21,36 @@ private:
     unordered_map<int, Node *> hashMap;
     int capacity;
 
-    // 删除一个节点（抽出一本书）
+    // 删除一个节点
+    // a->x->b    a->b
+    // a<-x<-b    a<-b
+    /*
+    核心是x指向谁，和x被谁指
+    remove x不在被原来的指了，而是下一个位置的元素来替受罪
+    push_front x ，两个问题，x指向谁，x被谁指向
+    */
     void remove(Node *x)
     {
+        // x被删了，只有x的prev有next
+        // x被删了，只有x的next有prev
         x->prev->next = x->next;
         x->next->prev = x->prev;
     }
 
-    // 在链表头添加一个节点（把一本书放在最上面）
+    // 在链表头添加一个节点，意思是这个节点最新
+    // dummy->a dummy->x->a
+    // dummy<-a dummy<-x<-a
     void push_front(Node *x)
     {
-        x->prev = dummy;
+        // x的新元素，x有next，也有prev
+        // x的新元素, x被next指，x被prev指，更新x的prev next和x的next prev
         x->next = dummy->next;
+        x->prev = dummy;
         x->prev->next = x;
         x->next->prev = x;
     }
 
-    /// @brief 根据key找对应的node*,找到返回node*,找不到返回nullptr。该操作， 只更新双端队列的元素，hashMap不会有变化
+    /// @brief 根据key找对应的node*,找到返回node*,找不到返回nullptr。会get API对应。get_node的确不会影响hashMap内的元素
     /// @param key 
     /// @return 
     Node *get_node(int key)
@@ -69,17 +82,18 @@ public:
 
     void put(int key, int value)
     {
-        //
+        //或已存在
         Node *node = get_node(key);
         if (node)
         {
             node->val = value;
             return;
         }
-
+        // 不存在更新双端队列和哈希表
         node = new Node(key, value);
         hashMap.insert({key, node}); // 哈希表
         push_front(node); //更新 双端队列
+        // 超容了，更新双端队列和哈希表
         if (hashMap.size() > capacity)
         {
             Node *end = dummy->prev;
