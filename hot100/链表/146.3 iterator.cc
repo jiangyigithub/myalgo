@@ -28,6 +28,8 @@ private:
     核心是x指向谁，和x被谁指
     remove x不在被原来的指了，而是下一个位置的元素来替受罪
     push_front x ，两个问题，x指向谁，x被谁指向
+
+    操作要逆序，a->x->b ，先出来x与b的关系，再处理a与x的关系
     */
     void remove(Node *x)
     {
@@ -38,8 +40,8 @@ private:
     }
 
     // 在链表头添加一个节点，意思是这个节点最新
-    // dummy->a dummy->x->a
-    // dummy<-a dummy<-x<-a
+    // next指向关系 dummy->a dummy->x->a
+    // prev指向关系 dummy<-a dummy<-x<-a
     void push_front(Node *x)
     {
         // x的新元素，x有next，也有prev
