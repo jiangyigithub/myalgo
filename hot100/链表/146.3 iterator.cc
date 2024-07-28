@@ -78,7 +78,8 @@ public:
             return;
         }
         // 2. 没有这本书新建节点
-        hashMap[key] = node = new Node(key, value); // 新书
+        node = new Node(key, value); // 新书
+        hashMap[key] = node;
         push_front(node); // 放在最上面
         // 3. 书太多了，删除老节点                         
         if (hashMap.size() > capacity)
