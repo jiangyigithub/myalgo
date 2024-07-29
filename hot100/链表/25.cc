@@ -16,10 +16,13 @@ ListNode *reverseKGroup(ListNode *head, int k)
 {
     ListNode *dummy = new ListNode(0, head), *p0 = dummy, *cur = head, *pre = nullptr;
     int len = 0;
-    while (cur)
-    {
+    // while (cur)
+    // {
+    //     len++;
+    //     cur = cur->next;
+    // }
+    for(ListNode *cur=head;cur;cur=cur->next){
         len++;
-        cur = cur->next;
     }
     // p0 前一个节点，动态前一个节点
     cur = head; // re init
