@@ -38,7 +38,8 @@ ListNode *reverseKGroup(ListNode *head, int k)
 
         // dummy 固定head的前一个节点，当前区间的p0，下个区间的nxtp0，
         // p0动态dummy,p0->next为链表头，反转后为反转链表的尾巴
-        ListNode *nxtp0 = p0->next;
+        /// p0为区间动态dummy,存放原始区间链表的前一个节点和头节点
+        ListNode *nxtp0 = p0->next; // 反转后，头节点为下一个区间的前一个节点  p0->区间1，以p0->next结尾->区间2
         // p0->nxtp0 AB-> CD
         // P0-> BA nxtp0->CD
         // BA nxtp0为 pre，CD 为cur
