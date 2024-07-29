@@ -19,6 +19,7 @@ public:
     ListNode* reverseList(ListNode* head) {
         ListNode* pre=head;
         ListNode* cur=head->next;
+        /// 反转固定次数，可以通过计算长度，for循环来实现
         while(cur!=nullptr){
             ListNode * temp = cur;
             cur=cur->next;
