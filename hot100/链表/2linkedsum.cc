@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+
+using namespace std;
 /*
 sum+=a;
 sum+=b;
