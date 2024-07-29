@@ -1,5 +1,9 @@
 #include <iostream>
+#include <vector>
+#include <tuple>
+#include <queue>
 using namespace std;
+
 
 // Definition for a binary tree node.
 struct TreeNode {
@@ -18,7 +22,6 @@ public:
         TreeNode* temp = root->left;
         root->left = invertTree(root->right);
         root->right = invertTree(temp);
-
         return root;
     }
 };
@@ -28,12 +31,26 @@ TreeNode* newNode(int val) {
     return new TreeNode(val);
 }
 
-// Helper function to print the tree (in-order traversal)
+// Helper function to print the tree (level-order traversal)
 void printTree(TreeNode* root) {
-    if (root == nullptr) return;
-    printTree(root->left);
-    cout << root->val << " ";
-    printTree(root->right);
+    if (root == nullptr) {
+        cout << "(empty)" << endl;
+        return;
+    }
+    queue<TreeNode*> q;
+    q.push(root);
+    while (!q.empty()) {
+        TreeNode* current = q.front();
+        q.pop();
+        if (current) {
+            cout << current->val << " ";
+            q.push(current->left);
+            q.push(current->right);
+        } else {
+            cout << "null ";
+        }
+    }
+    cout << endl;
 }
 
 // Main function to run test cases
@@ -45,16 +62,15 @@ int main() {
     TreeNode* invertedRoot1 = solution.invertTree(root1);
     cout << "Test case 1 - Expected: (empty), Got: ";
     printTree(invertedRoot1);
-    cout << endl;
 
     // Test case 2: Single node tree
     TreeNode* root2 = newNode(1);
     TreeNode* invertedRoot2 = solution.invertTree(root2);
     cout << "Test case 2 - Expected: 1, Got: ";
     printTree(invertedRoot2);
-    cout << endl;
 
     // Test case 3: Tree with multiple levels
+    // Original tree:
     //       1
     //      / \
     //     2   3
@@ -72,9 +88,28 @@ int main() {
     //     3   2
     //        / \
     //       5   4
-    cout << "Test case 3 - Expected: 1 3 2 5 4, Got: ";
+    cout << "Test case 3 - Expected: 1 3 2 null null 5 4, Got: ";
     printTree(invertedRoot3);
-    cout << endl;
+
+    // Test case 4: Tree with unbalanced depths
+    // Original tree:
+    //       1
+    //      / 
+    //     2   
+    //    / 
+    //   3   
+    TreeNode* root4 = newNode(1);
+    root4->left = newNode(2);
+    root4->left->left = newNode(3);
+    TreeNode* invertedRoot4 = solution.invertTree(root4);
+    // Expected inverted tree:
+    //       1
+    //        \
+    //         2
+    //          \
+    //           3
+    cout << "Test case 4 - Expected: 1 null 2 null 3, Got: ";
+    printTree(invertedRoot4);
 
     return 0;
 }
