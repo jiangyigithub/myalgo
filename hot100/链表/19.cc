@@ -15,6 +15,7 @@ struct ListNode {
 class Solution {
 public:
 /*
+快慢指针，一个先走，一个后走
 n  len
 0  len-n,还剩n步
 
