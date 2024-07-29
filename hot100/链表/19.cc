@@ -42,7 +42,8 @@ n  len
         
         // Delete the nth node from the end
         ListNode* nodeToDelete = second->next;
-        second->next = nodeToDelete->next;
+        second->next = nodeToDelete->next;  //等价为 second->next = second->next->next;
+      
         delete nodeToDelete;
         
         ListNode* newHead = dummy->next;
