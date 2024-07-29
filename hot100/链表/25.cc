@@ -29,16 +29,23 @@ ListNode *reverseKGroup(ListNode *head, int k)
         for (int i = 0; i < k; ++i)
         {
             ListNode *nxt = cur->next;
+            // 构建链接
             cur->next = pre;
-            pre = cur;// 移动
+            // 移动,更新pre,cur
+            pre = cur;
             cur = nxt;
         }
 
-        // 构建链接，更新p0
-        // p0->pre->cur
+        // dummy 固定head的前一个节点，当前区间的p0，下个区间的nxtp0，
+        // p0动态dummy,p0->next为链表头，反转后为反转链表的尾巴
         ListNode *nxtp0 = p0->next;
-        p0->next->next = cur;
+        // p0->nxtp0 AB-> CD
+        // P0-> BA nxtp0->CD
+        // BA nxtp0为 pre，CD 为cur
+        // 构建链接 p0->pre ...nxtp0->cur
         p0->next = pre;
+        nxtp0->next = cur;
+        //更新p0 
         p0 = nxtp0;
     }
     return dummy->next;
@@ -80,8 +87,8 @@ void testReverseKGroup()
     };
 
     std::vector<TestCase> testCases = {
-        {{1, 2, 3, 4, 5}, 3, {3, 2, 1, 4, 5}},
         {{1, 2, 3, 4, 5}, 2, {2, 1, 4, 3, 5}},
+        {{1, 2, 3, 4, 5}, 3, {3, 2, 1, 4, 5}},
         {{1}, 1, {1}},
         {{1, 2}, 1, {1, 2}},
         {{1, 2, 3, 4}, 4, {4, 3, 2, 1}}};
