@@ -26,7 +26,8 @@ public:
 
             int l_len = dfs(node->left);  // 左子树最大链长， 边的个数
             int r_len = dfs(node->right); // 右子树最大链长
-
+            
+            //拐弯，必在叶子节点上
             ans = max(ans, l_len + r_len + 2); // 直径，两条链拼成路径+2
 
             return max(l_len, r_len) + 1; // 当前子树最大链长+1

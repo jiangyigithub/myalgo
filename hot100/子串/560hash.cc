@@ -24,56 +24,50 @@ using namespace std;
         将当前的前缀和 prefix_sum 的出现次数记录到哈希表中。
 */
 // Function to count the number of subarrays with sum equal to k
-int subarraySum(vector<int>& nums, int k) {
-    // Use an unordered map to store the prefix sums and their counts
-    unordered_map<int, int> prefix_sums;
-    prefix_sums[0] = 1; // Initialize with prefix sum 0 having one occurrence
-    /// 在nums加0，转化为两数之和的问题，这样原始nums可以求两数之和的补数，返回补数
-
-    int sum = 0; // Current prefix sum
-    int count = 0; // Count of subarrays with sum equal to k
-    
-    // Traverse through the array
-    for (int num : nums) {
-        sum += num; // Update the prefix sum with the current element
-        
-        // Check if (sum - k) exists in the map
-        // If it exists, it means there is a subarray ending at the current element with sum equal to k
-        if (prefix_sums.find(sum - k) != prefix_sums.end()) {
-            count += prefix_sums[sum - k]; // Add the count of such subarrays
+int subarraySum(vector<int> &nums, int k)
+{
+    int n = nums.size(), sum = 0, ans = 0;
+    unordered_map<int, int> cnt{{0, 1}};
+    for (int i = 0; i < n; ++i)
+    {
+        sum += nums[i]; // 前缀和
+        if (cnt.count(sum - k) > 0)
+        {
+            ans += cnt[sum - k];
         }
-        
-        // Update the count of the current prefix sum in the map
-        prefix_sums[sum]++;
+        cnt[sum]++;
     }
-    
-    return count; // Return the total count of subarrays with sum equal to k
+    return ans;
 }
 
 // Structure to store test cases
-struct TestCase {
+struct TestCase
+{
     vector<int> nums; // Input array
-    int k; // Target sum
-    int expected; // Expected result
+    int k;            // Target sum
+    int expected;     // Expected result
 };
 
-int main() {
+int main()
+{
     // Define test cases
     vector<TestCase> testCases = {
         {{1, 1, 1}, 2, 2},
         {{1, 2, 3}, 3, 2},
         {{1, -1, 0}, 0, 3},
-        {{-1,-1,1},0,1},
-        {{3, 4, 7, 2, -3, 1, 4, 2}, 7, 4}
-    };
-    
+        {{-1, -1, 1}, 0, 1},
+        {{3, 4, 7, 2, -3, 1, 4, 2}, 7, 4}};
+
     // Run test cases
-    for (auto& testCase : testCases) {
+    for (auto &testCase : testCases)
+    {
         int result = subarraySum(testCase.nums, testCase.k);
         cout << "Array: [";
-        for (size_t i = 0; i < testCase.nums.size(); ++i) {
+        for (size_t i = 0; i < testCase.nums.size(); ++i)
+        {
             cout << testCase.nums[i];
-            if (i != testCase.nums.size() - 1) cout << ", ";
+            if (i != testCase.nums.size() - 1)
+                cout << ", ";
         }
         cout << "], k: " << testCase.k << endl;
         cout << "Expected result: " << testCase.expected << ", Actual result: " << result << endl;
