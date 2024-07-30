@@ -19,6 +19,7 @@ private:
     std::pair<long, long> dfs(TreeNode* node) {
         // 基本情况：空节点返回一个特殊的最小值和最大值
         if (node == nullptr) {
+            /// 这个时候退出
             return {LONG_MAX, LONG_MIN}; // 空节点的最小值为 LONG_MAX，最大值为 LONG_MIN
         }
 
