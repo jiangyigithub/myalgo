@@ -52,7 +52,7 @@ public:
         return isValidBST(root->right);
     }
     
-    /// 后序
+    /// 后序 --> 置底而上
     // 主函数，判断二叉树是否是有效的二叉搜索树
     bool isValidBST(TreeNode *root)
     {
