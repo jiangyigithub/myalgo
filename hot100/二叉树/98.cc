@@ -2,23 +2,71 @@
 #include <vector>
 #include <unordered_map>
 #include <iostream>
-#include <climits> // 包含 LONG_MAX 和 LONG_MIN 的定义
+#include <climits>   // 包含 LONG_MAX 和 LONG_MIN 的定义
 #include <algorithm> // 包含 std::min 和 std::max 的定义
 
+// 作者：灵茶山艾府
+// 链接：https://leetcode.cn/problems/validate-binary-search-tree/solutions/2020306/qian-xu-zhong-xu-hou-xu-san-chong-fang-f-yxvh/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 // 定义二叉树节点结构体
-struct TreeNode {
+struct TreeNode
+{
     int val;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
-class Solution {
-private:
+class Solution
+{
+public:
+    /// 前序
+    bool isValidBST(TreeNode *root, long left = LONG_MIN, long right = LONG_MAX)
+    {
+        if (root == nullptr)
+        {
+            return true;
+        }
+        long x = root->val;
+        return left < x && x < right &&
+               isValidBST(root->left, left, x) &&
+               isValidBST(root->right, x, right);
+    }
+    
+
+    /// 中序
+    long pre = LONG_MIN;
+    bool isValidBST(TreeNode *root)
+    {
+        if (root == nullptr)
+        {
+            return true;
+        }
+        if (!isValidBST(root->left) || root->val <= pre)
+        {
+            return false;
+        }
+        pre = root->val;
+        return isValidBST(root->right);
+    }
+    
+    /// 后序
+    // 主函数，判断二叉树是否是有效的二叉搜索树
+    bool isValidBST(TreeNode *root)
+    {
+        // 调用辅助递归函数，检查根节点的子树是否是二叉搜索树
+        // 如果返回的最大值是 LONG_MAX，表示整个树不是二叉搜索树
+        return dfs(root).second != LONG_MAX;
+    }
+
     // 辅助递归函数，返回值是一个 pair，包含当前子树的最小值和最大值
-    std::pair<long, long> dfs(TreeNode* node) {
+    std::pair<long, long> dfs(TreeNode *node)
+    {
         // 基本情况：空节点返回一个特殊的最小值和最大值
-        if (node == nullptr) {
+        if (node == nullptr)
+        {
             /// 这个时候退出
             return {LONG_MAX, LONG_MIN}; // 空节点的最小值为 LONG_MAX，最大值为 LONG_MIN
         }
@@ -26,12 +74,13 @@ private:
         // 递归处理左子树和右子树，获取它们的最小值和最大值
         auto [l_min, l_max] = dfs(node->left);
         auto [r_min, r_max] = dfs(node->right);
-        
+
         long x = node->val; // 当前节点的值
 
         // 检查当前节点是否满足二叉搜索树的性质：
         // 左子树的最大值应小于当前节点值，右子树的最小值应大于当前节点值
-        if (x <= l_max || x >= r_min) {
+        if (x <= l_max || x >= r_min)
+        {
             // 如果不满足，返回一个特殊的值表示这不是一个二叉搜索树
             return {LONG_MIN, LONG_MAX}; // 用特殊值表示这个子树不是 BST
         }
@@ -42,13 +91,8 @@ private:
         return {std::min(l_min, x), std::max(r_max, x)};
     }
 
-public:
-    // 主函数，判断二叉树是否是有效的二叉搜索树
-    bool isValidBST(TreeNode* root) {
-        // 调用辅助递归函数，检查根节点的子树是否是二叉搜索树
-        // 如果返回的最大值是 LONG_MAX，表示整个树不是二叉搜索树
-        return dfs(root).second != LONG_MAX;
-    }
+
+
 };
 
 struct TestCase
