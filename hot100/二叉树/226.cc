@@ -17,6 +17,12 @@ struct TreeNode {
 
 class Solution {
 public:
+/*
+交换操作，函数嵌套
+temp = A
+A = B
+B = temp
+*/
     TreeNode* invertTree(TreeNode* root) {
         if (root == nullptr) return nullptr;
         TreeNode* temp = root->left;
