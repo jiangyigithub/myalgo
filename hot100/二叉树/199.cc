@@ -15,9 +15,11 @@ class Solution {
 
     void dfs(TreeNode* root,int depth){
         if root==nullptr return;
+        // 第一次深度满足条件
         if(depth==ans.size()){
             ans.push_back(root->val);
         }
+        // 先右后左
         dfs(root->right,depth+1);
         dfs(root->left,depth+1);
 
