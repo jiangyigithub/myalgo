@@ -32,10 +32,11 @@ int subarraySum(vector<int> &nums, int k)
     for (int i = 0; i < n; ++i)
     {
         sum += nums[i]; // 前缀和
-        if (cnt.count(sum - k) > 0)
-        {
-            ans += cnt[sum - k];
-        }
+        ans+=cnt.count(sum-k)>0?cnt[sum-k]:0;
+        // if (cnt.count(sum - k) > 0)
+        // {
+        //     ans += cnt[sum - k];
+        // }
         cnt[sum]++;
     }
     return ans;
