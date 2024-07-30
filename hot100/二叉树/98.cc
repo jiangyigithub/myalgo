@@ -26,15 +26,10 @@ public:
     bool isValidBST_pre(TreeNode *root, long left = LONG_MIN, long right = LONG_MAX)
     {
         if (root == nullptr)
-        {
             return true;
-        }
         long x = root->val;
-        return left < x && x < right &&
-               isValidBST_pre(root->left, left, x) &&
-               isValidBST_pre(root->right, x, right);
+        return left < x && x < right && isValidBST_pre(root->left, left, x) && isValidBST_pre(root->right, x, right);
     }
-    
 
     /// 中序
     long pre = LONG_MIN;
@@ -51,7 +46,7 @@ public:
         pre = root->val;
         return isValidBST_in(root->right);
     }
-    
+
     /// 后序 --> 置底而上
     // 主函数，判断二叉树是否是有效的二叉搜索树
     bool isValidBST(TreeNode *root)
@@ -90,9 +85,6 @@ public:
         // 当前子树的最大值是右子树的最大值和当前节点值中的最大者
         return {std::min(l_min, x), std::max(r_max, x)};
     }
-
-
-
 };
 
 struct TestCase
