@@ -18,7 +18,8 @@ public:
         TreeNode* p = root;
         TreeNode* left = root->left;
         TreeNode* right = root->right;
-       
+        
+        // left, right 和链表中的next没有区别
         root->left = nullptr;
         root->right = left;
         while (p->right) {
