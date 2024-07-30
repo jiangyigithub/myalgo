@@ -23,6 +23,7 @@ class Solution
 {
 public:
     /// 前序
+    /// 左子树的最大值小于根值x，右子树的最大值大于根值x,对于子树，它可以是左子树也可以是右子树
     bool isValidBST_pre(TreeNode *root, long left = LONG_MIN, long right = LONG_MAX)
     {
         if (root == nullptr)
