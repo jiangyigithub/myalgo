@@ -15,6 +15,7 @@ public:
 
         flatten(root->left);
         flatten(root->right);
+        /// 下面都是拼接链表的操作
         TreeNode* p = root;
         TreeNode* left = root->left;
         TreeNode* right = root->right;
