@@ -22,6 +22,7 @@ public:
         // left, right 和链表中的next没有区别
         root->left = nullptr;
         root->right = left;
+        // 怎么到达一个链表的尾部，right就是next
         while (p->right) {
             p = p->right;
         }
