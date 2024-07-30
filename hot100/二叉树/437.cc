@@ -14,10 +14,12 @@ class Solution {
 public:
     int pathSum(TreeNode* root, int targetSum) {
         int ans = 0;
-        unordered_map<long long, int> cnt{{0, 1}}; // 使用前缀和计数
+        unordered_map<long long, int> cnt; // 使用前缀和计数
+        cnt[0]=1;
 
-        // 定义DFS函数
-        auto dfs = [&](auto&& dfs, TreeNode* node, long long s) -> void {
+        // & 捕获列表确保 lambda 表达式可以访问并修改定义在 lambda 之外的变量，如 ans 和 cnt。
+        // auto&& dfs：使用 auto&& 这个参数用于递归调用 lambda 表达式自身
+        auto dfs = [&](auto&& dfs, TreeNode* node, long long s) {
             if (node == nullptr) {
                 return;
             }
