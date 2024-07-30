@@ -25,6 +25,7 @@ vector<vector<int>> levelOrder(TreeNode *root)
     while (!que.empty())
     {
         vector<int> ret;
+        /// que.size只在init时被用到，循环内操作会改变容器的大小
         for (int i = que.size(); i>0; --i)
         {
             TreeNode *temp = que.front();
