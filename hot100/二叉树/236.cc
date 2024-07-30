@@ -14,7 +14,7 @@ class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         // 基本情况
-        if (!root || root == p || root == q) {
+        if (root==nullptr || root == p || root == q) {
             return root;
         }
         
