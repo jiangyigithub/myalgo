@@ -15,22 +15,25 @@ public:
 
         flatten(root->left);
         flatten(root->right);
-
+        TreeNode* p = root;
         TreeNode* left = root->left;
         TreeNode* right = root->right;
-
+       
         root->left = nullptr;
         root->right = left;
-
-        TreeNode* p = root;
         while (p->right) {
             p = p->right;
         }
-
         p->right = right;
     }
 };
 
+// 二叉树结构:
+//        1
+//       / \
+//      2   5
+//     / \   \
+//    3   4   6
 // 辅助函数：打印展开后的链表
 void printFlattenedTree(TreeNode* root) {
     while (root) {
