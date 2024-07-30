@@ -23,7 +23,7 @@ class Solution
 {
 public:
     /// 前序
-    bool isValidBST(TreeNode *root, long left = LONG_MIN, long right = LONG_MAX)
+    bool isValidBST_pre(TreeNode *root, long left = LONG_MIN, long right = LONG_MAX)
     {
         if (root == nullptr)
         {
@@ -38,7 +38,7 @@ public:
 
     /// 中序
     long pre = LONG_MIN;
-    bool isValidBST(TreeNode *root)
+    bool isValidBST_in(TreeNode *root)
     {
         if (root == nullptr)
         {
