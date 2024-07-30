@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm> // For std::find
-#include <iostream> // For std::cout
+#include <unordered_map>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +15,6 @@ struct TreeNode {
 
 class Solution {
 public:
-    // pre 根-左-右  inorder 左-根-右
     TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
         int n = preorder.size();
         
@@ -25,13 +24,17 @@ public:
             index[inorder[i]] = i;
         }
         
-        // 调用辅助函数构建树，初始调用时覆盖整个数组范围
-        return dfs(preorder, inorder, index, 0, n, 0, n); // 左闭右开区间
+        return dfs(preorder, 0, n, inorder, 0, n, index); // 左闭右开区间
     }
 
 private:
-    // 辅助递归函数，用于构建树
-    TreeNode* dfs(vector<int> &preorder, vector<int> &inorder, unordered_map<int, int> &index, int pre_l, int pre_r, int in_l, int in_r) {
+// int pre_l：前序遍历数组中当前子数组的左边界（包含）。
+// int pre_r：前序遍历数组中当前子数组的右边界（不包含）。
+// int in_l：中序遍历数组中当前子数组的左边界（包含）。
+// int in_r：中序遍历数组中当前子数组的右边界（不包含）。
+
+
+    TreeNode* dfs(vector<int> &preorder, int pre_l, int pre_r, vector<int> &inorder, int in_l, int in_r, unordered_map<int, int> &index) {
         if (pre_l == pre_r) { // 如果前序区间为空，返回空节点
             return nullptr;
         }
@@ -41,16 +44,24 @@ private:
         // 在中序区间中找到根节点的位置，以此划分左右子树
         int left_size = index[root_val] - in_l; // 左子树的大小
         
-        // 递归构建左子树
-        TreeNode *left = dfs(preorder, inorder, index, pre_l + 1, pre_l + 1 + left_size, in_l, in_l + left_size);
-        // 递归构建右子树
-        TreeNode *right = dfs(preorder, inorder, index, pre_l + 1 + left_size, pre_r, in_l + 1 + left_size, in_r);
+        // 对于 pre_order left,根,right
+        // root pre_l 
+        // left  起点,终点,pre_l+1,pre_l+1+size
+        // right 起点,终点,pre_l+1+size ,pre_r
+        
+        // 对于in_order left,根,right
+        // left  起点,终点,inl,inl+size
+        // root  inl+size
+        // right 起点,终点,inl+size+1,inr
+        
+        //pre_order 和 in_order大小相同
+        TreeNode *left = dfs(preorder, pre_l + 1, pre_l + 1 + left_size, inorder, in_l, in_l + left_size, index);
+        TreeNode *right = dfs(preorder, pre_l + 1 + left_size, pre_r, inorder, in_l + 1 + left_size, in_r, index);
         
         // 创建当前的根节点，并连接左右子树
         return new TreeNode(root_val, left, right);
     }
 };
-
 
 // Function to print the tree in inorder traversal (for testing)
 void printInorder(TreeNode* node) {
@@ -94,4 +105,3 @@ int main() {
 
     return 0;
 }
-
