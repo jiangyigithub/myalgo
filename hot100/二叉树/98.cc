@@ -31,8 +31,8 @@ public:
         }
         long x = root->val;
         return left < x && x < right &&
-               isValidBST(root->left, left, x) &&
-               isValidBST(root->right, x, right);
+               isValidBST_pre(root->left, left, x) &&
+               isValidBST_pre(root->right, x, right);
     }
     
 
@@ -44,12 +44,12 @@ public:
         {
             return true;
         }
-        if (!isValidBST(root->left) || root->val <= pre)
+        if (!isValidBST_in(root->left) || root->val <= pre)
         {
             return false;
         }
         pre = root->val;
-        return isValidBST(root->right);
+        return isValidBST_in(root->right);
     }
     
     /// 后序 --> 置底而上
