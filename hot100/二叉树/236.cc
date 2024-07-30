@@ -12,6 +12,7 @@ struct TreeNode {
 
 class Solution {
 public:
+    // 先序遍历，因为一开始先比较了 root 是否等于 p 或 q。
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         // 基本情况
         if (root==nullptr || root == p || root == q) {
@@ -28,7 +29,8 @@ public:
             return root;
         }
         
-        // 否则，返回找到的子树中的节点
+        // 如果 left 和 right 中只有一个非空，说明 p 和 q 都在同一子树中，返回非空的那个节点。
+        // 如果 left 和 right 都为空，返回 nullptr，表示在当前子树中没有找到 p 或 q。
         return left ? left : right;
     }
 };
