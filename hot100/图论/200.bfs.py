@@ -3,6 +3,7 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
+        # BFS 
         def bfs(grid, i, j):
             queue = deque([[i, j]])
             while queue:
@@ -12,14 +13,14 @@ class Solution:
                     for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
                         queue.append([x + dx, y + dy])
         
-        count = 0
+        ans = 0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
-                if grid[i][j] == '1':  # Start a BFS if land is found
+                if grid[i][j] == '1':  # 找到一个岛屿的根节点了
                     bfs(grid, i, j)
-                    count += 1  # Increment the island count
+                    ans += 1  # Increment the island count
 
-        return count
+        return ans
 
 # Structure to hold test case information
 class TestCase:

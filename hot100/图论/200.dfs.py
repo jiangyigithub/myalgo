@@ -19,10 +19,9 @@ class Solution:
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 # If we find land ('1'), start a DFS to mark the entire island
-                if grid[i][j] == '1':
-                    dfs(grid, i, j)
+                if grid[i][j] == '1': # 消消乐
                     ans += 1  # Increment island count
-        
+                    dfs(grid, i, j) ## 把grid[i][j]相邻的置0
         return ans
 
 # Structure to hold test case information
