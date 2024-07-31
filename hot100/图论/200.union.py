@@ -2,28 +2,36 @@ from typing import List
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        def dfs(grid, i, j):
-            # Check boundary conditions and whether the cell is water ('0')
-            if not (0 <= i < len(grid)) or not (0 <= j < len(grid[0])) or grid[i][j] == '0':
-                return
-            # Mark the cell as visited
-            grid[i][j] = '0'
-            # Explore all 4 directions
-            dfs(grid, i + 1, j)# 上
-            dfs(grid, i, j + 1)# 下
-            dfs(grid, i - 1, j)# 左
-            dfs(grid, i, j - 1)# 右
+        f = {}
 
-        ans = 0
-        # Iterate through each cell in the grid
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                # If we find land ('1'), start a DFS to mark the entire island
-                if grid[i][j] == '1':
-                    dfs(grid, i, j)
-                    ans += 1  # Increment island count
-        
-        return ans
+        def find(x):
+            f.setdefault(x, x)
+            if f[x] != x:
+                f[x] = find(f[x])
+            return f[x]
+
+        def union(x, y):
+            f[find(x)] = find(y)
+
+        if not grid: return 0
+        row = len(grid)
+        col = len(grid[0])
+
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == "1":
+                    for x, y in [[-1, 0], [0, -1]]:
+                        tmp_i = i + x
+                        tmp_j = j + y
+                        if 0 <= tmp_i < row and 0 <= tmp_j < col and grid[tmp_i][tmp_j] == "1":
+                            union(tmp_i * col + tmp_j, i * col + j)
+        # print(f)
+        res = set()
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == "1":
+                    res.add(find((i * col + j)))
+        return len(res)
 
 # Structure to hold test case information
 class TestCase:
