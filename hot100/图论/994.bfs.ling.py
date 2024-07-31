@@ -2,26 +2,39 @@ from typing import List
 
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        row, col, time = len(grid), len(grid[0]), 0
-        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        queue = []
-        # add the rotten orange to the queue
-        for i in range(row):
-            for j in range(col):
-                if grid[i][j] == 2:
-                    queue.append((i, j, time))
-        # bfs
-        while queue:
-            i, j, time = queue.pop(0)
-            for di, dj in directions:
-                if 0 <= i + di < row and 0 <= j + dj < col and grid[i + di][j + dj] == 1:
-                    grid[i + di][j + dj] = 2
-                    queue.append((i + di, j + dj, time + 1))
-        # if there are still fresh oranges, return -1
-        for row in grid:
-            if 1 in row: return -1
+        m, n = len(grid), len(grid[0])
+        fresh = 0
+        q = []
 
-        return time
+        # Count fresh oranges and initialize queue with rotten oranges
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if x == 1:
+                    fresh += 1  # Count fresh oranges
+                elif x == 2:
+                    q.append((i, j))  # Initial rotten oranges
+
+        # Initialize the time taken
+        ans = -1
+        
+        # Directions for four possible movements
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        # BFS to rot oranges
+        while q:
+            ans += 1  # Increase time
+            tmp = q
+            q = []
+            for x, y in tmp:  # Process all rotten oranges
+                for dx, dy in directions:  # Explore in four directions
+                    i, j = x + dx, y + dy
+                    if 0 <= i < m and 0 <= j < n and grid[i][j] == 1:  # Fresh orange found
+                        fresh -= 1
+                        grid[i][j] = 2  # Mark as rotten
+                        q.append((i, j))  # Add to queue
+
+        # If there are still fresh oranges left, return -1
+        return -1 if fresh else max(ans, 0)
 
 # Structure to hold test case information
 class TestCase:
