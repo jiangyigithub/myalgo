@@ -5,7 +5,8 @@
 using namespace std;
 
 // Definition for a binary tree node.
-struct TreeNode {
+struct TreeNode
+{
     int val;
     TreeNode *left;
     TreeNode *right;
@@ -18,14 +19,13 @@ class Solution {
                   int p, int q, unordered_map<int, int>& hashMap) {
         if (m == n)
             return nullptr;
-        int x = preorder[m];//递归里不要轻易写常量
-        int x_index = hashMap[x];
-        int leftsize = x_index - p;//左子树的长度
-        // 已经根的位置，和其左右区间，则可求左、右子树所在区间
-        TreeNode* left = dfs(preorder, m + 1, m + 1 + leftsize, inorder, p,
-                             p + leftsize, hashMap);
-        TreeNode* right = dfs(preorder, m + 1 + leftsize, n, inorder,
-                              p + leftsize + 1, q, hashMap);
+        int x = preorder[m];        // 根是动态的，递归中要思考这个变量是迭代的
+        int x_index = hashMap[x];   // 查询根在inorder的位置
+        int leftsize = x_index - p; // 在inorder求左子树的长度
+        TreeNode* left =
+            dfs(preorder, m + 1, m + 1 + leftsize, inorder, p, p + leftsize,hashMap);
+        TreeNode* right =
+            dfs(preorder, m + 1 + leftsize, n, inorder, p + leftsize + 1, q,hashMap);
         return new TreeNode(x, left, right);
     }
 
@@ -41,8 +41,10 @@ public:
 };
 
 // Function to print the tree in inorder traversal (for testing)
-void printInorder(TreeNode* node) {
-    if (node == nullptr) {
+void printInorder(TreeNode *node)
+{
+    if (node == nullptr)
+    {
         return;
     }
     printInorder(node->left);
@@ -51,8 +53,10 @@ void printInorder(TreeNode* node) {
 }
 
 // Function to print the tree in preorder traversal (for testing)
-void printPreorder(TreeNode* node) {
-    if (node == nullptr) {
+void printPreorder(TreeNode *node)
+{
+    if (node == nullptr)
+    {
         return;
     }
     cout << node->val << " ";
@@ -60,7 +64,8 @@ void printPreorder(TreeNode* node) {
     printPreorder(node->right);
 }
 
-int main() {
+int main()
+{
     // Test case
     vector<int> preorder = {3, 9, 20, 15, 7};
     vector<int> inorder = {9, 3, 15, 20, 7};
