@@ -5,12 +5,12 @@ using namespace std;
 
 class Trie {
 private:
-    bool isEnd;
+    int isEnd;
     Trie* next[26];
 
 public:
     // 构造函数
-    Trie() : isEnd(false) {
+    Trie() : isEnd(0) {
         for (int i = 0; i < 26; ++i) {
             next[i] = nullptr;
         }
@@ -26,10 +26,10 @@ public:
             }
             node = node->next[index];
         }
-        node->isEnd = true;
+        node->isEnd = 1;
     }
 
-    // 搜索单词
+    // 搜索单词， 路径题
     bool search(const string& word) {
         Trie* node = this;
         for (char ch : word) {
@@ -39,10 +39,10 @@ public:
             }
             node = node->next[index];
         }
-        return node->isEnd;
+        return node->isEnd == 1;
     }
 
-    // 判断是否有前缀
+    // 判断是否有前缀， 路径题
     bool startsWith(const string& prefix) {
         Trie* node = this;
         for (char ch : prefix) {

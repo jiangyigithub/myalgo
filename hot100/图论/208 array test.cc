@@ -1,58 +1,44 @@
 #include <iostream>
 using namespace std;
 
-// 带标记的多叉树
-
 class Trie {
 private:
-    bool isEnd;
-    Trie* next[26];
+bool isEnd;
+Trie* next[26]
+
 
 public:
+
+    // 插入单词
+    void insert(const string& word) {
+        Trie* node = this;
+        for(auto c:word){
+            int idx=c-'a';
+            if(node->next[idx] == nullptr){
+                node->next[idx]== new Trie();
+            }
+            node = node->next[index];
+        }
+        node->isEnd = true;
+ 
+
+    }
+
+    // 搜索单词
+    bool search(const string& word) {
+
+    }
+
+    // 判断是否有前缀
+    bool startsWith(const string& prefix) {
+
+    }
+    
     // 构造函数
     Trie() : isEnd(false) {
         for (int i = 0; i < 26; ++i) {
             next[i] = nullptr;
         }
-    }
-
-    // 插入单词
-    void insert(const string& word) {
-        Trie* node = this;
-        for (char ch : word) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
-                node->next[index] = new Trie();
-            }
-            node = node->next[index];
-        }
-        node->isEnd = true;
-    }
-
-    // 搜索单词
-    bool search(const string& word) {
-        Trie* node = this;
-        for (char ch : word) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
-                return false;
-            }
-            node = node->next[index];
-        }
-        return node->isEnd;
-    }
-
-    // 判断是否有前缀
-    bool startsWith(const string& prefix) {
-        Trie* node = this;
-        for (char ch : prefix) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
-                return false;
-            }
-            node = node->next[index];
-        }
-        return true;
     }
 
     // 析构函数，释放所有节点
