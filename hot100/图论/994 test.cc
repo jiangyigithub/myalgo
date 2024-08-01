@@ -40,10 +40,9 @@ public:
 
         while (!cur.empty())
         {  
-            ans++;
             vector<pair<int, int>>  nxt;
             //遍历当前层
-            for (int i = cur.size(); i>0; i--)
+            for (int i = 0; i<cur.size(); i++)
             {
                 auto e = cur[i];
                 /// 遍历子树
@@ -59,7 +58,12 @@ public:
                     }
                 }
             }
+            if (nxt.empty())
+            {
+                break;
+            }
             cur = nxt;
+            ans++;
         }
 
         return fresh > 0 ? -1 : ans;
