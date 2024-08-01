@@ -9,7 +9,11 @@ private:
     Trie* next[26];
 
 public:
-    // 构造函数
+   
+    // TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    // TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    // TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    /// 构造函数
     Trie() : isEnd(0) {
         for (int i = 0; i < 26; ++i) {
             next[i] = nullptr;
