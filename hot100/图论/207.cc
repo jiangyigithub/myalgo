@@ -19,10 +19,12 @@ vector<int> sorted;
         queue<int> que;
 
         // 建立入度数组和邻接表
+        // {6,{{3,0},{3,1},{4,1},{4,2},{5,3},{5,4}},true},
         for (auto& cp : prerequisites)
         {
-            indegrees[cp[0]]++;  // cp[0] 入度
-            adjacency[cp[1]].push_back(cp[0]);
+            // 入度为0的节点不会出现在0这个位置,入度为0表示没有依赖项
+            indegrees[cp[0]]++;  // 计算入度
+            adjacency[cp[1]].push_back(cp[0]); // 被依赖关系
         }
 
         // 将所有入度为0的节点加入队列
@@ -35,12 +37,11 @@ vector<int> sorted;
         }
 
         // 拓扑排序
-        
         while (!que.empty())
         {
             int cur = que.front();
-            sorted.push_back(cur);
             que.pop();
+            sorted.push_back(cur);
             numCourses--;
             for (auto nxt : adjacency[cur])
             {
