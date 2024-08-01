@@ -36,7 +36,7 @@ public:
             }
         }
 
-        if (fresh == 0) return 0;
+        if (fresh == 0) return 0; // 没有返回0
 
         while (!cur.empty())
         {  
