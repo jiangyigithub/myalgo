@@ -7,7 +7,7 @@ class Solution:
         adjacency = [[] for _ in range(numCourses)]
         que = deque()
 
-        # 统计DAG的状态
+        # 统计DAG的节点
         for nxt, cur in prerequisites:
             indegrees[nxt] += 1
             adjacency[cur].append(nxt)
@@ -16,11 +16,14 @@ class Solution:
         for i in range(len(indegrees)):
             if not indegrees[i]:
                 que.append(i)
-
-        # 
+        
+        top_order = []  # 用于存储拓扑排序的结果
+        
+        # BFS
         while que:
             cur = que.popleft()
             numCourses -= 1
+            top_order.append(cur)
             for nxt in adjacency[cur]:
                 indegrees[nxt] -= 1
                 if not indegrees[nxt]:
