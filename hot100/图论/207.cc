@@ -7,7 +7,10 @@ using namespace std;
 
 class Solution 
 {
+
+    
 public:
+vector<int> sorted;
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) 
     {
         // 初始化入度数组和邻接表
@@ -18,7 +21,7 @@ public:
         // 建立入度数组和邻接表
         for (auto& cp : prerequisites)
         {
-            indegrees[cp[0]]++;
+            indegrees[cp[0]]++;  // cp[0] 入度
             adjacency[cp[1]].push_back(cp[0]);
         }
 
@@ -32,16 +35,18 @@ public:
         }
 
         // 拓扑排序
+        
         while (!que.empty())
         {
-            int pre = que.front();
+            int cur = que.front();
+            sorted.push_back(cur);
             que.pop();
             numCourses--;
-            for (auto cur : adjacency[pre])
+            for (auto nxt : adjacency[cur])
             {
-                if (--indegrees[cur] == 0)
+                if (--indegrees[nxt] == 0)
                 {
-                    que.push(cur);
+                    que.push(nxt);
                 }
             }
         }
@@ -59,13 +64,22 @@ struct TestCase {
 };
 
 void runTests() {
-    // 定义测试用例
+// 定义测试用例
+// # 0          邻接表
+// #    \       下标  0     1     2     3    4    5   同时也表示要先学的课程
+// #    /  3        [3]  [3,4]  [4]   [5]  [5]  [ ]  学完上面的课程才能学的课程，例如学完0才能学3，学完1才能学3和4
+// # 1        \
+// #    \     /  5     这个邻接表的创建是通过        for(int[] cp : prerequisites)
+// #       4                                           adjacency.get(cp[1]).add(cp[0]);         实现的
+// #    /  
+// # 2
     vector<TestCase> testCases = {
-        {2, {{1, 0}}, true},
-        {2, {{1, 0}, {0, 1}}, false},
-        {4, {{1, 0}, {2, 1}, {3, 2}}, true},
-        {3, {{0, 1}, {0, 2}, {1, 2}}, true},
-        {3, {{0, 1}, {1, 2}, {2, 0}}, false}
+        {6,{{3,0},{3,1},{4,1},{4,2},{5,3},{5,4}},true},
+        // {2, {{1, 0}}, true},
+        // {2, {{1, 0}, {0, 1}}, false},
+        // {4, {{1, 0}, {2, 1}, {3, 2}}, true},
+        // {3, {{0, 1}, {0, 2}, {1, 2}}, true},
+        // {3, {{0, 1}, {1, 2}, {2, 0}}, false}
     };
 
     Solution solution;
@@ -80,6 +94,10 @@ void runTests() {
             cout << "[" << tc.prerequisites[j][0] << ", " << tc.prerequisites[j][1] << "]";
         }
         cout << "]" << endl;
+        cout << "sorted result: " ;
+        for(auto e:solution.sorted){
+            cout<< e <<  ", ";
+        }
         cout << "Expected Result: " << (tc.expected ? "true" : "false") << endl;
         cout << "Actual Result: " << (result ? "true" : "false") << endl;
         cout << "Test " << (result == tc.expected ? "PASSED" : "FAILED") << endl << endl;

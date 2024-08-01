@@ -22,8 +22,8 @@ class Solution:
         # BFS
         while que:
             cur = que.popleft()
-            numCourses -= 1
             top_order.append(cur)
+            numCourses -= 1
             for nxt in adjacency[cur]:
                 indegrees[nxt] -= 1
                 if not indegrees[nxt]:
