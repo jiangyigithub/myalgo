@@ -5,26 +5,26 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         indegrees = [0 for _ in range(numCourses)]
         adjacency = [[] for _ in range(numCourses)]
-        queue = deque()
+        que = deque()
 
-        # Get the indegree and adjacency of every course.
-        for cur, pre in prerequisites:
-            indegrees[cur] += 1
-            adjacency[pre].append(cur)
+        # 统计DAG的状态
+        for nxt, cur in prerequisites:
+            indegrees[nxt] += 1
+            adjacency[cur].append(nxt)
 
-        # Get all the courses with the indegree of 0.
+        # 根节点入队，入度为0，即为根
         for i in range(len(indegrees)):
             if not indegrees[i]:
-                queue.append(i)
+                que.append(i)
 
-        # BFS TopSort.
-        while queue:
-            pre = queue.popleft()
+        # 
+        while que:
+            cur = que.popleft()
             numCourses -= 1
-            for cur in adjacency[pre]:
-                indegrees[cur] -= 1
-                if not indegrees[cur]:
-                    queue.append(cur)
+            for nxt in adjacency[cur]:
+                indegrees[nxt] -= 1
+                if not indegrees[nxt]:
+                    que.append(nxt)
 
         return numCourses == 0
 
