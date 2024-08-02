@@ -1,0 +1,78 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+#include <functional>
+
+// 定义二叉树的节点结构
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+public:
+    int pathSum(TreeNode* root, int targetSum) {
+        int ans = 0;
+        unordered_map<long long, int> cnt; // 使用前缀和计数
+        cnt[0]=1;
+
+        // & 捕获列表确保 lambda 表达式可以访问并修改定义在 lambda 之外的变量，如 ans 和 cnt。
+        // auto&& dfs：使用 auto&& 这个参数用于递归调用 lambda 表达式自身
+        function<void(TreeNode*,long long)> dfs = [&](TreeNode* node, long long s) {
+            if (node == nullptr) {
+                return;
+            }
+
+            s += node->val; // 更新当前路径和
+
+            // 计算当前路径和减去目标和，检查是否存在这样的前缀和
+            ans += cnt.count(s - targetSum)>0 ? cnt[s - targetSum] : 0;
+
+            cnt[s]++; // 增加当前路径和的计数
+
+            dfs(node->left, s);  // 递归到左子树
+            dfs(node->right, s); // 递归到右子树
+
+            cnt[s]--; // 恢复现场，回溯时减去当前路径和的计数
+        };
+
+        dfs(root, 0);
+        return ans;
+    }
+};
+
+// 测试代码
+int main() {
+    Solution sol;
+
+    // 创建一个测试二叉树
+    TreeNode* root = new TreeNode(10);
+    root->left = new TreeNode(5);
+    root->right = new TreeNode(-3);
+    root->left->left = new TreeNode(3);
+    root->left->right = new TreeNode(2);
+    root->right->right = new TreeNode(11);
+    root->left->left->left = new TreeNode(3);
+    root->left->left->right = new TreeNode(-2);
+    root->left->right->right = new TreeNode(1);
+
+    int targetSum = 8;
+    int result = sol.pathSum(root, targetSum);
+    cout << "Number of paths with sum " << targetSum << " is: " << result << endl;
+
+    // 释放动态分配的内存
+    delete root->left->right->right;
+    delete root->left->left->right;
+    delete root->left->left->left;
+    delete root->right->right;
+    delete root->left->right;
+    delete root->left->left;
+    delete root->right;
+    delete root->left;
+    delete root;
+
+    return 0;
+}
