@@ -1,71 +1,51 @@
 #include <iostream>
 using namespace std;
 
-// 带标记的多叉树
-
 class Trie {
-private:
     int isEnd;
     Trie* next[26];
 
 public:
-   
-    // TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    // TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    // TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-    /// 构造函数
     Trie() : isEnd(0) {
-        for (int i = 0; i < 26; ++i) {
-            next[i] = nullptr;
+        for (int i = 0; i < 26; i++) {
+            this->next[i] = nullptr;
         }
     }
-
-    // 插入单词
-    void insert(const string& word) {
-        Trie* node = this;
-        for (char ch : word) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
-                node->next[index] = new Trie();
+    // 为一个词，创建边和值。一个完整的词是既包含边，要包含值的
+    void insert(string word) {
+        Trie* cur = this;
+        for (auto ch : word) {
+            int idx = ch - 'a';
+            if (cur->next[idx] == nullptr) {
+                cur->next[idx] = new Trie();
             }
-            node = node->next[index];
+            cur = cur->next[idx];
         }
-        node->isEnd = 1;
+        cur->isEnd=1;// 值
     }
 
-    // 搜索单词， 路径题
-    bool search(const string& word) {
-        Trie* node = this;
-        for (char ch : word) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
+    // 既看边又看值
+    bool search(string word) {
+        Trie* cur = this; 
+        for (auto ch : word) {
+            int idx = ch - 'a';
+            cur = cur->next[idx];
+            if (cur == nullptr)
                 return false;
-            }
-            node = node->next[index];
         }
-        return node->isEnd == 1;
+        return cur->isEnd == 1;
     }
-
-    // 判断是否有前缀， 路径题
-    bool startsWith(const string& prefix) {
-        Trie* node = this;
-        for (char ch : prefix) {
-            int index = ch - 'a';
-            if (node->next[index] == nullptr) {
+    
+    // 只看边
+    bool startsWith(string prefix) {
+        Trie* cur = this;
+        for (auto ch : prefix) {
+            int idx = ch - 'a';
+            cur = cur->next[idx];
+            if (cur == nullptr) //不存在这条边，既该字母不存在
                 return false;
-            }
-            node = node->next[index];
         }
         return true;
-    }
-
-    // 析构函数，释放所有节点
-    ~Trie() {
-        for (int i = 0; i < 26; ++i) {
-            if (next[i] != nullptr) {
-                delete next[i];
-            }
-        }
     }
 };
 
