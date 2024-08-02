@@ -18,6 +18,7 @@ public:
         vector<string> ans;
         string path(n, 0); // 本题 path 长度固定为 n
         cout << "dfs path" << path << endl;
+        //这样只传需要变化的参数
         function<void(int)> dfs = [&](int i)
         {
             if (i == n)
