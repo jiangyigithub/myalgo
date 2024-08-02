@@ -17,6 +17,7 @@ public:
             return {};
         vector<string> ans;
         string path(n, 0); // 本题 path 长度固定为 n
+        cout << "dfs path" << path << endl;
         function<void(int)> dfs = [&](int i)
         {
             if (i == n)
@@ -27,7 +28,7 @@ public:
             for (char c : MAPPING[digits[i] - '0'])
             {
                 path[i] = c; // 直接覆盖
-                cout<<"dfs path"<<path[i]<<endl;
+                cout << path[i] << endl;
                 dfs(i + 1);
             }
         };
@@ -45,7 +46,7 @@ int main()
         // {"2", {"a", "b", "c"}},
         // {"7", {"p", "q", "r", "s"}},
         // {"78", {"pt", "pu", "pv", "qt", "qu", "qv", "rt", "ru", "rv", "st", "su", "sv"}}
-        };
+    };
 
     for (const auto &testCase : testCases)
     {
