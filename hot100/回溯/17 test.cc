@@ -26,14 +26,14 @@ public:
                 ans.push_back(path);
                 return;
             }
+            // 枚举path[i]中要填入的字母
             for (char c : MAPPING[digits[i] - '0'])
             {
-                path[i] = c; // 直接覆盖
-                cout << path[i] << endl;
-                dfs(i + 1);
+                path[i] = c; // 第i个
+                dfs(i + 1); // dfs中的参数，>=i+1 的子问题，这个问题暴力求解是多层循环
             }
         };
-        dfs(0);
+        dfs(0); //>= 0 的时候枚举
         return ans;
     }
 };
