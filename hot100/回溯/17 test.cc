@@ -7,7 +7,7 @@ using namespace std;
 class Solution
 {
 
-    string MAPPING[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    string HASHMAP[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
 public:
     vector<string> letterCombinations(string digits)
@@ -27,7 +27,7 @@ public:
                 return;
             }
             // 枚举path[i]中要填入的字母
-            for (char c : MAPPING[digits[i] - '0'])
+            for (char c : HASHMAP[digits[i] - '0'])
             {
                 path[i] = c; // 第i个
                 dfs(i + 1); // dfs中的参数，>=i+1 的子问题，这个问题暴力求解是多层循环
