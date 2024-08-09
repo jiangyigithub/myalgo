@@ -18,9 +18,11 @@ public:
         vector<string> ans;
         string path(n, 0); // 本题 path 长度固定为 n
         cout << "dfs path" << path << endl;
+        int counter = 0;  // Counter to track recursive calls
         //这样只传需要变化的参数
         function<void(int)> dfs = [&](int i)
-        {
+        {   
+            ++counter;
             if (i == n)
             {
                 ans.push_back(path);
@@ -34,6 +36,7 @@ public:
             }
         };
         dfs(0); //>= 0 的时候枚举
+        cout << "Number of recursive calls: " << counter << endl;  // Output the counter value
         return ans;
     }
 };
