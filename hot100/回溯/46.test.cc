@@ -13,21 +13,24 @@ public:
     {
         int n = nums.size();
         vector<vector<int>> ans;
-        vector<int> visited(n,0);
+        vector<int> visited(n, 0);
         vector<int> path(n);
-        function<void(int)> dfs=[&](int i){
-            if(i==n){
+        function<void(int)> dfs = [&](int i)
+        {
+            if (i == n)
+            {
                 ans.push_back(path);
                 return;
             }
-            for(int j=0;j<n;j++){
-                if(visited[j]==0){
-                    path[i]=nums[j];
-                    visited[j]=1;
-                    dfs(i+1);
-                    visited[j]=0;
+            for (int j = 0; j < n; j++)
+            {
+                if (visited[j] == 0)
+                {
+                    path[i] = nums[j];
+                    visited[j] = 1;
+                    dfs(i + 1);
+                    visited[j] = 0;
                 }
-                
             }
         };
         dfs(0);
