@@ -3,7 +3,7 @@
 #include <string>
 #include <functional>
 
-/// 方法二：枚举下一个左括号的位置
+/// 方法一：枚举填左括号还是右括号
 using namespace std;
 
 class Solution {
