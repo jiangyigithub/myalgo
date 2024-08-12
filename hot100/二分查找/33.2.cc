@@ -4,29 +4,33 @@
 using namespace std;
 
 class Solution {
+    int findMin(vector<int>& nums){
+        int n=nums.size();
+        int left =0,right=n-2;
+        int end = nums[n-1];
+        while(left<=right){
+            int mid = left + (right-left)/2;
+            if(nums[mid]>end) left = mid+1; // 右移
+            else right = mid-1; // 左移
+        }
+        return left;
+    }
+
+    int binaraySearch(vector<int>& nums, int target,int left ,int right){
+        while(left<=right){
+            int mid = left + (right-left)/2;
+            if(target>nums[mid]) left = mid+1;
+            else right = mid-1;
+        }
+        return nums[left]==target? left:-1;
+    }
 public:
     int search(vector<int>& nums, int target) {
-        int n = nums.size();
-        int left = 0, right = n - 1;
-        
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            }
-            
-            // 判断 mid 和 target 是否在相同的段中
-            if ((nums[mid] > nums[n - 1] && (target > nums[n - 1] && nums[mid] >= target)) ||
-                (nums[mid] <= nums[n - 1] && (target > nums[n - 1] || nums[mid] >= target))) {
-                // target 在 nums[mid] 的左边
-                right = mid - 1;
-            } else {
-                // target 在 nums[mid] 的右边
-                left = mid + 1;
-            }
-        }
-        
-        return -1;  // 如果没有找到
+        int n=nums.size();
+        int end = nums[n-1];
+        int gap = findMin(nums);
+        if(target>end) return binaraySearch(nums,target,0,gap-1);
+        return binaraySearch(nums,target,gap,n-1);
     }
 };
 
