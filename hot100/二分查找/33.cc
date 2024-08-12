@@ -2,7 +2,16 @@
 #include <vector>
 
 using namespace std;
-
+/*
+   /
+  /
+ /
+/
+       /
+      /
+     /
+    /
+*/
 class Solution {
     int findMin(vector<int>& nums){
         int n=nums.size();
