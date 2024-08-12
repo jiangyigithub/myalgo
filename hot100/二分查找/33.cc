@@ -4,53 +4,35 @@
 using namespace std;
 
 class Solution {
-
-public:
-    /// 找最小值，找target
-    int search(vector<int>& nums, int target) {
-        
-
-        /// x , end , target 三个 metric
-        auto is_blue = [&](int i) -> bool {
-
-            int x = nums[i];
-
-            int end = nums.back();
-
-            if (x > end) {
-
-                return target > end && x >= target; // 都在第一段，且在target右侧
-
-            }
-
-            return target > end || x >= target;
-
-        };
-
-        int left = -1, right = nums.size() - 1; // 开区间 (-1, n-1)
-
-        while (left + 1 < right) { // 开区间不为空
-
-            int mid = left + (right - left) / 2;
-
-            if (is_blue(mid)) {
-
-                right = mid; // mid左移
-
-            } else {
-
-                left = mid; // mid右移
-
-            }
-
+    int findMin(vector<int>& nums){
+        int n=nums.size();
+        int left =0,right=n-2;
+        int end = nums[n-1];
+        while(left<=right){
+            int mid = left + (right-left)/2;
+            if(nums[mid]>end) left = mid+1; // 右移
+            else right = mid-1; // 左移
         }
-
-        return nums[right] == target ? right : -1;
-
+        return left;
     }
 
+    int binaraySearch(vector<int>& nums, int target,int left ,int right){
+        while(left<=right){
+            int mid = left + (right-left)/2;
+            if(target>nums[mid]) left = mid+1;
+            else right = mid-1;
+        }
+        return nums[left]==target? left:-1;
+    }
+public:
+    int search(vector<int>& nums, int target) {
+        int n=nums.size();
+        int end = nums[n-1];
+        int gap = findMin(nums);
+        if(target>end) return binaraySearch(nums,target,0,gap-1);
+        return binaraySearch(nums,target,gap,n-1);
+    }
 };
-
 
 struct TestCase {
     vector<int> nums;
@@ -58,7 +40,7 @@ struct TestCase {
     int expected;
 };
 
-void runTestCase(TestCase& testCase, Solution& solution) {
+void runTestCase( TestCase& testCase, Solution& solution) {
     int result = solution.search(testCase.nums, testCase.target);
     bool passed = result == testCase.expected;
 
@@ -80,7 +62,7 @@ int main() {
         {{5, 1, 3}, 5, 0},
     };
 
-    for (auto& testCase : testCases) {
+    for ( auto& testCase : testCases) {
         runTestCase(testCase, solution);
     }
 
