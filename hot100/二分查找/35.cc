@@ -13,9 +13,7 @@ public:
             if (target > nums[mid]) left = mid + 1;
             else right = mid - 1;
         }
-        cout<<"left"<<left<<endl;
-        cout<<"right"<<right<<endl;
-        return left;
+        return left;// left = right +1
     }
 };
 
