@@ -88,8 +88,8 @@ double findMedianSortedArrays(const vector<int> &nums1, const vector<int> &nums2
         temp.add(num);
     }
 
-    printMaxHeap(temp.maxNums);
-    printMinHeap(temp.minNums);
+    // printMaxHeap(temp.maxNums);
+    // printMinHeap(temp.minNums);
     return temp.medium();
 }
 
