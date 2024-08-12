@@ -15,12 +15,12 @@ public:
 
             int mid = left + (right - left) / 2;
 
-            if (nums[mid] - nums[mid + 1]>0)
+            if (nums[mid + 1]-nums[mid]<0) // 导数小于0，mid 应减小
             {
 
                 right = mid;
             }
-            else
+            else // 导数大于0，mid 应增加
             {
 
                 left = mid;
