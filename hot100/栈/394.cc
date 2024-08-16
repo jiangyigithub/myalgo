@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
 public:
     string decodeString(string s) {
-        string ans = ""; // 用于存储当前解码后的字符串
+        string str = ""; // 用于存储当前解码后的字符串
         stack<int> nums; // 用于存储遇到的数字，表示字符串需要重复的次数
         stack<string> strs; // 用于存储遇到的中间字符串
         int num = 0; // 用于记录当前遇到的数字
@@ -18,29 +18,30 @@ public:
             if(s[i] >= '0' && s[i] <= '9') {
                 num = num * 10 + s[i] - '0';
             }
-            // 如果当前字符是字母，直接添加到结果字符串中
+            // 如果当前字符是字母，直接添加到结果字符串中(可能为开头，也可能为结尾)
             else if((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')) {
-                ans = ans + s[i];
+                str = str + s[i];
             }
             // 如果遇到左括号 '['，表示开始一个新的重复段
             else if(s[i] == '[') {
                 nums.push(num); // 将数字压入数字栈
                 num = 0; // 重置数字变量
-                strs.push(ans); // 将当前结果字符串压入字符串栈
-                ans = ""; // 重置结果字符串
+                strs.push(str); // 将当前结果字符串压入字符串栈
+                str = ""; // 重置结果字符串
             }
             // 如果遇到右括号 ']'，表示结束一个重复段
             else {
                 int times = nums.top(); // 获取需要重复的次数
                 nums.pop(); // 从栈中移除这个次数
                 // 将当前结果字符串重复相应次数并添加到栈顶字符串
+                // "3[a]2[bc]", "aaabcbc"
                 for(int j = 0; j < times; ++j)
-                    strs.top() += ans;
-                ans = strs.top(); // 将栈顶字符串作为新的结果字符串
+                    strs.top() += str; //str表示最后要乘的括号内字符，strs.top()为上一个周期的结果字符串
+                str = strs.top(); // 将栈顶字符串作为新的结果字符串
                 strs.pop(); // 从栈中移除这个字符串
             }
         }
-        return ans; // 返回最终解码后的字符串
+        return str; // 返回最终解码后的字符串
     }
 };
 
