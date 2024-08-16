@@ -11,9 +11,9 @@ public:
         stack<int> nums; // 用于存储遇到的数字，表示字符串需要重复的次数
         stack<string> strs; // 用于存储遇到的中间字符串
         int num = 0; // 用于记录当前遇到的数字
-        int len = s.size(); // 输入字符串的长度
+        int n = s.size(); // 输入字符串的长度
         
-        for(int i = 0; i < len; ++i) {
+        for(int i = 0; i < n; ++i) {
             // 如果当前字符是数字，构建完整的数字
             if(s[i] >= '0' && s[i] <= '9') {
                 num = num * 10 + s[i] - '0';
