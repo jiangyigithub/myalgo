@@ -51,7 +51,7 @@ public:
             {
                 ans[i] = stk.top() - i;
             }
-            stk.push(i);
+            stk.push(i);// 6 5 4 1
         }
         return ans;
     }
