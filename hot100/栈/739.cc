@@ -37,7 +37,6 @@ public:
 
     vector<int> dailyTemperaturesWithRight(vector<int> &temperatures)
     {
-
         int n = temperatures.size();
         vector<int> ans(n);
         stack<int> stk;
