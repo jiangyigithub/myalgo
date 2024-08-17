@@ -24,7 +24,16 @@ public:
         // 遍历i可以作为谁的第一个大于
         for (int i = 0; i < n; i++)
         {
-            int t = temperatures[i];
+            int t = temperatures[i];    
+            // {1, 4, 3, 5, 5, 2, 3, 6}
+            // {1, 2, 1, 4, 3, 1, 1, 0}
+
+            // 1 4 弹出 1
+            // 4 3 5 弹出 3， 弹出 4
+            // 5 5 2 3 弹出 2
+            // 5 5 3 6 弹出 3，弹出5，弹出 5
+            // 共弹出7次，弹入7次
+            // 单独递减栈，可包含重复
             while (!stk.empty() && t > temperatures[stk.top()])
             {
                 int j = stk.top();//要弹出的就是你知道t大于这个数
