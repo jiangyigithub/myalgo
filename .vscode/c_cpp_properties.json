@@ -23,6 +23,22 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
+          },
+          {
+            "name": "Windows MSVC",
+            "includePath": [
+              "${workspaceFolder}/**",
+              "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/**",
+              // C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\iostream
+            //   "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/ucrt/**",
+            //   "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/shared/**"
+            ],
+            "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+            "windowsSdkVersion": "10.0.22000.0",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
           }
     ],
     "version": 4
