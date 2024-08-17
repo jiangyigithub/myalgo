@@ -43,7 +43,7 @@ public:
         for (int i = n - 1; i >= 0; i--)
         {
             int t = temperatures[i];
-            while (!stk.empty() && t >= temperatures[stk.top()])
+            while (!stk.empty() && t >= temperatures[stk.top()]) // 重复元素怎么处理
             {
                 stk.pop();
             }
@@ -51,6 +51,8 @@ public:
             {
                 ans[i] = stk.top() - i;
             }
+            // {1, 4, 3, 5, 5, 2, 3, 6}
+            // {1, 2, 1, 4, 3, 1, 1, 0}
             stk.push(i);// 6 5 4 1
         }
         return ans;
