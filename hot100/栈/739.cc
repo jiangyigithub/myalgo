@@ -27,7 +27,7 @@ public:
             int t = temperatures[i];
             while (!stk.empty() && t > temperatures[stk.top()])
             {
-                int j = stk.top();
+                int j = stk.top();//要弹出的就是你知道t大于这个数
                 stk.pop();
                 ans[j] = i - j; // i 是第一个大于j的元素
             }
