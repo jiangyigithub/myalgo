@@ -8,70 +8,54 @@ using namespace std;
 class Solution
 {
 public:
-// {{30, 40, 50, 60}, {1, 1, 1, 0}},
+    // {{30, 40, 50, 60}, {1, 1, 1, 0}},
 
-// 遍历整个数组，如果栈不空，且当前数字大于栈顶元素，那么如果直接入栈的话就不是 递减栈 ，
-// 所以需要取出栈顶元素，由于当前数字大于栈顶元素的数字，而且一定是第一个大于栈顶元素的数，直接求出下标差就是二者的距离。
+    // 遍历整个数组，如果栈不空，且当前数字大于栈顶元素，那么如果直接入栈的话就不是 递减栈 ，
+    // 所以需要取出栈顶元素，由于当前数字大于栈顶元素的数字，而且一定是第一个大于栈顶元素的数，直接求出下标差就是二者的距离。
 
-// 继续看新的栈顶元素，直到当前数字小于等于栈顶元素停止，
-// 然后将数字入栈，这样就可以一直保持递减栈，且每个数字和第一个大于它的数的距离也可以算出来。
-
+    // 继续看新的栈顶元素，直到当前数字小于等于栈顶元素停止，
+    // 然后将数字入栈，这样就可以一直保持递减栈，且每个数字和第一个大于它的数的距离也可以算出来。
 
     vector<int> dailyTemperatures(vector<int> &temperatures)
     {
         int n = temperatures.size();
         vector<int> ans(n);
         stack<int> stk;
-
         for (int i = 0; i < n; i++)
         {
             int t = temperatures[i];
-
             while (!stk.empty() && t > temperatures[stk.top()])
             {
                 int j = stk.top();
                 stk.pop();
                 ans[j] = i - j; // i 是第一個大於j的元素
             }
-
             stk.push(i);
         }
-
         return ans;
     }
 
-    vector<int> dailyTemperaturesWithRight(vector<int> &temperatures) {
+    vector<int> dailyTemperaturesWithRight(vector<int> &temperatures)
+    {
 
         int n = temperatures.size();
-
         vector<int> ans(n);
-
-        stack<int> st;
-
-        for (int i = n - 1; i >= 0; i--) {
-
+        stack<int> stk;
+        for (int i = n - 1; i >= 0; i--)
+        {
             int t = temperatures[i];
-
-            while (!st.empty() && t >= temperatures[st.top()]) {
-
-                st.pop();
-
+            while (!stk.empty() && t >= temperatures[stk.top()])
+            {
+                stk.pop();
             }
-
-            if (!st.empty()) {
-
-                ans[i] = st.top() - i;
-
+            if (!stk.empty())
+            {
+                ans[i] = stk.top() - i;
             }
-
-            st.push(i);
-
+            stk.push(i);
         }
-
         return ans;
-
     }
-
 };
 
 // 定义结构体来存储测试用例
