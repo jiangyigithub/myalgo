@@ -18,7 +18,7 @@
             // ,"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include\\**"
             ],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-            "windowsSdkVersion": "10.0.22000.0",
+            "windowsSdkVersion": "10.0.10150.0",
             "compilerPath":"C:\\msys64\\ucrt64\\bin\\g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
@@ -27,11 +27,10 @@
           {
             "name": "Windows MSVC",
             "includePath": [
-              "${workspaceFolder}/**",
-              "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/**"
-              // C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\iostream
-            //   "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/ucrt/**",
-            //   "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/shared/**"
+              "${workspaceFolder}/**"
+              // "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/**",
+              // "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10150.0/ucrt/**",
+              // "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/ucrt/**"
             ],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
             "windowsSdkVersion": "10.0.22000.0",
