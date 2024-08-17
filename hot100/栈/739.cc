@@ -21,6 +21,7 @@ public:
         int n = temperatures.size();
         vector<int> ans(n);
         stack<int> stk;
+        // 遍历i可以作为谁的第一个大于
         for (int i = 0; i < n; i++)
         {
             int t = temperatures[i];
@@ -28,7 +29,7 @@ public:
             {
                 int j = stk.top();
                 stk.pop();
-                ans[j] = i - j; // i 是第一個大於j的元素
+                ans[j] = i - j; // i 是第一个大于j的元素
             }
             stk.push(i);
         }
