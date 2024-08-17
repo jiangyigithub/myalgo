@@ -69,7 +69,8 @@ struct TestCase
 // 测试函数
 void runTestCase(Solution &solution, TestCase &testCase)
 {
-    testCase.result = solution.dailyTemperatures(testCase.temperatures);
+    // testCase.result = solution.dailyTemperatures(testCase.temperatures);
+    testCase.result = solution.dailyTemperaturesWithRight(testCase.temperatures);
     testCase.passed = (testCase.result == testCase.expected);
 }
 
