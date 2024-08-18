@@ -1,0 +1,35 @@
+// https://download.qt.io/new_archive/qt/5.8/5.8.0/
+// https://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/
+// export BOOST_ROOT="$BOOST_ROOT C:/TCC/Tools/boost/1.63.0_WIN64"
+// echo $BOOST_ROOT
+{
+    "cmake.generator": "Visual Studio 14 2015 Win64",
+    "cmake.useCMakeServer": false,
+    "cmake.sourceDirectory": "${workspaceFolder}/ip_dc",
+    "cmake.buildDirectory": "${workspaceFolder}/build/selena",
+    "cmake.buildBeforeRun": false,
+    "cmake.environment": {
+        "Path": "C:\\TCC\\Tools\\selena_environment\\0.1.7_WIN64\\MSYS\\mingw64\\bin;C:\\TCC\\Tools\\selena_environment\\0.1.7_WIN64\\MSYS\\usr\\bin;C:\\TCC\\Tools\\boost\\1.63.0_WIN64\\lib64-msvc-14.0;C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\bin;C:\\Program Files\\MATLAB\\R2017b\\bin\\win64;${env:Path}",
+        "BOOST_ROOT": "C:\\TCC\\Tools\\boost\\1.63.0_WIN64;",
+    },
+    // root CMakeList.txt自定义了这些cmake config参数
+    "cmake.configureSettings": {
+        "CMAKE_GENERATOR_TOOLSET" : "v140,host=x64",
+        "CMAKE_PREFIX_PATH": "C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64",
+        "RB_PROJECT_TARGET": "selena",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "BOOST_ROOT_DIR": "${env:BOOST_ROOT}",
+        "DC_CMAKE_CONFIG": "${workspaceFolder}/apl_bjev/main/selena/config/cmake/ROSDADDY_PER_SIT_RPM_FCT.config",
+        "SELENA_SKIP_DINXPARSER": "false",
+        "SELENA_SKIP_NOGEN": "false",
+        "DC_ENABLE_TESTING": "OFF",
+        "SELENA_USE_MATLAB_TRANSFER": "false",
+        "SELENA_MIST_MODE": "false",
+        "SELENA_A2L_TABLE_FILE_PATH": "${workspaceFolder}/apl_bjev/main/selena/config/mapping/bjev_a2lTable_updated.txt",
+        "VFC_USE_GHS_MATH": "false"
+    },
+    "cmake.buildToolArgs": [
+        "/m:6",
+    ],
+    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"  
+}

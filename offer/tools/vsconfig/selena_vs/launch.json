@@ -1,0 +1,33 @@
+{
+    // Calling CMake with arguments '['cmake', 'C:/ICV/ICV/icv_innofund_dasy/ip_dc', '-DRB_PROJECT_TARGET=selena', '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON', '-DDC_CMAKE_CONFIG=C:/ICV/ICV/icv_innofund_dasy/apl_bjev/main/selena/config/cmake/ROSDADDY_PER_SIT_RPM_FCT.config', '-DSELENA_SKIP_DINXPARSER=true', '-DSELENA_SKIP_NOGEN=true', '-DSELENA_USE_MATLAB_TRANSFER=FALSE', '-DSELENA_BUILD_EMULATION_CONTAINER=FALSE', '-DSELENA_GHS_MATH=FALSE', '-DDC_ENABLE_TESTING=OFF', '-DDC_ENABLE_COVERAGE=OFF', '-DSELENA_WITH_DEBUG_STATES=TRUE', '-DSELENA_WITH_INTERNAL_STATES=TRUE', '-GVisual Studio 14 2015 Win64', '-Tv140', '-DBOOST_ROOT_DIR=C:\\TCC\\Tools\\boost\\1.63.0_WIN64']'
+    "configurations": [
+        {
+            "name": "Selena: Simulate",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/selena/dc_tools/selena/core/RelWithDebInfo/selena.exe",
+            "args": [
+                "--config", "${workspaceFolder}\\apl_bjev\\main\\selena\\config\\runtime\\config_BJEV_COMPLETE.xml",
+                "--input", "D:\\Measurements\\BJEV_N60_2020-10-24_17-46_08_0065.MF4",
+                "--output", "D:\\Measurements\\output\\BJEV_N60_2020-02-18_11-27_11_0010_filtered_simout.MF4",
+                "--source", "DASY_BASE_01",
+                "--log", "D:\\Measurements\\selena_log.txt",
+                "--nogui",
+                "--tolerant"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "Path",
+                    "value": "C:\\TCC\\Tools\\boost\\1.63.0_WIN64\\lib64-msvc-14.0;C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\bin;${env:Path}"
+                },
+                {
+                    "name": "QT_QPA_PLATFORM_PLUGIN_PATH",
+                    "value": "C:\\TCC\\Tools\\qt\\5.8.0_WIN64\\5.8\\msvc2015_64\\plugins\\platforms"
+                }
+            ],
+            "console": "integratedTerminal",
+        }
+    ]
+}
