@@ -16,7 +16,7 @@ class Solution
 public:
     int jump(vector<int> &nums)
     {
-        int jumps = 0;
+        int step = 0;
         int current_end = 0;
         int farthest = 0;
         for (int i = 0; i < nums.size() - 1; i++)
@@ -27,11 +27,11 @@ public:
             // 如果到达了当前跳跃的末端，需要跳跃一次
             if (i == current_end)
             {
-                jumps++;
+                step++;
                 current_end = farthest;
             }
         }
-        return jumps;
+        return step;
     }
 };
 
