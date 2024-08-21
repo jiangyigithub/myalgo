@@ -30,7 +30,10 @@ public:
         vector<int> ans;
         int start = 0, end = 0;
         for (int i = 0; i < n; i++)
-        {
+        {   
+            // 第一个片段 "ababcbaca" 
+            // 第二个片段 "defegde" 
+            // 第三个片段 "hijhklij"
             end = max(end, last[s[i] - 'a']); // 更新当前区间右端点的最大值
             if (end == i)
             {                                   // 当前区间合并完毕

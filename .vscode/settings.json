@@ -73,7 +73,9 @@
         "semaphore": "cpp",
         "span": "cpp",
         "stop_token": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "*.ipp": "cpp",
+        "valarray": "cpp"
     },
     "editor.parameterHints.enabled": true,
     "C_Cpp.errorSquiggles": "disabled",
