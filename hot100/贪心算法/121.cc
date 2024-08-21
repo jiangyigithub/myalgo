@@ -12,8 +12,7 @@ struct TestCase {
     bool passed;         // 测试是否通过
 };
 
-// 用来计算最大利润的函数
-// 总结: i<j max(A[j] - A[i])= max A[j] - i<j min A[i]
+// 总结: 在i<j的前提下，max(A[j] - A[i])= max (A[j] -  min A[i],其中i<j)
 // 故只要维持min i<j A[i]，不断更新最大差值即可
 
 int maxProfit(vector<int>& prices) 
