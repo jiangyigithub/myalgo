@@ -16,7 +16,6 @@ public:
         int jumps = 0;
         int current_end = 0;
         int farthest = 0;
-        
         for (int i = 0; i < nums.size() - 1; i++) {
             // 更新当前能够跳到的最远位置
             farthest = max(farthest, i + nums[i]);
@@ -27,7 +26,6 @@ public:
                 current_end = farthest;
             }
         }
-        
         return jumps;
     }
 };
