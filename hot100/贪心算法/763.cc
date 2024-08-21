@@ -52,8 +52,11 @@ public:
 
         for (int i = 0; i < n; i++)
         {
-            first[s[i] - 'a'] = min(first[s[i] - 'a'], i);
-            last[s[i] - 'a'] = max(last[s[i] - 'a'], i);
+            if (first[s[i] - 'a'] == n)
+            {
+                first[s[i] - 'a'] = i; //等价为 first[s[i] - 'a'] = min(first[s[i] - 'a'], i);
+            }
+            last[s[i] - 'a'] = i; //等价为 last[s[i] - 'a'] = max(last[s[i] - 'a'], i);
         }
 
         // 收集所有区间
