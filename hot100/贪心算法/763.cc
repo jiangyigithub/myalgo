@@ -40,6 +40,59 @@ public:
         }
         return ans;
     }
+
+    vector<int> partitionLabelsForMerge(string s)
+    {
+        int n = s.size();
+        vector<pair<int, int>> intervals; // 存储所有区间
+
+        // 记录每个字母的最早和最晚出现位置
+        vector<int> first(26, n); // 初始化为最大值
+        vector<int> last(26, -1); // 初始化为最小值
+
+        for (int i = 0; i < n; i++)
+        {
+            first[s[i] - 'a'] = min(first[s[i] - 'a'], i);
+            last[s[i] - 'a'] = max(last[s[i] - 'a'], i);
+        }
+
+        // 收集所有区间
+        for (int i = 0; i < 26; i++)
+        {
+            if (last[i] != -1)
+            {
+                intervals.push_back({first[i], last[i]});
+            }
+        }
+
+        // 对区间进行排序，按照开始位置排序
+        sort(intervals.begin(), intervals.end());
+
+        // 合并区间
+        vector<int> ans;
+        int start = intervals[0].first, end = intervals[0].second;
+
+        for (int i = 1; i < intervals.size(); i++)
+        {
+            if (intervals[i].first > end)
+            {
+                // 当前区间与前一个区间不重叠
+                ans.push_back(end - start + 1);
+                start = intervals[i].first;
+                end = intervals[i].second;
+            }
+            else
+            {
+                // 当前区间与前一个区间重叠，合并它们
+                end = max(end, intervals[i].second);
+            }
+        }
+
+        // 最后一个区间
+        ans.push_back(end - start + 1);
+
+        return ans;
+    }
 };
 
 // 测试函数
@@ -48,7 +101,8 @@ void runTests(vector<TestCase> &testCases, Solution &sol)
     for (auto &testCase : testCases)
     {
         // 计算实际结果
-        testCase.actual = sol.partitionLabels(testCase.input);
+        // testCase.actual = sol.partitionLabels(testCase.input);
+        testCase.actual = sol.partitionLabelsForMerge(testCase.input);
         // 判断测试是否通过
         testCase.passed = (testCase.actual == testCase.expected);
 
@@ -74,7 +128,7 @@ int main()
     vector<TestCase> testCases = {
         {"ababcbacadefegdehijhklij", {9, 7, 8}, {}, false}, // 预期划分是 {9, 7, 8}
         {"eccbbbbdec", {10}, {}, false},                    // 预期划分是 {10}
-        {"abac", {2, 2}, {}, false},                        // 预期划分是 {2, 2}
+        {"abac", {3, 1}, {}, false},                        // 预期划分是 {2, 2}
         {"caedbdedda", {1, 9}, {}, false}                   // 预期划分是 {1, 9}
     };
 
