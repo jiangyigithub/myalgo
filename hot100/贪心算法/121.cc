@@ -21,7 +21,7 @@ int maxProfit(vector<int>& prices)
     int min_price = prices[0];
     for (int p : prices) {
         ans = max(ans, p - min_price); //这里min_price表示上一个周期的min_price,这样能确保 i<j
-        min_price = min(min_price, p);
+        min_price = min(min_price, p); //更新本周期的 min_price
     }
     return ans;
 }
