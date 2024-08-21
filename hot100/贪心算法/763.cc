@@ -35,8 +35,8 @@ public:
             // 第二个片段 "defegde" 
             // 第三个片段 "hijhklij"
             end = max(end, last[s[i] - 'a']); // 更新当前区间右端点的最大值
-            if (end == i)
-            {                                   // 当前区间合并完毕
+            if (end == i) // 确定区间终点
+            {                                  
                 ans.push_back(end - start + 1); // 区间长度加入答案
                 start = i + 1;                  // 下一个区间的左端点
             }
