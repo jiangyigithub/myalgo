@@ -19,8 +19,9 @@ public:
         int mx = 0;
         for (int i = 0; i < nums.size(); i++)
         {
+            // 无法到达 i
             if (i > mx) // mx表示上个周期的mx值
-            { // 无法到达 i
+            {
                 return false;
             }
             mx = max(mx, i + nums[i]); // 从 i 最右可以跳到 i + nums[i]

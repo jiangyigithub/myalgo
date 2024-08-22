@@ -17,20 +17,20 @@ public:
     int jump(vector<int> &nums)
     {
         int step = 0;
-        int mx = 0; //更新跳跃mx-->nums[i]+i
-        int cend = 0; //更新当前落地
-        int n=nums.size();
-        for(int i=0;i<n-1;i++){
-            mx = max(mx,nums[i]+i);
+        int mx = 0;   // 更新跳跃mx-->nums[i]+i
+        int cend = 0; // 更新当前落地
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++)
+        {
+            mx = max(mx, i + nums[i]);
             // 起点是在变化，一开始的起点为0
-            if(i==cend)
+            if (i == cend)
             {
                 step++;
-                cend=mx;
+                cend = mx;
             }
         }
         return step;
-
     }
 };
 
