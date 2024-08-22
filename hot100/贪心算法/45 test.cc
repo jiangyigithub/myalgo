@@ -17,16 +17,16 @@ public:
     int jump(vector<int> &nums)
     {
         int step = 0;
-        int far = 0;
+        int mx = 0; //更新跳跃mx-->nums[i]+i
         int cend = 0; //更新当前落地
         int n=nums.size();
         for(int i=0;i<n-1;i++){
-            far = max(far,nums[i]+i);
+            mx = max(mx,nums[i]+i);
             // 起点是在变化，一开始的起点为0
             if(i==cend)
             {
                 step++;
-                cend=far;
+                cend=mx;
             }
         }
         return step;
