@@ -38,7 +38,7 @@ public:
             if (end == i) // 确定区间终点
             {                                  
                 ans.push_back(end - start + 1); // 区间长度加入答案
-                start = i + 1;                  // 下一个区间的左端点
+                start = i + 1;                  // 下一个区间的左端点，合并区间，且区间之间是相邻的
             }
         }
         return ans;
