@@ -13,6 +13,7 @@ struct TestCase
 class Solution
 {
 public:
+    // i + nums[i]
     bool canJump(vector<int> &nums)
     {
         int mx = 0;
