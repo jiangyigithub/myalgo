@@ -18,7 +18,7 @@ public:
     {
         int step = 0;
         int far = 0;
-        int cend = 0;
+        int cend = 0; //更新当前落地
         int n=nums.size();
         for(int i=0;i<n-1;i++){
             far = max(far,nums[i]+i);
