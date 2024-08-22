@@ -22,6 +22,7 @@ public:
         int n=nums.size();
         for(int i=0;i<n-1;i++){
             far = max(far,nums[i]+i);
+            // 起点是在变化，一开始的起点为0
             if(i==cend)
             {
                 step++;
