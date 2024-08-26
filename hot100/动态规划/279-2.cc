@@ -17,18 +17,14 @@ auto init = []
 
     for (int i = 1; i * i <= N; i++)
     {
-
         for (int j = 0; j <= N; j++)
         {
-
             if (j < i * i)
             {
-
                 f[i][j] = f[i - 1][j]; // 只能不选
             }
             else
             {
-
                 f[i][j] = min(f[i - 1][j], f[i][j - i * i] + 1); // 不选 vs 选
             }
         }
