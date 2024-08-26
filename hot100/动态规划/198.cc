@@ -10,20 +10,17 @@ public:
     int rob(vector<int> &nums)
     {
         int n = nums.size();
-        vector<int> memo(n, -1); // -1 表示没有计算过
-
-        // dfs(i) 表示从 nums[0] 到 nums[i] 最多能偷多少
-        auto dfs = [&](auto &&dfs, int i) -> int
+        vector<int> memo(n, -1);
+        function<int(int)> dfs = [&](int i)
         {
             if (i < 0)
-                return 0; // 递归边界（没有房子）
+                return 0;
             if (memo[i] != -1)
-                return memo[i]; // 之前计算过
-            memo[i] = max(dfs(dfs, i - 1), dfs(dfs, i - 2) + nums[i]);
+                return memo[i]; // 避免重复计算
+            memo[i] = max(dfs(i - 1), dfs(i - 2) + nums[i]);
             return memo[i];
         };
-
-        return dfs(dfs, n - 1); // 从最后一个房子开始思考
+        return dfs(n - 1);
     }
 };
 
