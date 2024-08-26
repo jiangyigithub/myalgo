@@ -34,7 +34,7 @@ struct TestCase {
 int main() {
     TestCase testCases[] = {
         {{5,4,3},20,4},
-        {{1, 2, 5}, 11, 3},    // Test case 1: 11 can be made with 5 + 5 + 1
+        {{1, 2, 5}, 11, 3},     // Test case 1: 11 can be made with 5 + 5 + 1
         {{2}, 3, -1},           // Test case 2: 3 cannot be made with only coin 2
         {{1, 2, 5}, 0, 0},      // Test case 3: 0 can be made with no coins
         {{1}, 2, 2},            // Test case 4: 2 can be made with two 1 coins
