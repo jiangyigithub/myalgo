@@ -17,7 +17,7 @@ public:
                 return 0;
             if (memo[i] != -1)
                 return memo[i]; // 避免重复计算
-            memo[i] = max(dfs(i - 1), dfs(i - 2) + nums[i]);
+            memo[i] = max(dfs(i - 1), dfs(i - 2) + nums[i]); // 金额作为返回值还是递归参数
             return memo[i];
         };
         return dfs(n - 1);
