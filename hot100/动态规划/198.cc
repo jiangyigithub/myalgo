@@ -23,6 +23,29 @@ public:
         };
         return dfs(n - 1);
     }
+
+    int rob2(vector<int> &nums)
+    {
+        int n = nums.size();
+        vector<int> memo(n,0);
+        for(int i=0;i<n;i++)
+        {
+            memo[i+2] = max(memo[i+1],memo[i]+nums[i]);
+        }
+        return memo[n+1];
+    }
+
+    int rob3(vector<int> &nums)
+    {
+        int n = nums.size();
+        int f1,f0=0;
+        for(int i=0;i<n;i++){
+            int new_f = max(f1,f0+nums[i]);
+            f0=f1;
+            f1=new_f;
+        }
+        return f1;
+    }
 };
 
 struct TestCase
