@@ -38,7 +38,7 @@ public:
     int rob3(vector<int> &nums)
     {
         int n = nums.size();
-        int f1,f0=0;
+        int f1=0,f0=0;
         for(int i=0;i<n;i++){
             int new_f = max(f1,f0+nums[i]);
             f0=f1;
