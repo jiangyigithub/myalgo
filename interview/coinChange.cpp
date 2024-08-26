@@ -15,7 +15,8 @@ int coinChange(const vector<int>& coins, int amount) {
 
     for (int i = 1; i <= amount; ++i) {
         for (int coin : coins) {
-            if (i - coin >= 0) {
+            if (i - coin >= 0) 
+            {
                 dp[i] = min(dp[i], dp[i - coin] + 1);
             }
         }
