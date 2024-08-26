@@ -10,7 +10,8 @@ public:
         vector<vector<int>> c(numRows);
         for (int i = 0; i < numRows; i++) {
             c[i].resize(i + 1, 1);
-            for (int j = 1; j < i; j++) {
+            for (int j = 1; j < i; j++) 
+            {
                 // 左上方的数 + 正上方的数
                 c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
             }
