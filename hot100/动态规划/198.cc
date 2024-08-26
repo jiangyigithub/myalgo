@@ -19,6 +19,8 @@ public:
             if (memo[i] != -1)
                 return memo[i]; // 避免重复计算
             memo[i] = max(dfs(i - 1), dfs(i - 2) + nums[i]); // 金额作为返回值还是递归参数
+            // 不选第i个元素 dfs(i - 1)
+            // 选第i个元素 dfs(i - 2) + nums[i]
             return memo[i];
         };
         return dfs(n - 1);
