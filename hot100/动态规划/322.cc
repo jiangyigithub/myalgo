@@ -62,6 +62,7 @@ public:
     int coinChangeDP(vector<int> &coins, int amount)
     {
         int n = coins.size();
+        // 使用整型 int 的最大值来代替。而这又会导致大数越界：状态转移方程中的+1操作可能发生溢出
         int MAX = amount + 1;
         // 初始化 dp 表
         vector<vector<int>> dp(n + 1, vector<int>(amount + 1, 0));
