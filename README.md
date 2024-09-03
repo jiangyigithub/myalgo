@@ -12,6 +12,9 @@ https://labuladong.online/algo/essential-technique/algorithm-summary/#%E7%AE%97%
 
 https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B
 
+https://algo.itcharge.cn/10.Dynamic-Programming/
+https://github.com/Lightblues/Leetcode?tab=readme-ov-file
+
 ## 怎么获得网页视频字幕及其字幕
 - 视频：https://keepv.id/6/
 - 字幕：https://downsub.com/

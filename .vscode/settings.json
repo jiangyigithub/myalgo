@@ -79,5 +79,6 @@
     },
     "editor.parameterHints.enabled": true,
     "C_Cpp.errorSquiggles": "disabled",
-    "C_Cpp.intelliSenseEngine": "default"
+    "C_Cpp.intelliSenseEngine": "default",
+    "cmake.sourceDirectory": "C:/workspaces/myalgo/offer"
 }
