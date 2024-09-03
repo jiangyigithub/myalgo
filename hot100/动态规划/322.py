@@ -14,6 +14,7 @@ class Solution:
             if c < coins[i]:
                 return dfs(i - 1, c)#不选
             return min(dfs(i - 1, c), dfs(i, c - coins[i]) + 1)#不选/选
+        print(math.inf + 1)  # 输出: inf
         ans = dfs(len(coins) - 1, amount)
         return ans if ans < math.inf else -1
     
@@ -73,7 +74,7 @@ def run_tests():
 
     # Run each test case
     for i, test in enumerate(test_cases):
-        actual = solution.coinChange4(test.coins, test.amount)
+        actual = solution.coinChange(test.coins, test.amount)
         passed = actual == test.expected
         print(f"Test Case {i + 1}:")
         print(f"  Coins: {test.coins}, Amount: {test.amount}")
