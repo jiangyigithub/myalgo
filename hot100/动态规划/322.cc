@@ -151,7 +151,9 @@ int main()
         const TestCase &testCase = testCases[i];
         vector<int> temp = testCase.coins;
         // int result = Solution().coinChange(temp, testCase.amount);
-        int result = Solution().coinChangeDP(temp, testCase.amount);
+        // int result = Solution().coinChangeDP(temp, testCase.amount);
+        // int result = Solution().coinChangeTwoArray(temp, testCase.amount);
+        int result = Solution().coinChangeOneArray(temp, testCase.amount);
         // int result = Solution().coinChangeDP2(temp, testCase.amount);
         cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
         if (result == testCase.expected)
