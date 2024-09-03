@@ -93,39 +93,6 @@ public:
         int ans = dp[amount];
         return ans < INT_MAX / 2 ? ans : -1;
     }
-
-    /* 零钱兑换：动态规划 */
-    int coinChangeDP2(vector<int> &coins, int amount)
-    {
-        int n = coins.size();
-        // 使用整型 int 的最大值来代替。而这又会导致大数越界：状态转移方程中的+1操作可能发生溢出
-        int MAX = amount + 1;
-        // 初始化 dp 表
-        vector<vector<int>> dp(n + 1, vector<int>(amount + 1, 0));
-        // 状态转移：首行首列
-        for (int a = 1; a <= amount; a++)
-        {
-            dp[0][a] = MAX;
-        }
-        // 状态转移：其余行和列
-        for (int i = 1; i <= n; i++)
-        {
-            for (int a = 1; a <= amount; a++)
-            {
-                if (coins[i - 1] > a)
-                {
-                    // 若超过目标金额，则不选硬币 i
-                    dp[i][a] = dp[i - 1][a];
-                }
-                else
-                {
-                    // 不选和选硬币 i 这两种方案的较小值
-                    dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
-                }
-            }
-        }
-        return dp[n][amount] != MAX ? dp[n][amount] : -1;
-    }
 };
 
 struct TestCase
