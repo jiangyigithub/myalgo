@@ -58,6 +58,42 @@ public:
         return ans < INT_MAX / 2 ? ans : -1;
     }
 
+    int coinChangeTwoArray(vector<int> &coins, int amount)
+    {
+        int n = coins.size();
+        // 空间优化：两个数组（滚动数组）
+        vector<vector<int>> dp(2, vector<int>(amount + 1, INT_MAX / 2));
+        dp[0][0] = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int c = 0; c <= amount; c++)
+            {
+                if (c < coins[i])
+                    dp[(i + 1) % 2][c] = dp[i % 2][c];
+                else
+                    dp[(i + 1) % 2][c] = min(dp[i % 2][c], dp[(i + 1) % 2][c - coins[i]] + 1);
+            }
+        }
+        int ans = dp[n % 2][amount];
+        return ans < INT_MAX / 2 ? ans : -1;
+    }
+
+    int coinChangeOneArray(vector<int> &coins, int amount)
+    {
+        // 空间优化：一个数组
+        vector<int> dp(amount + 1, INT_MAX / 2);
+        dp[0] = 0;
+        for (int x : coins)
+        {
+            for (int c = x; c <= amount; c++)
+            {
+                dp[c] = min(dp[c], dp[c - x] + 1);
+            }
+        }
+        int ans = dp[amount];
+        return ans < INT_MAX / 2 ? ans : -1;
+    }
+
     /* 零钱兑换：动态规划 */
     int coinChangeDP2(vector<int> &coins, int amount)
     {
