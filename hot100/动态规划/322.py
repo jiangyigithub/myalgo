@@ -73,7 +73,7 @@ def run_tests():
 
     # Run each test case
     for i, test in enumerate(test_cases):
-        actual = solution.coinChange(test.coins, test.amount)
+        actual = solution.coinChange4(test.coins, test.amount)
         passed = actual == test.expected
         print(f"Test Case {i + 1}:")
         print(f"  Coins: {test.coins}, Amount: {test.amount}")
