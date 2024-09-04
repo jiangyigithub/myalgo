@@ -15,12 +15,14 @@ public:
         int start = 0, maxLen = 1;
 
         // 单字符都是回文
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i) 
+        {
             dp[i][i] = true;
         }
 
         // 判断长度为2的子串是否为回文
-        for (int i = 0; i < n - 1; ++i) {
+        for (int i = 0; i < n - 1; ++i) 
+        {
             if (s[i] == s[i + 1]) {
                 dp[i][i + 1] = true;
                 start = i;
@@ -29,7 +31,8 @@ public:
         }
 
         // 长度大于2的子串判断
-        for (int len = 3; len <= n; ++len) {
+        for (int len = 3; len <= n; ++len) 
+        {
             for (int i = 0; i <= n - len; ++i) {
                 int j = i + len - 1;
                 if (s[i] == s[j] && dp[i + 1][j - 1]) {
