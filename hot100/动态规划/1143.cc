@@ -11,6 +11,24 @@ class Solution
 public:
     int longestCommonSubsequence(string s, string t)
     {
+        int m = s.size(), n = t.size();
+        vector<vector<int>> memo(m, vector<int>(n, -1)); // -1 表示没有计算过
+        auto dfs = [&](auto &&dfs, int i, int j) -> int
+        {
+            if (i < 0 || j < 0)
+                return 0;
+            int &res = memo[i][j]; // 注意这里是引用
+            if (res != -1)
+                return res; // 之前计算过
+            if (s[i] == t[j])
+                return res = dfs(dfs, i - 1, j - 1) + 1;
+            return res = max(dfs(dfs, i - 1, j), dfs(dfs, i, j - 1));
+        };
+        return dfs(dfs, m - 1, n - 1);
+    }
+
+    int longestCommonSubsequence2(string s, string t)
+    {
         int n = t.size();
         vector<int> dp(n + 1);
         for (char ch : s)
@@ -44,8 +62,7 @@ void runTests()
         {"", "", 0},
         {"abc", "", 0},
         {"abcdef", "abcdef", 6},
-        {"abcabcaa", "acbacba", 5}
-    };
+        {"abcabcaa", "acbacba", 5}};
 
     for (int i = 0; i < testCases.size(); ++i)
     {
