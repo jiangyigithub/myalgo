@@ -12,8 +12,8 @@ class Solution
 public:
     int minDistanceDFS(string s, string t)
     {
-        int n = s.size(), m = t.size();
-        vector<vector<int>> memo(n, vector<int>(m, -1)); // -1 表示还没有计算过
+        int m = s.size(), n = t.size();
+        vector<vector<int>> memo(m, vector<int>(n, -1)); // -1 表示还没有计算过
         auto dfs = [&](auto &&dfs, int i, int j) -> int
         {
             if (i < 0)
@@ -37,7 +37,7 @@ public:
             // 所以不能简单地正序或逆序循环，而是将左上状态保存下来即可转换为正序循环单数组。
             return res = min(min(dfs(dfs, i - 1, j), dfs(dfs, i, j - 1)), dfs(dfs, i - 1, j - 1)) + 1;
         };
-        return dfs(dfs, n - 1, m - 1);
+        return dfs(dfs, m - 1, n - 1);
     }
 
     int minDistance(string s, string t)
