@@ -12,6 +12,7 @@ int uniquePaths(int m, int n)
         { // 之前计算过
             return res;
         }
+        // 这是个杨辉三角形，每个位置的路径 = 该位置左边的路径 + 该位置上边的路径
         return res = dfs(dfs, i - 1, j) + dfs(dfs, i, j - 1);
     };
     return dfs(dfs, m - 1, n - 1);
