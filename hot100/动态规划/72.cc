@@ -35,6 +35,16 @@ public:
             }
             // 对于二维DP,单数组空间优化部分，由于当前状态与左、上、左上三个状态有关，与背包问题只与两个状态有关不同，
             // 所以不能简单地正序或逆序循环，而是将左上状态保存下来即可转换为正序循环单数组。
+            /*
+            输入：word1 = "intention", word2 = "execution"
+            输出：5
+            解释：
+            intention -> inention (删除 't') --> dfs(dfs, i - 1, j) +1 ,   // Delete s[i]  i子问题规模都降低
+            inention -> enention (将 'i' 替换为 'e') --> dfs(dfs, i - 1, j - 1) +1    // Replace s[i] with t[j]
+            enention -> exention (将 'n' 替换为 'x')
+            exention -> exection (将 'n' 替换为 'c') 
+            exection -> execution (插入 'u') --> dfs(dfs, i, j - 1)    // Insert t[j]
+            */
             return res = min(min(dfs(dfs, i - 1, j), dfs(dfs, i, j - 1)), dfs(dfs, i - 1, j - 1)) + 1;
         };
         return dfs(dfs, m - 1, n - 1);
