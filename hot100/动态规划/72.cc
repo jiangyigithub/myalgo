@@ -18,11 +18,11 @@ public:
         {
             if (i < 0)
             {
-                return j + 1;
+                return j + 1; // If s is exhausted, return the remaining length of t (need to insert remaining characters of t into s)
             }
             if (j < 0)
             {
-                return i + 1;
+                return i + 1; // If t is exhausted, return the remaining length of s (need to delete remaining characters of s)
             }
             int &res = memo[i][j]; // 注意这里是引用
             if (res != -1)
