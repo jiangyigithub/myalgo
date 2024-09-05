@@ -12,7 +12,7 @@ class Solution:
                 return j==0
             if nums[i]>j:
                 return dfs(i-1,j)
-            return dfs(i-1,j-nums[i]) or dfs(i-1,j)
+            return dfs(i-1,j-nums[i]) or dfs(i-1,j) # bool形式的加法原理
         s=sum(nums)
         return s%2==0 and dfs(len(nums)-1,s//2)
     
