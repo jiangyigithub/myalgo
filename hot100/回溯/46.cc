@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <string>
 #include <functional>
 
@@ -9,7 +10,30 @@ class Solution
 {
 
 public:
-    vector<vector<int>> permute(vector<int> &nums)
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> ans;
+        vector<int> path(n);
+
+        // 使用lambda表达式定义dfs函数
+        function<void(int, set<int>)> dfs = [&](int i, set<int> s) {
+            if (i == n) {
+                ans.push_back(path);
+                return;
+            }
+            for (int x : s) {
+                path[i] = x;
+                set<int> next_s = s; // 复制当前集合
+                next_s.erase(x);     // 移除当前选择的元素
+                dfs(i + 1, next_s);  // 递归调用
+            }
+        };
+
+        dfs(0, set<int>(nums.begin(), nums.end()));
+        return ans;
+    }
+
+    vector<vector<int>> permute2(vector<int> &nums)
     {
         int n = nums.size();
         vector<vector<int>> ans;
