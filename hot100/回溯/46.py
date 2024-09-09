@@ -14,7 +14,8 @@ class Solution:
                 dfs(i+1,s-{x})
         dfs(0,set(nums))
         return ans
-
+    
+    # 怎么降低递归参数
     def permute2(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         ans = []
