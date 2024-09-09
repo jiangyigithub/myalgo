@@ -22,7 +22,7 @@ class Solution:
         on_path = [False] * n
         def dfs(i: int) -> None:
             if i == n:
-                ans.append(path.copy())
+                ans.append(path.copy())#python中是引用
                 return
 
             for j, on in enumerate(on_path):
