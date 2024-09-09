@@ -3,39 +3,16 @@ from typing import List
 class Solution:
 
     def solveNQueens(self, n: int) -> List[List[str]]:
-        ans=[]
-        col=[0]*n
-
-        def valid(r,c):
-            for R in range(r):
-                C=col[R]
-                if r+c==R+C or r-c == R-C:
-                    return False
-            return True
-        
-        def dfs(r,s):
-            if r==n:
-                print(col)
-                ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in col])
-                return
-            for c in s:
-                if valid(r,c):
-                    col[r]=c
-                    dfs(r+1,s-{c})
-        dfs(0,set(range(n)))
-        return ans
-    
-    def solveNQueens2(self, n: int) -> List[List[str]]:
 
         m = n * 2 - 1
         ans = []
         col = [0] * n
         on_path, diag1, diag2 = [False] * n, [False] * m, [False] * m
-        
         def dfs(r: int) -> None:
             if r == n:
                 ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in col])
                 return
+
             for c, on in enumerate(on_path):
                 if not on and not diag1[r + c] and not diag2[r - c]:
                     col[r] = c
@@ -44,7 +21,6 @@ class Solution:
                     on_path[c] = diag1[r + c] = diag2[r - c] = False  # 恢复现场
         dfs(0)
         return ans
-
 
 # 定义测试用例结构体
 class TestCase:
