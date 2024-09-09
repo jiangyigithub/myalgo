@@ -26,7 +26,6 @@ class Solution:
         return ans
     
     def solveNQueens2(self, n: int) -> List[List[str]]:
-
         m = n * 2 - 1
         ans = []
         col = [0] * n
