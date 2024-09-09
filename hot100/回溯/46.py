@@ -22,6 +22,7 @@ class Solution:
         on_path = [False] * n
         def dfs(i: int) -> None:
             if i == n:
+                print(path.copy())
                 ans.append(path.copy())#python中是引用
                 return
 
@@ -44,7 +45,7 @@ class TestCase:
 
     def run_test(self, solution):
         # 运行测试用例并更新实际结果和通过状态
-        self.actual = solution.permute(self.nums)
+        self.actual = solution.permute2(self.nums)
         self.passed = sorted(self.actual) == sorted(self.expected)
 
     def __str__(self):
