@@ -81,7 +81,7 @@ public:
     int coinChangeOneArray(vector<int> &coins, int amount)
     {
         // 空间优化：一个数组
-        vector<int> dp(amount + 1, INT_MAX / 2);
+        vector<int> dp(amount + 1, amount+1);
         dp[0] = 0;
         for (int x : coins)
         {
@@ -91,7 +91,7 @@ public:
             }
         }
         int ans = dp[amount];
-        return ans < INT_MAX / 2 ? ans : -1;
+        return ans == amount +1 ? -1:ans;
     }
 };
 
