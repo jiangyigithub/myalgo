@@ -43,6 +43,33 @@ public:
 
         return ans; // 返回包含所有合法组合的结果
     }
+
+    vector<string> generateParenthesis2(int n) {
+        int m = n * 2; // 括号字符串的总长度将是 2*n
+        vector<string> ans; // 用于存储结果的向量，包含所有合法的括号组合
+        string path(m, 0); // 用于构建每个括号组合的字符串，初始化为长度 m
+
+        auto dfs = [&](auto&& dfs,int k, int i, int j) {
+            if (i == n && j== n) { // 如果当前路径长度等于 m
+                ans.push_back(path); // 将当前合法组合加入结果中
+                return; // 回溯
+            }
+
+            if (i < n) { // 如果已使用的左括号数量小于 n
+                path[k] = '('; // 在当前位置放置一个左括号 '('
+                dfs(dfs,k+1, i + 1, j); // 递归处理下一个位置，并增加一个左括号的数量
+            }
+
+            if (j<i) { // 如果已使用的右括号数量小于已使用的左括号数量
+                path[k] = ')'; // 在当前位置放置一个右括号 ')'
+                dfs(dfs,k+1,i,j+1); // 递归处理下一个位置，左括号数量保持不变
+            }
+        };
+
+        dfs(dfs, 0, 0, 0); // 从初始值开始深度优先搜索：位置 0 和 0 个左括号
+
+        return ans; // 返回包含所有合法组合的结果
+    }
 };
 
 // 测试代码
@@ -55,7 +82,8 @@ int main() {
 
     for (int n : testCases) {
         cout << "n = " << n << " 时的括号组合：" << endl;
-        vector<string> result = solution.generateParenthesis(n);
+        // vector<string> result = solution.generateParenthesis(n);
+        vector<string> result = solution.generateParenthesis2(n);
         for (const string& s : result) {
             cout << s << endl;
         }

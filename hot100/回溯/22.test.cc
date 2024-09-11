@@ -12,6 +12,8 @@ public:
         vector<string> ans; // 用于存储结果的向量，包含所有合法的括号组合 
         int m=2*n;
         string path(m,0);
+        // i --> 表示当前构建的括号序列的索引位置，即正在处理的字符的位置。
+        // leftcnt --> 表示当前已经放置的左括号 '(' 的数量。
         function<void(int,int)> dfs=[&](int i,int leftcnt){
             if(i==m){
                 ans.push_back(path);
