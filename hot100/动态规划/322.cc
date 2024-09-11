@@ -90,8 +90,7 @@ public:
                 dp[c] = min(dp[c], dp[c - x] + 1);
             }
         }
-        int ans = dp[amount];
-        return ans == amount +1 ? -1:ans;
+        return dp[amount] == amount +1 ? -1:dp[amount];
     }
 };
 
