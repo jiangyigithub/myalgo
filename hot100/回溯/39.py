@@ -11,7 +11,7 @@ class Solution:
             if left == 0:
                 ans.append(path.copy())
                 return
-            # 如果超过了范围或当前候选数大于剩余值，则终止递归
+            # 剪枝，如果超过了范围或当前候选数大于剩余值，则终止递归
             if i == len(candidates) or left < candidates[i]:
                 return
 
