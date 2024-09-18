@@ -46,7 +46,7 @@ class TestCase:
 
     def run_test(self, solution):
         # 运行测试用例并更新实际结果和通过状态
-        self.actual = solution.permute2(self.nums)
+        self.actual = solution.permute(self.nums)
         self.passed = sorted(self.actual) == sorted(self.expected)
 
     def __str__(self):
