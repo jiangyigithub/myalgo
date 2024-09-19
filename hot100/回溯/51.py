@@ -4,22 +4,22 @@ class Solution:
 
     def solveNQueens(self, n: int) -> List[List[str]]:
         ans=[]
-        col=[0]*n
+        path=[0]*n
 
         def valid(r,c):
             for R in range(r):
-                C=col[R]
+                C=path[R]
                 if r+c==R+C or r-c == R-C:
                     return False
             return True
         
         def dfs(r,s):
             if r==n:
-                ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in col])
+                ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in path])
                 return
             for c in s:
                 if valid(r,c):
-                    col[r]=c
+                    path[r]=c
                     dfs(r+1,s-{c})
         dfs(0,set(range(n)))
         return ans
@@ -27,16 +27,16 @@ class Solution:
     def solveNQueens2(self, n: int) -> List[List[str]]:
         m = n * 2 - 1
         ans = []
-        col = [0] * n
+        path = [0] * n
         on_path, diag1, diag2 = [False] * n, [False] * m, [False] * m
         
         def dfs(r: int) -> None:
             if r == n:
-                ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in col])
+                ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in path])
                 return
             for c, on in enumerate(on_path):
                 if not on and not diag1[r + c] and not diag2[r - c]:
-                    col[r] = c
+                    path[r] = c
                     on_path[c] = diag1[r + c] = diag2[r - c] = True
                     dfs(r + 1)
                     on_path[c] = diag1[r + c] = diag2[r - c] = False  # 恢复现场
