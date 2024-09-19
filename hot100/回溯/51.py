@@ -15,7 +15,6 @@ class Solution:
         
         def dfs(r,s):
             if r==n:
-                print(col)
                 ans.append(['.' * c + 'Q' + '.' * (n - 1 - c) for c in col])
                 return
             for c in s:
