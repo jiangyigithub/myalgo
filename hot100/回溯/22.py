@@ -36,7 +36,7 @@ class Solution:
         m = 2 * n
         path = [''] * m
         ans = []
-
+        # 二选1，选左括号还是右括号
         def dfs(i, left, right):
             if left == n and right == n:
                 ans.append(''.join(path))
