@@ -20,8 +20,7 @@ public:
 
     ListNode *reverseList(ListNode *head)
     {
-        ListNode *pre = nullptr;
-        ListNode *cur = head;
+        ListNode *pre = nullptr,*cur = head;
         while (cur)
         {
             ListNode *nxt = cur->next;
