@@ -25,6 +25,7 @@ public:
             cur=nxt;
         }
         return pre;
+        // pre 代表什么，cur 代表什么
     }
 };
 
