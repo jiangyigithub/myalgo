@@ -17,15 +17,14 @@ public:
 // 1->2->3->4->5
 
     ListNode* reverseList(ListNode* head) {
-        ListNode* pre=head;
-        ListNode* cur=head->next;
-        /// 反转固定次数，可以通过计算长度，for循环来实现
+        ListNode* pre=nullptr,*cur=head;
         while(cur!=nullptr){
-            ListNode * temp = cur;
-            cur=cur->next;
-            temp->next = pre;
+            ListNode * nxt = cur->next;
+            cur->next = pre;
+            pre=cur;
+            cur=nxt;
         }
-
+        return pre;
     }
 };
 
