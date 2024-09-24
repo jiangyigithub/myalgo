@@ -30,6 +30,17 @@ public:
         }
         return pre;
     }
+
+    ListNode* reverseListDFS(ListNode* head) 
+    {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+        auto new_head = reverseListDFS(head->next);
+        head->next->next = head; // new_head代码块末尾指向head
+        head->next = nullptr; // 断开指向下一个节点的连接，保证最终链表的末尾节点的 next 是空节点
+        return new_head;
+    }
 };
 
 // Structure to hold test cases
