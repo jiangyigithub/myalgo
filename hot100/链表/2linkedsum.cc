@@ -22,7 +22,7 @@ struct ListNode
 ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
 {
     ListNode dummy(0);          // 哨兵节点，简化代码
-    ListNode *current = &dummy; // 指向当前处理的节点
+    ListNode *cur = &dummy; // 指向当前处理的节点
     int carry = 0;              // 进位
 
     while (l1 != nullptr || l2 != nullptr || carry != 0)
@@ -46,8 +46,8 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
             sum += carry;
         }
         carry = sum / 10;                       // 更新进位，carry值由当前周期计算得到，但在下一个周期才被使用
-        current->next = new ListNode(sum % 10); // 创建新节点存储当前位的数字
-        current = current->next;                // 移动到下一个节点
+        cur->next = new ListNode(sum % 10); // 创建新节点存储当前位的数字
+        cur = cur->next;                // 移动到下一个节点
     }
 
     return dummy.next; // 返回结果链表
@@ -72,11 +72,11 @@ void printList(ListNode *node)
 ListNode *createList(const std::vector<int> &nums)
 {
     ListNode dummy(0);
-    ListNode *current = &dummy;
+    ListNode *cur = &dummy;
     for (int num : nums)
     {
-        current->next = new ListNode(num);
-        current = current->next;
+        cur->next = new ListNode(num);
+        cur = cur->next;
     }
     return dummy.next;
 }
