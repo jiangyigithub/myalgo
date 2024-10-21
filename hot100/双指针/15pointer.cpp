@@ -37,12 +37,12 @@ vector<vector<int>> threeSum2(vector<int> &nums)
             else
             {
                 ret.push_back({x, nums[left], nums[right]});
+                ++left;
                 while (left < right && nums[left] == nums[left + 1])
                     ++left;
-                while (left < right && nums[right] == nums[right - 1])
-                    --right;
-                ++left;
                 --right;
+                while (left < right && nums[right] == nums[right - 1])
+                    --right;  
             }
         }
     }

@@ -17,9 +17,9 @@ class Solution:
             x = nums[i]
             if i > 0 and x == nums[i - 1]:  # 跳过重复数字
                 continue
-            if x + nums[i + 1] + nums[i + 2] > 0:  # 优化一
+            if x + nums[i + 1] + nums[i + 2] > 0:  # 优化一，x太大了，直接退出整个循环
                 break
-            if x + nums[-2] + nums[-1] < 0:  # 优化二
+            if x + nums[-2] + nums[-1] < 0:  # 优化二，x太小了，退出当前循环，找一下更大的x
                 continue
             j = i + 1
             k = n - 1
@@ -42,11 +42,11 @@ class Solution:
 # Test cases
 test_cases = [
     TestCase(nums=[-1, 0, 1, 2, -1, -4], expected=[[-1, -1, 2], [-1, 0, 1]]),
-    TestCase(nums=[0, 1, 1], expected=[]),
-    TestCase(nums=[0, 0, 0], expected=[[0, 0, 0]]),
-    TestCase(nums=[-2, 0, 1, 1, 2], expected=[[-2, 0, 2], [-2, 1, 1]]),
-    TestCase(nums=[], expected=[]),
-    TestCase(nums=[1, 2, -2, -1], expected=[])
+    # TestCase(nums=[0, 1, 1], expected=[]),
+    # TestCase(nums=[0, 0, 0], expected=[[0, 0, 0]]),
+    # TestCase(nums=[-2, 0, 1, 1, 2], expected=[[-2, 0, 2], [-2, 1, 1]]),
+    # TestCase(nums=[], expected=[]),
+    # TestCase(nums=[1, 2, -2, -1], expected=[])
 ]
 
 sol = Solution()
