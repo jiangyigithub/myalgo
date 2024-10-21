@@ -19,7 +19,7 @@ vector<vector<int>> threeSum2(vector<int> &nums)
     for (int i = 0; i < n - 2; ++i)
     {
         int x = nums[i];
-        if (x > 0 && nums[x] == nums[x - 1])
+        if (i > 0 && nums[i] == nums[i - 1])
             continue;
         if (x + nums[i + 1] + nums[i + 2] > 0)
             break; // 优化一
@@ -39,10 +39,14 @@ vector<vector<int>> threeSum2(vector<int> &nums)
                 ret.push_back({x, nums[left], nums[right]});
                 ++left;
                 while (left < right && nums[left] == nums[left - 1])
+                {
                     ++left;
+                }
                 --right;
                 while (left < right && nums[right] == nums[right + 1])
-                    --right;  
+                {
+                    --right;
+                }
             }
         }
     }
@@ -176,7 +180,7 @@ void runTestCases()
 
     for (auto &test : testCases)
     {
-        test.actual = threeSum(test.nums);
+        test.actual = threeSum2(test.nums);
         test.passed = compareVectors(test.actual, test.expected);
 
         std::cout << "Test Case - nums: ";
