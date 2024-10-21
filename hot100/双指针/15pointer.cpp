@@ -38,10 +38,10 @@ vector<vector<int>> threeSum2(vector<int> &nums)
             {
                 ret.push_back({x, nums[left], nums[right]});
                 ++left;
-                while (left < right && nums[left] == nums[left + 1])
+                while (left < right && nums[left] == nums[left - 1])
                     ++left;
                 --right;
-                while (left < right && nums[right] == nums[right - 1])
+                while (left < right && nums[right] == nums[right + 1])
                     --right;  
             }
         }
@@ -98,18 +98,18 @@ vector<std::vector<int>> threeSum(vector<int> &nums)
 
                 cout << "nums[left]" << nums[left] << endl;
                 cout << "nums[left]" << nums[right] << endl;
-
-                while (left < right && nums[left] == nums[left + 1])
+                ++left;
+                while (left < right && nums[left] == nums[left - 1])
                 {
                     ++left;
                 }
-
-                while (left < right && nums[right] == nums[right - 1])
+                --right;
+                while (left < right && nums[right] == nums[right + 1])
                 {
                     --right;
                 }
-                ++left;
-                --right;
+                
+                
 
                 cout << "nums[left]" << nums[left] << endl;
                 cout << "nums[left]" << nums[right] << endl;
@@ -176,7 +176,7 @@ void runTestCases()
 
     for (auto &test : testCases)
     {
-        test.actual = threeSum2(test.nums);
+        test.actual = threeSum(test.nums);
         test.passed = compareVectors(test.actual, test.expected);
 
         std::cout << "Test Case - nums: ";
