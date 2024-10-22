@@ -17,7 +17,7 @@ class Solution:
             x = nums[i]
             if i > 0 and x == nums[i - 1]:  # 跳过重复数字
                 continue
-            if x + nums[i + 1] + nums[i + 2] > 0:  # 优化一，x太大了，直接退出整个循环
+            if x + nums[i + 1] + nums[i + 2] > 0:  # 优化一，x太大了，撑死了，直接退出整个循环
                 break
             if x + nums[-2] + nums[-1] < 0:  # 优化二，x太小了，退出当前循环，找一下更大的x
                 continue
