@@ -18,21 +18,21 @@ using namespace std;
 */
 int lengthOfLongestSubstring(string s)
 {
-    int res = 0;
-    unordered_set<char> mySet;
-    int start = 0;
-    for (int end = 0; end < s.size(); ++end)
-    {
-        /// 更新左边界
-        while (mySet.find(s[end]) != mySet.end())
-        {
-            mySet.erase(s[start]);
-            start++;
+    int n=s.size();
+    int left = 0, ans=0;
+
+    unordered_set<char> hashMap;
+    for(int right=0;right<n;right++){
+        // 找重复
+        while(hashMap.count(s[right])){
+            hashMap.erase(s[left]);
+            left++;
         }
-        mySet.insert(s[end]);
-        res = max(res, end - start + 1);
+        hashMap.insert(s[right]);
+        ans = max(ans,right-left+1);
     }
-    return res; // 返回最长子串长度
+    return ans;
+
 }
 
 /// @brief  两种方法更新左边界的方法不同，一个通过unordered set更新左边界，一个通过ordered map更新左边界
