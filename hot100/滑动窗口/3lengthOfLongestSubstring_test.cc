@@ -23,7 +23,7 @@ int lengthOfLongestSubstring(string s)
 
     unordered_set<char> hashMap;
     for(int right=0;right<n;right++){
-        // 找重复
+        // 找重复 unordered_set
         while(hashMap.count(s[right])){
             hashMap.erase(s[left]);
             left++;
