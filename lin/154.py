@@ -5,7 +5,8 @@ class Solution:
         n=len(nums)
         left=0
         right=n-2
-        while left<=right and nums[left]==nums[-1]: left+=1
+        while left<=right and nums[left]==nums[-1]: 
+            left+=1
         while left<=right:
             mid=(left+right)//2
             if nums[mid]<=nums[-1]:
