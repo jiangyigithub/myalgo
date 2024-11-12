@@ -18,38 +18,38 @@ using namespace std;
 */
 int lengthOfLongestSubstring(string s)
 {
-    int res = 0;
-    unordered_set<char> mySet;
-    int start = 0;
-    for (int end = 0; end < s.size(); ++end)
-    {
-        /// 更新左边界
-        while (mySet.find(s[end]) != mySet.end())
-        {
-            mySet.erase(s[start]);
-            start++;
+    int n=s.size();
+    int left = 0, ans=0;
+
+    unordered_set<char> hashMap;
+    for(int right=0;right<n;right++){
+        // 找重复 unordered_set
+        while(hashMap.count(s[right])){
+            hashMap.erase(s[left]);
+            left++;
         }
-        mySet.insert(s[end]);
-        res = max(res, end - start + 1);
+        hashMap.insert(s[right]);
+        ans = max(ans,right-left+1);
     }
-    return res; // 返回最长子串长度
+    return ans;
+
 }
 
 /// @brief  两种方法更新左边界的方法不同，一个通过unordered set更新左边界，一个通过ordered map更新左边界
 /// @param s
 /// @return
-int lengthOfLongestSubstring2(string s)
+int lengthOfLongestSubstringUsingHashMap(string s)
 {
-    unordered_map<char, int> dic;
-    int i = -1, res = 0, len = s.size();
-    for (int j = 0; j < len; j++)
+    unordered_map<char, int> hashMap;
+    int i = -1, ans = 0, n = s.size();
+    for (int j = 0; j < n; j++)
     {
-        if (dic.find(s[j]) != dic.end())
-            i = max(i, dic.find(s[j])->second); // 更新左指针
-        dic[s[j]] = j;                          // 哈希表记录
-        res = max(res, j - i);                  // 更新结果
+        if (hashMap.count(s[j]))
+            i = max(i, hashMap[s[j]]); // 更新左指针
+        hashMap[s[j]] = j;                          // 哈希表记录
+        ans = max(ans, j - i);                  // 更新结果
     }
-    return res;
+    return ans;
 }
 
 // Define the TestCase struct
@@ -76,7 +76,8 @@ int main()
     for (size_t i = 0; i < 7; ++i)
     {
         const TestCase &testCase = testCases[i];
-        int result = lengthOfLongestSubstring(testCase.input);
+        // int result = lengthOfLongestSubstring(testCase.input);
+        int result =  lengthOfLongestSubstringUsingHashMap(testCase.input);
         cout << "Test case " << i + 1 << ": expected = " << testCase.expected << ", got = " << result;
         if (result == testCase.expected)
         {
