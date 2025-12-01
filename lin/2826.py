@@ -32,13 +32,15 @@
 # 正难则反，计算最多保留多少个数。这些保留的数必须是非递减的
 
 from typing import List
-from bisect import bisect_right
+from bisect import bisect_right,bisect_left
 from dataclasses import dataclass
 
 # 原算法
 class Solution:
+    # 这段代码是 LIS(最长递增子序列)的长度版，用 bisect_right+贪心维护了一个数组 g,最终 len(g) 就是 LIS 的长度。它并不会直接给你「具体的子序列」
     def minimumOperations(self, nums: List[int]) -> int:
         g = []
+        # 1 2 4 5 3
         for x in nums:
             j = bisect_right(g, x)
             if j == len(g):
@@ -46,6 +48,32 @@ class Solution:
             else:
                 g[j] = x
         return len(nums) - len(g)
+    
+    def LIS(self,nums):
+        n = len(nums)
+        g = []              # g 存放 LIS 的结尾元素（贪心维护）
+        g_idx = []          # g 中每个元素对应的下标
+        parent = [-1] * n   # 回溯路径
+        
+        for i, x in enumerate(nums):
+            j = bisect_left(g, x)   # 严格递增
+            if j == len(g):
+                g.append(x)
+                g_idx.append(i)
+            else:
+                g[j] = x
+                g_idx[j] = i
+            if j > 0:
+                parent[i] = g_idx[j-1]   # 记录前驱
+        
+        # 回溯 LIS
+        lis = []
+        k = g_idx[-1]
+        while k != -1:
+            lis.append(nums[k])
+            k = parent[k]
+        lis.reverse()
+        return lis
 
 # 定义测试用例结构体
 @dataclass
@@ -55,6 +83,7 @@ class TestCase:
 
 # 定义测试用例
 test_cases = [
+    TestCase(nums=[1,2,4,5,3], expected=1),
     TestCase(nums=[1,3,3,2,1,3,3], expected=2),
     TestCase(nums=[2,2,2,2,3,3], expected=0),
     TestCase(nums=[2,1,3,2,1], expected=3),
