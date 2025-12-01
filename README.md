@@ -33,4 +33,6 @@ https://www.youtube.com/watch?v=N6-Q2dgodLs
 
 git config --global --unset credential.helper
 
+prompt: 使用结构体存储测试用例，并输出每个测试用例的详细信息，包括预期结果、实际结果和测试是否通过。
+
 
