@@ -7,32 +7,22 @@ class Solution:
     def maxOperations(self, nums: List[int]) -> int:
         @cache
         def dfs(i: int, j: int, target: int) -> int:
-            if i >= j:
+            if i>=j:
                 return 0
-
-            res = 0
-            # 删除前两个
-            if nums[i] + nums[i + 1] == target:
-                res = max(res, dfs(i + 2, j, target) + 1)
-
-            # 删除后两个
-            if nums[j - 1] + nums[j] == target:
-                res = max(res, dfs(i, j - 2, target) + 1)
-
-            # 删除首尾
-            if nums[i] + nums[j] == target:
-                res = max(res, dfs(i + 1, j - 1, target) + 1)
-
-            return res
-
-        n = len(nums)
-
-        # 三种第一次删除方式
-        res1 = dfs(2, n - 1, nums[0] + nums[1])
-        res2 = dfs(0, n - 3, nums[-2] + nums[-1])
-        res3 = dfs(1, n - 2, nums[0] + nums[-1])
-
-        return max(res1, res2, res3) + 1
+            ans =0 # 回溯比较
+            if nums[j-1]+nums[j]==target:
+                return max(ans,dfs(i,j-2,target)+1)
+            if nums[i]+nums[j]==target:
+                return max(ans,dfs(i+1,j-1,target)+1)
+            if nums[i]+nums[i+1]==target:
+                return max(ans,dfs(i+2,j,target)+1)
+            return ans
+        n=len(nums)
+        ans1=dfs(0,n-3,nums[-1]+nums[-2])
+        ans2=dfs(1,n-2,nums[0]+nums[n-1])
+        ans3=dfs(2,n-1,nums[0]+nums[1])
+        return max(ans1,ans2,ans3)+1
+            
 
 
 @dataclass
