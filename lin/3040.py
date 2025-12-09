@@ -11,11 +11,11 @@ class Solution:
                 return 0
             ans =0 # 回溯比较
             if nums[j-1]+nums[j]==target:
-                return max(ans,dfs(i,j-2,target)+1)
+                ans = max(ans,dfs(i,j-2,target)+1)
             if nums[i]+nums[j]==target:
-                return max(ans,dfs(i+1,j-1,target)+1)
+                ans = max(ans,dfs(i+1,j-1,target)+1)
             if nums[i]+nums[i+1]==target:
-                return max(ans,dfs(i+2,j,target)+1)
+                ans = max(ans,dfs(i+2,j,target)+1)
             return ans
         n=len(nums)
         ans1=dfs(0,n-3,nums[-1]+nums[-2])
